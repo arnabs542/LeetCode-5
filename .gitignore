@@ -1,0 +1,10 @@
+#IDE Metadata:
+.idea/
+
+#Output Files:
+out/
+bin/
+target/
+
+#Ignore IML Files:
+*.iml
