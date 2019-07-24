@@ -63,7 +63,6 @@ public class _15_ThreeSumZero {
         return resultList;
     }
 
-
     public static void main(String[] args) {
         List<List<Integer>> resultList = threeSum(new int[]{-1, 0, 1, 2, -1, -4});
         System.out.println(resultList);
