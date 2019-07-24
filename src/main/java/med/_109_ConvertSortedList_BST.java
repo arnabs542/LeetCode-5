@@ -1,5 +1,7 @@
 package med;
 
+import apple.laf.JRSUIUtils;
+
 /**
  * Created by udaythota on 7/24/19.
  * <p>
@@ -9,8 +11,9 @@ package med;
  */
 public class _109_ConvertSortedList_BST {
     // find the root (centre of the list) for the tree and recursively balance the left and right sub trees
+    // TC: O(nlogn): the recursive part is O(n), because T(n)=2T(n/2)+O(1). and in each recursive call, faster pointer traverse full list of logn, which leads to O(nlogn). so the total Time Complexity is O(nlogn)
     private static TreeNode sortedListToBST(LinkedListUtils.ListNode head) {
-        if (head == null || head.next == null) {
+        if (head == null) {
             return null;
         }
         return helper(head, null);
@@ -36,6 +39,33 @@ public class _109_ConvertSortedList_BST {
         return root;
     }
 
+    // similar to above approach, but more intuitive and readable
+    // find the root (centre of the list) and set the last node (pre: before root) of the first list to NULL. now that we have 2 lists, repeat the same process for left and right sub lists to generate the left and right sub trees
+    private static TreeNode sortedListToBST2(LinkedListUtils.ListNode head) {
+        if (head == null) {
+            return null;
+        }
+        if (head.next == null) {
+            return new TreeNode(head.val);
+        }
+
+        LinkedListUtils.ListNode slow = head;
+        LinkedListUtils.ListNode fast = head;
+        LinkedListUtils.ListNode pre = head;  // pointer to the node before slow (this is useful to set the last node the first list to NULL)
+
+        while (fast != null && fast.next != null) {
+            pre = slow;
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        pre.next = null;
+        TreeNode root = new TreeNode(slow.val);
+        root.left = sortedListToBST2(head);
+        root.right = sortedListToBST2(slow.next);
+        return root;
+    }
+
     public static void main(String[] args) {
         LinkedListUtils linkedListUtils = new LinkedListUtils();
         LinkedListUtils.ListNode head = new LinkedListUtils.ListNode(-10);
@@ -50,7 +80,13 @@ public class _109_ConvertSortedList_BST {
         linkedListUtils.addToTheLast(node3);
         linkedListUtils.addToTheLast(node4);
 
+        // test method: 1
         TreeNode root = sortedListToBST(head);
         BinaryTreeUtils.printLevelOrder(root);
+
+        // test method: 2
+        System.out.println();
+        TreeNode root2 = sortedListToBST2(head);
+        BinaryTreeUtils.printLevelOrder(root2);
     }
 }
