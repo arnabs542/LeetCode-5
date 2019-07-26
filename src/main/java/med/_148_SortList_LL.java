@@ -70,6 +70,8 @@ public class _148_SortList_LL {
 
         LinkedListUtils.ListNode newHead = sortList(head);
         System.out.println();
+
+        // new sorted list
         linkedListUtils.printList(newHead);
     }
 }
