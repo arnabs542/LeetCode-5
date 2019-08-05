@@ -16,6 +16,7 @@ public class _253_MeetingRooms_II {
     // when iterating, see if the start time of the new interval is greater than or equal to minimum of the end time available in heap :
     // if yes, this means we have a free room and we can use that. if no, we need to use a new room
     // in the end, the size of heap is the number of min rooms used
+    // similar logic as 252 and 253 (meeting rooms)
     private static int minMeetingRooms(int[][] intervals) {
         if (intervals == null || intervals.length == 0) {
             return 0;
