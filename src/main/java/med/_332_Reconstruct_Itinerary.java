@@ -55,6 +55,30 @@ public class _332_Reconstruct_Itinerary {
         }
     }
 
+    // method2: uses Eulerian path DFS Algorithm
+    // investigate later
+    private static Map<String, PriorityQueue<String>> graph;
+    private static LinkedList<String> path;
+
+    private static List<String> findItinerary2(List<List<String>> tickets) {
+        graph = new HashMap<>();
+        path = new LinkedList<>();
+        for (List<String> ticket : tickets) {
+            graph.putIfAbsent(ticket.get(0), new PriorityQueue<>());
+            graph.get(ticket.get(0)).add(ticket.get(1));
+        }
+        dfs2("JFK");
+        return path;
+    }
+
+    private static void dfs2(String departure) {
+        PriorityQueue<String> nextCities = graph.get(departure);
+        while (nextCities != null && !nextCities.isEmpty()) {
+            dfs2(nextCities.poll());
+        }
+        path.addFirst(departure);
+    }
+
     public static void main(String[] args) {
         // test case: 1
         List<List<String>> input = new ArrayList<>();
@@ -79,6 +103,7 @@ public class _332_Reconstruct_Itinerary {
         input.add(list3);
         input.add(list4);
         assertEquals(findItinerary(input), Arrays.asList("JFK", "MUC", "LHR", "SFO", "SJC"));
+        assertEquals(findItinerary2(input), Arrays.asList("JFK", "MUC", "LHR", "SFO", "SJC"));
 
         // test case: 2
         List<List<String>> input2 = new ArrayList<>();
@@ -108,6 +133,7 @@ public class _332_Reconstruct_Itinerary {
         input2.add(list8);
         input2.add(list9);
         assertEquals(findItinerary(input2), Arrays.asList("JFK", "ATL", "JFK", "SFO", "ATL", "SFO"));
+        assertEquals(findItinerary2(input2), Arrays.asList("JFK", "ATL", "JFK", "SFO", "ATL", "SFO"));
 
         // test case: 3
         List<List<String>> input3 = new ArrayList<>();
@@ -127,5 +153,6 @@ public class _332_Reconstruct_Itinerary {
         input3.add(list11);
         input3.add(list12);
         assertEquals(findItinerary(input3), Arrays.asList("JFK", "NRT", "JFK", "KUL"));
+        assertEquals(findItinerary2(input3), Arrays.asList("JFK", "NRT", "JFK", "KUL"));
     }
 }
