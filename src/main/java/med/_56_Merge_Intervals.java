@@ -1,6 +1,7 @@
 package med;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.PriorityQueue;
 
@@ -43,8 +44,34 @@ public class _56_Merge_Intervals {
         return res.toArray(new int[res.size()][]);
     }
 
+    // similar logic as above, but rewriting / modifying the original array to make it more memory efficient
+    private static int[][] merge2(int[][] intervals) {
+        List<int[]> res = new ArrayList<>();
+        if (intervals == null || intervals.length == 0) {
+            return new int[0][];
+        }
+
+        Arrays.sort(intervals, (o1, o2) -> o1[0] - o2[0]);
+        int[] prevInterval = intervals[0];
+        res.add(prevInterval);
+        for (int[] currentInterval : intervals) {
+            if (prevInterval[1] >= currentInterval[0]) {
+                prevInterval[1] = Math.max(prevInterval[1], currentInterval[1]);
+            } else {
+                prevInterval = currentInterval;
+                res.add(currentInterval);
+            }
+        }
+        return res.toArray(new int[res.size()][]);
+    }
+
     public static void main(String[] args) {
+        // test method: 1
         assertEquals(merge(new int[][]{{1, 3}, {2, 6}, {8, 10}, {15, 18}}), new int[][]{{1, 6}, {8, 10}, {15, 18}});
         assertEquals(merge(new int[][]{{1, 4}, {4, 5}}), new int[][]{{1, 5}});
+
+        // test method: 2
+        assertEquals(merge2(new int[][]{{1, 3}, {2, 6}, {8, 10}, {15, 18}}), new int[][]{{1, 6}, {8, 10}, {15, 18}});
+        assertEquals(merge2(new int[][]{{1, 4}, {4, 5}}), new int[][]{{1, 5}});
     }
 }
