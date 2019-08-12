@@ -12,7 +12,6 @@ import static org.testng.Assert.assertEquals;
  * </p>
  */
 public class _169_MajorityElement {
-
     // core logic: as the majority element always exists, sort the array and take the n/2 the element
     // TC: O(nlogn), SC: O(1)
     private static int majorityElement(int[] nums) {
@@ -25,11 +24,7 @@ public class _169_MajorityElement {
     private static int majorityElement2(int[] nums) {
         HashMap<Integer, Integer> map = new HashMap<>();
         for (int num : nums) {
-            if (!map.containsKey(num)) {
-                map.put(num, 1);
-            } else {
-                map.put(num, map.get(num) + 1);
-            }
+            map.put(num, map.getOrDefault(num, 0) + 1);
             if (map.get(num) > nums.length / 2) {
                 return num;
             }
