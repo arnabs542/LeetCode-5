@@ -9,7 +9,6 @@ package easy;
  * </p>
  */
 public class _278_First_Bad_Version {
-
     // core logic: simple binary search - keep iterating till you encounter the first bad version
     // TC: O(logn)
     public int firstBadVersion(int n) {
