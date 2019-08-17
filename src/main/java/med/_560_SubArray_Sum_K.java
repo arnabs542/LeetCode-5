@@ -34,6 +34,7 @@ public class _560_SubArray_Sum_K {
 
     // core logic: maintain a map to keep the sum of all the possible sub array combinations (nums[0], nums[0]+nums[1], nums[0]+nums[1]+nums[2], nums[0]+nums[1]+nums[2]+nums[3].. )
     // use this as a look up map to check if it has (sum - k) element. see https://leetcode.com/articles/subarray-sum-equals-k/ for more details
+    // if the cumulative sum upto two indices, say ii and jj is at a difference of kk i.e. if sum[i] - sum[j] = ksum[i]−sum[j]=k, the sum of elements lying between indices ii and jj is kk.
     // TC: O(n), SC: O(n)
     private static int subarraySum2(int[] nums, int k) {
         if (nums == null || nums.length == 0) {
