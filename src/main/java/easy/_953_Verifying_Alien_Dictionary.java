@@ -31,7 +31,7 @@ public class _953_Verifying_Alien_Dictionary {
     private static boolean isOrdered(String word1, String word2) {
         int i = 0, j = 0;
         while (i < word1.length()) {
-            if (j == word2.length()) {  // 2nd word reached to end: which means means same characters and smaller string. so return false (smaller string with same characters will come first in the lexicographic order)
+            if (j == word2.length()) {  // 2nd word reached to end: which means means same characters and smaller string. so return false (smaller string with same characters should come first in the lexicographic order)
                 return false;
             }
             if (positions[word1.charAt(i) - 'a'] < positions[word2.charAt(j) - 'a']) {
