@@ -10,12 +10,15 @@ import static org.testng.Assert.assertTrue;
  * </p>
  */
 public class _10_Regular_Expression_Matching {
+    // dp: TC: O(m * n), SC: O(m * n)
+    // see https://www.youtube.com/watch?v=l3hda49XcDE for more details
     private static boolean isMatch(String s, String p) {
         int m = s.length();
         int n = p.length();
 
         boolean[][] dp = new boolean[m + 1][n + 1];
         dp[0][0] = true;
+        // to handle the cases like p = a*b or a*b*c and s = ""  (these patters should still match the empty string)
         for (int i = 1; i < dp[0].length; i++) {
             if (p.charAt(i - 1) == '*') {
                 dp[0][i] = dp[0][i - 2];
@@ -24,6 +27,7 @@ public class _10_Regular_Expression_Matching {
 
         for (int i = 1; i < m + 1; i++) {
             for (int j = 1; j < n + 1; j++) {
+                // if string and pattern have a same character or pattern has '.' (matches any character in string), chose whatever dp value for the previous character in the string and regex
                 if (p.charAt(j - 1) == s.charAt(i - 1) || p.charAt(j - 1) == '.') {
                     dp[i][j] = dp[i - 1][j - 1];
                 } else if (p.charAt(j - 1) == '*') {
@@ -31,7 +35,7 @@ public class _10_Regular_Expression_Matching {
                     if (p.charAt(j - 2) == s.charAt(i - 1) || p.charAt(j - 2) == '.') {
                         dp[i][j] = dp[i][j] || dp[i - 1][j];
                     }
-                } else {
+                } else {    // neither matching nor special characters
                     dp[i][j] = false;
                 }
             }
@@ -45,5 +49,6 @@ public class _10_Regular_Expression_Matching {
         assertTrue(isMatch("ab", ".*"));
         assertTrue(isMatch("aab", "c*a*b"));
         assertFalse(isMatch("mississippi", "mis*is*p*."));
+        assertTrue(isMatch("", "c*a*b*"));
     }
 }
