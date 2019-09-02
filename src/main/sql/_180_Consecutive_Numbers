@@ -1,0 +1,6 @@
+-- write a SQL query to find all numbers that appear at least three times consecutively.
+-- uses cross join. this only works if there are no gaps in the id's (all id's should be consecutive)
+
+SELECT distinct(l1.num) as ConsecutiveNums
+FROM logs l1, logs l2, logs l3
+WHERE (l1.id = l2.id +1) AND (l2.id=l3.id+1) AND (l1.num = l2.num) AND (l2.num = l3.num);
