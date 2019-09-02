@@ -1,0 +1,11 @@
+--The Employee table holds all employees including their managers. Every employee has an Id, and there is also a column for the manager Id.
+-- Method 1: using the correlated sub query approach
+SELECT e1.name as Employee FROM employee e1 where e1.salary >
+        (SELECT e2.salary
+         FROM employee e2 where e1.ManagerId = e2.Id);
+
+-- Method 2: using cross join and simple filters
+SELECT e1.name AS Employee
+FROM employee e1, employee e2
+WHERE e1.ManagerId = e2.Id AND e1.Salary > e2.Salary;
+
