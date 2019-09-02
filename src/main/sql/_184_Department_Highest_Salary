@@ -1,0 +1,15 @@
+--Write a SQL query to find employees who have the highest salary in each of the departments. For the above tables, your SQL query should return the following rows (order of rows does not matter).
+
+SELECT dept.Name as 'Department', emp.Name AS 'Employee', emp.Salary AS 'Salary'
+FROM Employee emp
+JOIN Department dept ON dept.Id=emp.DepartmentId
+WHERE (emp.DepartmentId, emp.Salary) IN (SELECT DepartmentId, Max(Salary) FROM Employee GROUP BY DepartmentId);
+
+
+-- Method 2: Using window functions:
+SELECT dept.Name as 'Department', emp.employee_name AS 'Employee', emp.Salary AS 'Salary'
+FROM (SELECT DepartmentId as Department, name AS employee_name, Salary, DENSE_RANK() OVER(partition by DepartmentId order by salary desc) AS 'rank' FROM Employee)
+AS emp
+JOIN Department dept
+ON emp.Department=dept.id
+WHERE emp.rank = 1;
