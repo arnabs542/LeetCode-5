@@ -1,0 +1,8 @@
+-- Method 1: using the correlated sub query approach: sub query executes for each iteration of the outer loop
+SELECT s1.score,
+(SELECT COUNT(DISTINCT(score)) FROM scores s2 WHERE s2.score>=s1.score) AS 'Rank'
+FROM scores s1
+ORDER BY s1.score DESC;
+
+
+-- Alternate Methods: can also be pursued using window functions

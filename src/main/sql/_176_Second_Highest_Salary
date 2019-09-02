@@ -1,0 +1,18 @@
+## Method: 1
+select max(salary) as SecondHighestSalary
+from employee
+where salary not in
+(select max(salary) from employee);
+
+## Method: 2
+select distinct(salary) as SecondHighestSalary
+from employee
+order by salary desc
+limit 1, 1;
+
+## Method: 3: using correlated sub query approach, see: geeksforgeeks.org/sql-correlated-subqueries/
+select e1.salary as SecondHighestSalary
+from employee e1 where 1=
+              (select count(distinct(salary))
+              from employee e2
+              where e2.salary>=e1.salary)
