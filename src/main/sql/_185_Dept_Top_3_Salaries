@@ -1,0 +1,14 @@
+--Write a SQL query to find employees who earn the top three salaries in each of the department. For the above tables, your SQL query should return the following rows (order of rows does not matter).
+
+--Method 1: using a correlated sub query approach
+SELECT dept.name AS 'Department', emp.name AS 'Employee', emp.salary as 'Salary'
+FROM employee emp
+JOIN Department dept
+ON emp.DepartmentId = dept.id
+WHERE 3 > (SELECT COUNT(DISTINCT salary) FROM Employee emp2 WHERE emp2.salary>emp.salary AND emp.DepartmentId = emp2.DepartmentId);
+
+--Method 2: Using window functions
+SELECT dept.Name as 'Department', sub.name as 'Employee', sub.salary AS 'Salary'
+FROM (SELECT name, salary, DepartmentId, dense_rank() over(PARTITION BY DepartmentId ORDER BY salary DESC) AS 'dense_rank' FROM employee)
+AS sub JOIN Department dept ON sub.DepartmentId = dept.Id
+WHERE sub.dense_rank<=3;
