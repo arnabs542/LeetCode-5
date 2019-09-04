@@ -1,0 +1,11 @@
+--Given a Weather table, write a SQL query to find all dates' Ids with higher temperature compared to its previous (yesterday's) dates.
+-- Method 1 : Using self join and filtering the right rows. datediff (bigger_date, smaller_date) => number of days between those 2 dates
+SELECT w2.id
+FROM weather w1, weather w2
+WHERE DATEDIFF(w2.RecordDate, w1.RecordDate) = 1 and (w2.temperature > w1.temperature);
+
+-- Method 2 : Same as above, except filtering on all the rows, we can only join on appropriate rows
+SELECT w2.id
+FROM weather w1
+JOIN weather w2
+WHERE DATEDIFF(w2.RecordDate, w1.RecordDate) = 1 and (w2.temperature > w1.temperature);
