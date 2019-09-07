@@ -1,0 +1,17 @@
+--Write a SQL query that reports the device that is first logged in for each player.
+
+--Method 1: Using Simple Join and Filtering
+SELECT player_id, device_id
+FROM activity
+WHERE (player_id, event_date)
+IN (SELECT player_id, min(event_date) AS 'first_login'
+FROM activity
+GROUP BY player_id);
+
+--Method 2: Using Window Functions
+SELECT player_id, device_id
+FROM (
+    SELECT player_id, device_id, rank() over(partition by player_id ORDER BY event_date ASC) AS rank
+    FROM activity
+) tmp
+WHERE tmp.rank = 1
