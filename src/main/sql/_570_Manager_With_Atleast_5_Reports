@@ -1,0 +1,22 @@
+-- Given the Employee table, write a SQL query that finds out managers with at least 5 direct reports
+-- Sub query approach
+SELECT Name
+FROM Employee
+WHERE Id IN (
+SELECT ManagerId FROM Employee GROUP BY ManagerId HAVING COUNT(ManagerId) >=5
+);
+
+-- Method 2: Similar approach as 1, but just a different style of writing. Using a temporary table and a JOIN
+SELECT Name
+FROM Employee e1 JOIN (
+SELECT ManagerId FROM Employee GROUP BY ManagerId HAVING COUNT(ManagerId) >=5
+) as e2
+ON e1.id = e2.ManagerId;
+
+-- Method 3: Without using sub query. Self Join.
+SELECT e1.Name
+FROM employee e1
+JOIN employee e2
+ON e1.id = e2.ManagerId
+GROUP BY e1.Name
+HAVING count(*) >=5;
