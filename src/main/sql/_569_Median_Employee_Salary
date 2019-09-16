@@ -1,0 +1,25 @@
+-- method 1: by the definition of median, the count of the bigger numbers than itself should be equal to the count of the smaller ones in an odd array.
+-- logic is to calculate the absolute difference between how many people from the same company that has higher salary, and those from the same company that has lower salary for every employee in the company
+-- this abs difference should be less than/or equal to 1. (if there are odd people in the company, this number is 0, if there are even number of people in the company, two record will be chosen)
+-- this solution doesn't work in all the mysql versions (as older mysql versions expect all the columns in group by to be in select as well)
+SELECT e1.Id, e1.Company, e1.Salary
+FROM Employee e1
+WHERE
+1>=ABS((SELECT COUNT(*) FROM employee e2 WHERE e1.Company = e2.Company AND e2.salary>=e1.salary) -
+        (SELECT count(*) FROM employee e2 WHERE e1.Company = e2.Company AND e2.salary<=e1.salary))
+GROUP BY e1.company, e1.salary, e1.Id;
+
+-- method 2: do an inner join and for each employee in the company, count the number of employees earning salary above / below him.
+-- if the absolute value is <=1, it means the employee is in the median range, so include it in the result
+-- the last 2 statements in the case is to handle the employees with same salaries in their company
+SELECT e1.Id, e1.Company, e1.Salary
+FROM employee e1
+JOIN employee e2
+ON e1.Company = e2.Company
+GROUP BY e1.id, e1.company, e1.Salary
+HAVING abs(SUM(CASE WHEN e2.Salary >  e1.Salary THEN 1
+				WHEN e2.Salary < e1.Salary THEN -1
+                WHEN e2.Salary = e1.Salary AND e2.Id > e1.Id THEN 1
+                WHEN e2.Salary = e1.Salary AND e2.Id < e1.Id THEN -1
+				ELSE 0 END))<=1
+ORDER by e1.id, e1.Company, e1.Salary;
