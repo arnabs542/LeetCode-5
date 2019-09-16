@@ -1,0 +1,11 @@
+--Write an SQL query that reports the fraction of players that logged in again on the day after the day they first logged in, rounded to 2 decimal places.
+--In other words, you need to count the number of players that logged in for at least two consecutive days starting from their first login date,
+--then divide that number by the total number of players.
+
+-- the sub query is to fetch all the players with the first / min event date and then join the main table to filter all the players who also have the event date next to their min date (consecutive event dates)
+-- take care of sum and round functions
+SELECT round(SUM(CASE WHEN a1.event_date = sub.min_date_player + 1 THEN 1 ELSE 0 END)/COUNT(DISTINCT(a1.player_id)), 2) AS 'fraction'
+FROM
+(SELECT player_id, MIN(event_date) AS min_date_player FROM activity GROUP BY player_id) AS sub
+JOIN activity a1
+ON sub.player_id = a1.player_id;
