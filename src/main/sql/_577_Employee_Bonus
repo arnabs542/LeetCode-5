@@ -1,0 +1,16 @@
+-- Select all employee's name and bonus whose bonus is < 1000.
+-- As the result should also contain NULL's for records that doesn't exist in the bonus table, left join is needed
+SELECT
+emp.name, bon.bonus
+FROM employee emp
+LEFT JOIN bonus bon
+ON emp.empId = bon.empId
+WHERE bon.bonus IS NULL OR bon.bonus < 1000;
+
+-- Method 2: similar approach as above but instead of null filters, use COALESCE
+SELECT
+emp.name, bon.bonus
+FROM employee emp
+LEFT JOIN bonus bon
+ON emp.empId = bon.empId
+WHERE COALESCE(bon.bonus, 0) < 1000;
