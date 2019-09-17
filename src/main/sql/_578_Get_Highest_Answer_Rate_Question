@@ -1,0 +1,6 @@
+-- Write a sql query to identify the question which has the highest answer rate.
+SELECT question_id AS 'survey_log'
+FROM (SELECT question_id, SUM(CASE WHEN action = 'answer' THEN 1 ELSE 0 END) AS 'num_answer',
+                          SUM(CASE WHEN action = 'show' THEN 1 ELSE 0 END) AS 'num_show'
+      FROM survey_log group by question_id) AS sub
+ORDER BY sub.num_answer / sub.num_show DESC LIMIT 1;
