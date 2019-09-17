@@ -1,0 +1,7 @@
+-- Write a query to return the list of customers NOT referred by the person with id '2'.
+
+-- Method 1: using simple filters
+select name from customer where referee_id!=2 or referee_id is NULL;
+
+-- Method 2: using not exists approach
+select name from customer cust where not exists (select * from customer where cust.referee_id = 2);

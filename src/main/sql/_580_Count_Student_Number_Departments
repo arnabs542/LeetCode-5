@@ -1,0 +1,22 @@
+-- Write a query to print the respective department name and number of students majoring in each department for all departments in the department table (even ones with no current students).
+-- Sort your results by descending number of students; if two or more departments have the same number of students, then sort those departments alphabetically by department name.
+
+-- Method 1: Using the sub query approach / used the department table twice. Not an optimal approach
+select dept.dept_name, COALESCE(sub.student_number, 0) as student_number
+from (select student.dept_id, count(*) as student_number
+      from department
+      join student
+      on department.dept_id=student.dept_id
+      group by student.dept_id) as sub
+right join department dept
+on dept.dept_id = sub.dept_id
+order by student_number desc, dept.dept_name;
+
+
+-- Method 2: Using left join and without a sub query. Optimal
+select dept_name, sum(case when stud.dept_id is NOT NULL THEN 1 ELSE 0 END) as student_number
+from department dept
+left join student stud
+on dept.dept_id=stud.dept_id
+group by dept_name
+order by student_number desc, dept_name;
