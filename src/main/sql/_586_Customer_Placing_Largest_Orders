@@ -1,0 +1,18 @@
+-- Query the customer_number from the orders table for the customer who has placed the largest number of orders.
+-- Method 1: doesn't handle multiple customers with same highest orders
+select sub.cust as customer_number
+from (
+      select customer_number as cust,
+      count(*) as 'customer_number'
+      from orders
+      group by customer_number order by customer_number desc limit 1
+      ) as sub;
+
+-- Method 2: handles the follow up question: returns all the customers with highest orders
+select customer_number
+from orders
+group by customer_number
+having count(order_number) = (select count(*) as count
+                              from orders
+                              group by customer_number
+                              order by count desc limit 1);
