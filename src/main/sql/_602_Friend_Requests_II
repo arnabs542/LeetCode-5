@@ -1,0 +1,28 @@
+-- Write a query to find the the people who has most friends and the most friends number. For the sample data above, the result is:
+select requester_id as id, count(*) as num
+from (select requester_id from  request_accepted--
+      UNION ALL
+      select accepter_id
+      from request_accepted)
+as sub1
+group by requester_id
+order by num desc limit 1;
+
+
+-- Follow up question: In the real world, multiple people could have the same most number of friends, can you find all these people in this case?
+select id, num, ranking
+from (select id, num, dense_rank() over(order by num desc) as ranking
+from (select requester_id as id, count(*) as num
+from (select requester_id from  request_accepted
+      UNION ALL
+      select accepter_id from request_accepted) as sub1
+group by requester_id) as sub2) as sub3
+where ranking = 1 ;
+
+-- NOTE: the question is ambiguous. It didn't say if A could send a friend request to B and B could also send a friend request to A at the same time. If you want to handle such case, use UNION (to remove duplicates) and group by instead of UNION ALL. See the below query:
+-- but strangely, this solution is wrong according to LC
+select id1 as id, count(id2) as num from (SELECT requester_id AS id1, accepter_id AS id2 FROM request_accepted
+UNION
+SELECT accepter_id AS id1 , requester_id AS id2 FROM request_accepted) as sub1
+group by id1
+order by num desc limit 1;

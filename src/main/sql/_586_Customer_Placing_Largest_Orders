@@ -8,6 +8,13 @@ from (
       group by customer_number order by customer_number desc limit 1
       ) as sub;
 
+-- Method 2 : without using limit. uses window functions
+select customer_number
+from (select customer_number, DENSE_RANK() over (order by count desc) as 'ranking'
+      from (select customer_number, count(customer_number) as count from orders group by customer_number)sub1
+      ) sub2
+where sub2.ranking = 1;
+
 -- Method 2: handles the follow up question: returns all the customers with highest orders
 select customer_number
 from orders
