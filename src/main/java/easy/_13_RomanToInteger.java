@@ -77,7 +77,6 @@ public class _13_RomanToInteger {
     }
 
     public static void main(String[] args) {
-
         // test method: 1
         assertEquals(romanToInt("III"), 3);
         assertEquals(romanToInt("IV"), 4);

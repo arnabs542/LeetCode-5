@@ -62,7 +62,6 @@ public class _7_ReverseInteger {
         return isNegative ? -reverseInteger : reverseInteger;
     }
 
-
     // NOTE: except that we are using long and type casting, this is simplest and more optimal
     private static int reverseOptimal(int inputNumber) {
         long reverseInteger = 0;
@@ -79,7 +78,6 @@ public class _7_ReverseInteger {
     }
 
     public static void main(String[] args) {
-
         assertEquals(reverse(123), 321);
         assertEquals(reverse(-123), -321);
         assertEquals(reverse(120), 21);

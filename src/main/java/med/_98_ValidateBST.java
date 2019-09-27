@@ -1,7 +1,5 @@
 package med;
 
-import random.trees.BinaryTreeNode;
-
 import java.util.Stack;
 
 import static org.testng.AssertJUnit.assertFalse;
