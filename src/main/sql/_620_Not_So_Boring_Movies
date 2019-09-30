@@ -1,0 +1,11 @@
+-- please write a SQL query to output movies with an odd numbered ID and a description that is not 'boring'. Order the result by rating.
+select id, movie, description, rating
+from cinema
+where id % 2 != 0 and description !='boring'
+order by rating desc;
+
+-- alternate way of getting odd numbers : using mod
+select id, movie, description, rating
+from cinema
+where mod(id, 2)=1 and description !='boring'
+order by rating desc;

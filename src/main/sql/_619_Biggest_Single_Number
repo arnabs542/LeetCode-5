@@ -1,0 +1,15 @@
+-- Table my_numbers contains many numbers in column num including duplicated ones. Can you write a SQL query to find the biggest number, which only appears once.
+-- the only tricky thing is to handle the case where the num is null. for that use outer query
+select (select num
+from my_numbers
+group by num
+having count(*) = 1
+order by num desc limit 1) as num;
+
+-- alternate method: different way to handle null
+select max(sub.num) as num
+from (select num
+from my_numbers
+group by num
+having count(*) = 1
+order by num desc limit 1) as sub;
