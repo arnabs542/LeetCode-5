@@ -1,0 +1,10 @@
+-- Write a query to find the shortest distance between two points in these points.
+select min(p1.x - p2.x) as 'shortest'
+from point p1, point p2
+where p1.x > p2.x;
+
+-- follow up: What if all these points have an id and are arranged from the left most to the right most of x axis?
+select min(p1.x - p2.x) as 'shortest'
+from point p1, point p2
+where p1.id = p2.id + 1
+and p1.id > 1;
