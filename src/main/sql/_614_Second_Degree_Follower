@@ -1,0 +1,6 @@
+-- Please write a sql query to get the amount of each follower’s follower if he/she has one.
+select f1.followee as 'follower', count(distinct(f1.follower)) as 'num'
+from follow f1
+where f1.followee in (select distinct follower from follow f2)
+group by f1.followee
+order by f1.followee;
