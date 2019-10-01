@@ -1,0 +1,9 @@
+-- Write an SQL query that reports all the projects that have the most employees.
+select distinct project_id
+from Project
+group by project_id
+having count(*) = (select sub.max_count from (select project_id, count(*) as max_count
+                   from Project
+                   group by project_id
+                   order by max_count desc limit 1) as sub
+                   );
