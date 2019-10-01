@@ -1,0 +1,21 @@
+-- Write an SQL query that reports the best seller by total sales price, If there is a tie, report them all.
+-- method 1: using sub query approach
+select seller_id
+from sales
+group by seller_id
+having sum(price)= (select max_sum from (select seller_id, sum(price) as max_sum
+                    from sales
+                    group by seller_id
+                    order by max_sum desc
+                    limit 1) as sub
+                    );
+
+-- method 2: using window functions: submit using oracle server is LC
+select sub2.seller_id
+from (select sub.seller_id, rank() over(order by sub.max_sum desc) as 'rank'
+	  from (select seller_id, sum(price) as max_sum
+			from sales
+			group by seller_id
+			) as sub
+	  ) as sub2
+where sub2.rank = 1;
