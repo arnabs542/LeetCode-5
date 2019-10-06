@@ -1,0 +1,7 @@
+-- Write an SQL query that reports the number of posts reported yesterday for each report reason. Assume today is 2019-07-05.
+select report_reason, count(*) as 'report_count'
+from (select distinct post_id, extra as 'report_reason', extra
+      from actions
+      where action_date = DATE_ADD('2019-07-05', INTERVAL -1 DAY)
+      and action = 'report') as sub
+group by report_reason;

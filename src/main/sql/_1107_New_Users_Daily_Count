@@ -1,0 +1,8 @@
+-- Write an SQL query that reports for every date within at most 90 days from today, the number of users that logged in for the first time on that date. Assume today is 2019-06-30.
+select min_date as 'login_date', count(*) as 'user_count'
+from (select user_id, min(activity_date) as min_date
+from traffic
+where activity='login'
+group by user_id) as sub
+where min_date between DATE_ADD('2019-06-30', INTERVAL -90 DAY) AND '2019-06-30'
+group by min_date;
