@@ -1,0 +1,9 @@
+--Write an SQL query to find the percentage of immediate orders in the table, rounded to 2 decimal places.
+select round(sub1.imm_orders / sub2.total_count * 100, 2) as 'immediate_percentage'
+from (select count(*) as 'imm_orders'
+      from delivery
+      where order_date=customer_pref_delivery_date)
+      as sub1,
+      (select count(*) as 'total_count'
+      from delivery)
+      as sub2;
