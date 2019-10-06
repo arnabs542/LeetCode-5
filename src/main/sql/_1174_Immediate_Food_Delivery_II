@@ -1,0 +1,27 @@
+-- Write an SQL query to find the percentage of immediate orders in the first orders of all customers, rounded to 2 decimal places.
+-- Method 1: simple approach
+select round(sum(order_date = customer_pref_delivery_date) * 100 /count(order_date), 2) as 'immediate_percentage'
+from delivery
+where (customer_id, order_date) in (select customer_id, min(order_date) from delivery group by customer_id);
+
+
+-- Method 2: simple approach (just a diff way of writing method 1)
+select round(sum(case when order_date = customer_pref_delivery_date then 1 else 0 end) * 100 / count(order_date), 2) as 'immediate_percentage' from (SELECT customer_id, MIN(order_date) AS order_date, MIN(customer_pref_delivery_date) AS customer_pref_delivery_date
+FROM Delivery
+GROUP BY customer_id) as sub;
+
+
+-- Method 3: similar way but, uses a diff query to get the total count of distinct customers
+select round(count(*)/(select count(distinct customer_id) from Delivery) * 100,2) as 'immediate_percentage'
+from
+(select customer_id
+from Delivery
+group by customer_id
+having min(order_date) = min(customer_pref_delivery_date)) as temp;
+
+
+-- Method 4: using window functions. passes locally, but fails on LC (even using oracle engine). Don't know the reason
+select round((immediate_orders.imm_cust_count/(select count(distinct(customer_id)) from delivery) * 100), 2) as 'immediate_percentage' from (select count(distinct(customer_id)) as 'imm_cust_count' from (select customer_id, order_date, customer_pref_delivery_date, rank() over (partition by customer_id order by order_date asc) as 'ranking'
+from delivery) as sub
+where sub.ranking = 1
+and sub.order_date = sub.customer_pref_delivery_date) as immediate_orders;
