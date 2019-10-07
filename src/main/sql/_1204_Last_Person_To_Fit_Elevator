@@ -1,0 +1,15 @@
+--Write an SQL query to find the person_name of the last person who will fit in the elevator without exceeding the weight limit. It is guaranteed that the person who is first in the queue can fit in the elevator.
+--Method 1: without using window functions
+select q1.person_name
+from Queue as q1, Queue as q2
+where q1.turn >= q2.turn
+group by q1.turn, q1.person_name
+having sum(q2.weight) <= 1000
+order by sum(q2.weight) desc
+limit 1;
+
+--Method 2: using window functions
+select sub.person_name from (select turn, person_name, sum(weight) over(order by turn) as 'max_weight'
+from queue) as sub
+where sub.max_weight<=1000
+order by sub.max_weight desc limit 1;
