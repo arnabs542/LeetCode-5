@@ -1,0 +1,18 @@
+--Write a SQL query to find the cancellation rate of requests made by unbanned users (both client and driver must be unbanned) between Oct 1, 2013 and Oct 3, 2013. The cancellation rate is computed by dividing the number of canceled (by client or driver) requests made by unbanned users by the total number of requests made by unbanned users.
+-- Method 1: filter with the right conditions and use case condition to do the right aggregations
+select sub.request_at as 'Day',
+round(sum(case when sub.status = 'cancelled_by_driver' or sub.status = 'cancelled_by_client' then 1 else 0 end)/count(*), 2) as 'Cancellation Rate'
+from (select * from trips
+      where client_id not in (select users_id from users where banned = 'yes')
+      and driver_id not in (select users_id from users where banned = 'yes')
+      and request_at between '2013-10-01' and '2013-10-03') as sub
+group by sub.request_at;
+
+
+-- Method 2: same approach as method 1, but without a join
+select request_at as 'Day',
+round(sum(case when status = 'cancelled_by_driver' or status = 'cancelled_by_client' then 1 else 0 end)/count(*), 2) as 'Cancellation Rate' from trips
+      where client_id not in (select users_id from users where banned = 'yes')
+      and driver_id not in (select users_id from users where banned = 'yes')
+      and request_at between '2013-10-01' and '2013-10-03'
+group by request_at;

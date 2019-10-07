@@ -1,0 +1,23 @@
+--Write an SQL query to find the winner in each group.
+--using window functions: didn't execute on LC, but passed locally
+select sub3.group_id, sub3.player_id from (select sub2.group_id, sub2.player_id, dense_rank() over(partition by sub2.group_id order by sub2.score desc, sub2.player_id asc) as 'ranking' from (select p.group_id, sub.player_id, sub.player_score as 'score' from (select player_id,
+sum(case when player_id = first_player and first_score > second_score then 1 else 0 end) +
+sum(case when player_id = second_player and second_score > first_score then 1 else 0 end) as 'player_score'
+from players
+join matches
+on player_id = first_player or player_id = second_player
+group by player_id) as sub
+join players p
+on p.player_id = sub.player_id) as sub2) as sub3
+where sub3.ranking = 1;
+
+--method 2: taken from LC solution: https://leetcode.com/problems/tournament-winners/discuss/384380/A-MySQL-Solution-(Explained)
+
+select group_id, player_id from (
+	select p.group_id, ps.player_id, sum(ps.score) as score from Players p,
+	    (select first_player as player_id, first_score as score from Matches
+	    union all
+	    select second_player, second_score from Matches) ps
+	where p.player_id = ps.player_id
+	group by ps.player_id order by group_id, score desc, player_id) top_scores
+group by group_id
