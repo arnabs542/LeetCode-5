@@ -37,7 +37,7 @@ public class _7_ReverseInteger {
         return inputNumber < 0 ? -reverseInteger : reverseInteger;
     }
 
-    private static int reverseAlternateSol(int inputNumber) {
+    private static int reverseAlternate(int inputNumber) {
         int reverseInteger = 0;
         boolean isNegative = false;
 
@@ -85,11 +85,11 @@ public class _7_ReverseInteger {
         assertEquals(reverse(-2147483648), 0);
 
 
-        assertEquals(reverseAlternateSol(123), 321);
-        assertEquals(reverseAlternateSol(-123), -321);
-        assertEquals(reverseAlternateSol(120), 21);
-        assertEquals(reverseAlternateSol(1534236469), 0);
-        assertEquals(reverseAlternateSol(-2147483648), 0);
+        assertEquals(reverseAlternate(123), 321);
+        assertEquals(reverseAlternate(-123), -321);
+        assertEquals(reverseAlternate(120), 21);
+        assertEquals(reverseAlternate(1534236469), 0);
+        assertEquals(reverseAlternate(-2147483648), 0);
 
         assertEquals(reverseOptimal(123), 321);
         assertEquals(reverseOptimal(-123), -321);
