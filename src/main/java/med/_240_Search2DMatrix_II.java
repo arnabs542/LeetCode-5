@@ -1,4 +1,4 @@
-package _5_Longest_Palindromic_Substring;
+package med;
 
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;

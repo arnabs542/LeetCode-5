@@ -1,4 +1,4 @@
-package _5_Longest_Palindromic_Substring;
+package med;
 
 /**
  * Created by udaythota on 7/24/19.

@@ -1,8 +1,8 @@
-package _5_Longest_Palindromic_Substring;
+package med;
 
 import java.util.Stack;
 
-import static _5_Longest_Palindromic_Substring.BinaryTreeUtils.printLevelOrder;
+import static med.BinaryTreeUtils.printLevelOrder;
 
 /**
  * Created by udaythota on 6/1/19.

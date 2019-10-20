@@ -1,4 +1,4 @@
-package _5_Longest_Palindromic_Substring;
+package med;
 
 import java.util.LinkedList;
 import java.util.Queue;
