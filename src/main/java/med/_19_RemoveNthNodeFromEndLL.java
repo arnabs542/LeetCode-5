@@ -1,4 +1,4 @@
-package med;
+package _5_Longest_Palindromic_Substring;
 
 /**
  * Created by udaythota on 1/17/19.
@@ -41,6 +41,7 @@ public class _19_RemoveNthNodeFromEndLL {
         }
     }
 
+    // see the below method for the slightly simplified version
     private static Node removeNthNodeFromEnd(Node head, int n) {
         boolean moveHead = false;
         if (n <= 0 || head == null) {
@@ -73,6 +74,29 @@ public class _19_RemoveNthNodeFromEndLL {
         return head;
     }
 
+    // alternate solution: little simplified than the above solution
+    private static Node removeNthNodeFromEnd2(Node head, int n) {
+        if (head == null || head.next == null) {
+            return null;
+        }
+
+        Node newHead = new Node(0);
+        Node slow = newHead;
+        Node fast = newHead;
+        slow.next = head;
+
+        for (int i = 0; i <= n; i++) {
+            fast = fast.next;
+        }
+
+        while (fast != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        slow.next = slow.next.next;
+        return newHead.next;
+    }
+
     public static void main(String[] args) {
 
         // CASE 1:
@@ -84,7 +108,7 @@ public class _19_RemoveNthNodeFromEndLL {
         removeNthNodeFromEndLL.addToLast(new Node(4));
         removeNthNodeFromEndLL.addToLast(new Node(5));
 
-        Node newHeadAfterDeletion = removeNthNodeFromEnd(head, 3);
+        Node newHeadAfterDeletion = removeNthNodeFromEnd2(head, 3);
         System.out.println("CASE 1: ");
         removeNthNodeFromEndLL.printList(newHeadAfterDeletion);
 

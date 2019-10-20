@@ -1,4 +1,4 @@
-package med;
+package _5_Longest_Palindromic_Substring;
 
 import java.util.Arrays;
 import java.util.PriorityQueue;
