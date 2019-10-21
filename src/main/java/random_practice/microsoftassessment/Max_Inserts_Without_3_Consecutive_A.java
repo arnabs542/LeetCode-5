@@ -1,5 +1,7 @@
 package random_practice.microsoftassessment;
 
+import java.util.Stack;
+
 import static org.testng.Assert.assertEquals;
 
 /**
@@ -36,6 +38,34 @@ public class Max_Inserts_Without_3_Consecutive_A {
             result += 2 - count;
         }
         return result;
+    }
+
+    public String solution(String S) {
+        if(S == null || S.length() <= 1) { // though the input doesn't allow this, just to be safe
+            return null;
+        }
+
+        int count =0;
+        StringBuilder stringBuilder = new StringBuilder();
+        Stack<Character> stack = new Stack();
+
+        for (int i=0; i< S.length(); i++) {
+            if(!stack.isEmpty() && count < 1 && S.charAt(i) < stack.peek()) {
+                stack.pop();
+                count++;
+            }
+            stack.push(S.charAt(i));
+        }
+
+        if (count ==0 ) {
+            stack.pop();
+        }
+
+        while (!stack.isEmpty()) {
+            stringBuilder.insert(0, stack.pop());
+        }
+        return stringBuilder.toString();
+
     }
 
     public static void main(String[] args) {
