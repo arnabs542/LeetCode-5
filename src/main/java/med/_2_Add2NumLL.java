@@ -54,14 +54,15 @@ public class _2_Add2NumLL {
     // 1) take care of left over carry in the end
     // 2) reset the first and second numbers (to zero) after each iteration so, when one of them is missing, it defaults to zero
     private static Node add2Numbers(Node head1, Node head2) {
-        if (head1 == null && head2 == null)
+        if (head1 == null && head2 == null) {
             return null;
-
-        if (head1 == null)
+        }
+        if (head1 == null) {
             return null;
-
-        if (head2 == null)
+        }
+        if (head2 == null) {
             return null;
+        }
 
         Node temp1 = head1;
         Node temp2 = head2;
