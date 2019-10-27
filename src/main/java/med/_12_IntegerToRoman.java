@@ -1,6 +1,10 @@
 package med;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.TreeMap;
+
+import static org.testng.Assert.assertEquals;
 
 /**
  * Created by udaythota on 1/24/19.
@@ -17,12 +21,11 @@ import java.util.*;
  * <p/>
  */
 public class _12_IntegerToRoman {
-
+    // check the below 2nd solution for the optimal one
     private static String intToRoman(int num) {
-
         StringBuilder resultString = new StringBuilder();
+        TreeMap<Integer, String> romanNumberMap = new TreeMap<Integer, String>();  // to make sure keys are sorted
 
-        HashMap<Integer, String> romanNumberMap = new HashMap<Integer, String>();
         romanNumberMap.put(1, "I");
         romanNumberMap.put(4, "IV");
         romanNumberMap.put(5, "V");
@@ -45,10 +48,7 @@ public class _12_IntegerToRoman {
             return romanNumberMap.get(num);
         }
 
-        Set<Integer> keySetTemp = romanNumberMap.keySet();
-        Set<Integer> keySet = new TreeSet<Integer>(keySetTemp);
-
-        List<Integer> numberList = new ArrayList<Integer>(keySet);
+        List<Integer> numberList = new ArrayList<Integer>(romanNumberMap.keySet());
 
         int i = 0;
         while (num != 0) {
@@ -72,7 +72,32 @@ public class _12_IntegerToRoman {
         return resultString.toString();
     }
 
+    // core logic: the meat of the problem lies in assuming the roman and values arrays properly
+    // the roman number is formed by appending (or adding) the higher letters first and then the lower letters. this is true for all the cases except 6 cases (4, 9, 40, 90, 400, 900) where subtraction is needed (or lower numbers are appended first)
+    // to handle this special case, just create this 6 numbers as constants in the array and keep the logic as is
+    private static String intToRoman2(int num) {
+        if (num < 1 || num > 3999) {
+            return "";
+        }
+
+        String[] roman = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+        int[] values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+        StringBuilder stringBuilder = new StringBuilder();
+
+        int i = 0;
+        while (num > 0) {
+            while (num >= values[i]) {
+                stringBuilder.append(roman[i]);
+                num -= values[i];
+            }
+            i++;
+        }
+        return stringBuilder.toString();
+    }
+
     public static void main(String[] args) {
-        System.out.println(intToRoman(2000));
+        assertEquals(intToRoman(2000), "MM");
+        assertEquals(intToRoman2(2000), "MM");
+        assertEquals(intToRoman2(2548), "MMDXLVIII");
     }
 }

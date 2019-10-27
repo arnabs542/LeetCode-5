@@ -11,7 +11,6 @@ package med;
  * </p>
  */
 public class _11_ContainerMostWater {
-
     // NOTE: time complexity: O(n2), space complexity: O(1)
     private static int getMaxContainerArea(int[] containerArray) {
         int maxArea = 0, currentArea = 0;
@@ -22,8 +21,8 @@ public class _11_ContainerMostWater {
         for (int i = 0; i < containerArray.length - 1; i++) {
             for (int j = i + 1; j < containerArray.length; j++) {
                 // int length = Math.abs((i - j));
-                int length = j - i;
-                int breadth = Math.min(containerArray[i], containerArray[j]);
+                int breadth = j - i;
+                int length = Math.min(containerArray[i], containerArray[j]);
                 currentArea = length * breadth;
 
                 if (currentArea > maxArea) {
@@ -34,8 +33,8 @@ public class _11_ContainerMostWater {
         return maxArea;
     }
 
-
-    // NOTE: time complexity: O(n), space complexity: O(1)
+    // core logic: to maximize the area, we either have to maximize the length or the breadth. the first step tries to get area with the max width and in the next steps, we try to find the maximise the length
+    // time complexity: O(n), space complexity: O(1)
     private static int getMaxContainerAreaOptimal(int[] containerArray) {
         int maxArea = 0, currentArea = 0;
         if (containerArray == null || containerArray.length == 0) {
@@ -45,8 +44,8 @@ public class _11_ContainerMostWater {
         int i = 0;
         int j = containerArray.length - 1;
         while (i < j) {
-            int length = j - i;
-            int breadth = Math.min(containerArray[i], containerArray[j]);
+            int breadth = j - i;
+            int length = Math.min(containerArray[i], containerArray[j]);
             currentArea = length * breadth;
 
             if (currentArea > maxArea) {
@@ -67,9 +66,7 @@ public class _11_ContainerMostWater {
         int area = getMaxContainerArea(containerArray);
         System.out.println("Max container area is: " + area);
 
-
         int area1 = getMaxContainerAreaOptimal(containerArray);
         System.out.println("Max container area is: " + area1);
     }
-
 }

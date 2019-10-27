@@ -19,7 +19,6 @@ import static org.testng.Assert.assertEquals;
 public class _8_StringToInteger {
 
     private static int myAtoi(String str) {
-
         long result = 0;
         boolean isNegative = false;
         boolean isPositive = false;
