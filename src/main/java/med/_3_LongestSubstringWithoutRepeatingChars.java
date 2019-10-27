@@ -29,9 +29,8 @@ public class _3_LongestSubstringWithoutRepeatingChars {
 
         for (int i = 0; i < inputString.length(); i++) {
             if (charArray[inputString.charAt(i)]) {
-                char currentChar = inputString.charAt(i);
                 int currentLength = i - startPointer;
-
+                char currentChar = inputString.charAt(i);
                 for (int j = startPointer; j < i; j++) {
                     if (inputString.charAt(j) == currentChar) {
                         startPointer = j + 1;

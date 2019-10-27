@@ -47,7 +47,7 @@ public class _438_Find_All_Anagrams_String {
     }
 
     // core logic: use 2 pointers (begin and end) to move the sliding windows and a counter to keep track of elements encountered
-    // when counter < 0, it means we already encountered more than needed characters from the target substring, when counter > 0 , we need to encounter more characters from the target string, when target =0, we encountered exactly same number of characters
+    // when counter < 0, it means we already encountered more than needed characters from the target substring, when counter > 0 , we need to encounter more characters from the target string, when counter = 0, we encountered exactly same number of characters
     // generic template idea taken from: https://leetcode.com/problems/find-all-anagrams-in-a-string/discuss/92007/Sliding-Window-algorithm-template-to-solve-all-the-Leetcode-substring-search-problem.
     private static List<Integer> findAnagrams2(String s, String p) {
         List<Integer> result = new ArrayList<>();

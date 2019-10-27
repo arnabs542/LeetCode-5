@@ -47,5 +47,6 @@ public class _159_Longest_Substring_2_Distinct {
     public static void main(String[] args) {
         assertEquals(lengthOfLongestSubstringTwoDistinct("eceba"), 3);
         assertEquals(lengthOfLongestSubstringTwoDistinct("aabbb"), 5);
+        assertEquals(lengthOfLongestSubstringTwoDistinct("abaaaac"), 6);
     }
 }
