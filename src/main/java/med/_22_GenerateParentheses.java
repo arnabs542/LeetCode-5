@@ -9,12 +9,12 @@ import java.util.List;
  * Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
  * </p>
  */
-public class _22_GenerateParantheses {
+public class _22_GenerateParentheses {
 
     // core logic: perform DFS and whenever you encounter the desired string, add it to the result.
     // the below 3 steps needs to be taken care when performing DFS:
-    // a) the number of open parantheses <= number of closing parantheses
-    // b) the max number of open parantheses <= n
+    // a) the number of open parentheses <= number of closing parentheses
+    // b) the max number of open parentheses <= n
     // c) when open ==n && close ==n, add the string to the result
     // below is the result path when performing DFS
     /*

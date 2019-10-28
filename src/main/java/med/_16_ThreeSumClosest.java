@@ -13,9 +13,7 @@ import java.util.Arrays;
  * </p>
  */
 public class _16_ThreeSumClosest {
-
     private static int threeSumClosest(int[] nums, int target) {
-
         if (nums == null || nums.length == 0) {
             return -1;
         }
