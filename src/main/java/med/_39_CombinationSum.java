@@ -27,7 +27,7 @@ public class _39_CombinationSum {
 
     // The core logic here is that as the array is already sorted, we try to evaluate each and every possible case that could add up to the given target.
     // If the sum matches (remaining target == 0), add that combination (temp list), to the result list. Break the existing loop (base case) when the current target > given target
-    // flow of execution: 2222 -> 2223 -> 2226 -> 2227 -> 223 (add to the list) -> 224 -> 226 -> 227 -> 23 -> 233 -> 236 -> 237 -> 26 -> 27 -> 333 -> ....
+    // flow of execution in DFS: 2222 -> 2223 -> 2226 -> 2227 -> 223 (add to the list) -> 224 -> 226 -> 227 -> 23 -> 233 -> 236 -> 237 -> 26 -> 27 -> 333 -> ....
     private static void backtrack(List<List<Integer>> resultList, List<Integer> tempList, int[] candidates, int remainingTarget, int start) {
         if (remainingTarget < 0) {
             return;
@@ -49,11 +49,11 @@ public class _39_CombinationSum {
         expectedResult.add(Arrays.asList(7));
         assertEquals(actualResult, expectedResult);
 
-        List<List<Integer>> actualResult2 = combinationSum(new int[]{2,3,5}, 8);
+        List<List<Integer>> actualResult2 = combinationSum(new int[]{2, 3, 5}, 8);
         List<List<Integer>> expectedResult2 = new ArrayList<>();
         expectedResult2.add(Arrays.asList(2, 2, 2, 2));
-        expectedResult2.add(Arrays.asList(2,3,3));
-        expectedResult2.add(Arrays.asList(3,5));
+        expectedResult2.add(Arrays.asList(2, 3, 3));
+        expectedResult2.add(Arrays.asList(3, 5));
         assertEquals(actualResult2, expectedResult2);
     }
 }

@@ -71,8 +71,9 @@ public class _22_GenerateParentheses {
     }
 
     private static void helper2(StringBuilder sb, int open, int close, int n, List<String> result) {
-        if (sb.length() == 2 * n) {
+        if (open == n && close == n) {   // equivalent to sb.length() == 2 * n
             result.add(sb.toString());
+            return;
         }
 
         if (open < n) {

@@ -1,7 +1,6 @@
 package med;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -47,7 +46,8 @@ public class _17_LetterCombinationsPhoneNumber {
     }
 
     // backtracking - dfs approach. similar to problem: 22
-    private static List<String> letterCombinationsRecursive(String digits) {
+    // optimal approach
+    private static List<String> letterCombinationsDFS(String digits) {
         String[] dataArray = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
         List<String> result = new ArrayList<>();
         if (digits == null || digits.length() == 0) {
@@ -71,6 +71,30 @@ public class _17_LetterCombinationsPhoneNumber {
         }
     }
 
+    // exact same as the above DFS approach but instead of string builder, using the string
+    // but this approach is NOT so optimal because for each and every recursive call, java internally creates new string, so its kind of expensive
+    private static List<String> letterCombinationsDFS2(String digits) {
+        String[] dataArray = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+        List<String> result = new ArrayList<>();
+        if (digits == null || digits.length() == 0) {
+            return result;
+        }
+        helper2(digits, 0, "", dataArray, result);
+        return result;
+    }
+
+    private static void helper2(String digits, int index, String string, String[] dataArray, List<String> result) {
+        if (digits.length() == index) {
+            result.add(string);
+            return;
+        }
+
+        String number = dataArray[digits.charAt(index) - '0'];
+        for (Character ch : number.toCharArray()) {
+            helper2(digits, index + 1, string + ch, dataArray, result);
+        }
+    }
+
     public static void main(String[] args) {
         // test - iterative approach
         System.out.println(letterCombinations("23"));
@@ -79,11 +103,18 @@ public class _17_LetterCombinationsPhoneNumber {
         System.out.println(letterCombinations("231"));  // should return empty list as it contains '1'
         System.out.println(letterCombinations(""));
 
-        // test - recursive approach
-        System.out.println(letterCombinationsRecursive("23"));
-        System.out.println(letterCombinationsRecursive("456"));
-        System.out.println(letterCombinationsRecursive("2"));
-        System.out.println(letterCombinationsRecursive("231"));  // should return empty list as it contains '1'
-        System.out.println(letterCombinationsRecursive(""));
+        // test - DFS 1
+        System.out.println(letterCombinationsDFS("23"));
+        System.out.println(letterCombinationsDFS("456"));
+        System.out.println(letterCombinationsDFS("2"));
+        System.out.println(letterCombinationsDFS("231"));  // should return empty list as it contains '1'
+        System.out.println(letterCombinationsDFS(""));
+
+        // test - DFS 2
+        System.out.println(letterCombinationsDFS2("23"));
+        System.out.println(letterCombinationsDFS2("456"));
+        System.out.println(letterCombinationsDFS2("2"));
+        System.out.println(letterCombinationsDFS2("231"));  // should return empty list as it contains '1'
+        System.out.println(letterCombinationsDFS2(""));
     }
 }
