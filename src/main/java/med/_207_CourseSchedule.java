@@ -97,7 +97,7 @@ public class _207_CourseSchedule {
             for (int i = 0; i < prerequisites.length; i++) {
                 if (prerequisites[i][1] == courseWithNoPreReq) {
                     inDegree[prerequisites[i][0]]--;
-                    if (inDegree[prerequisites[i][0]] == 0) {   // when there are no in degree connections to this node, it cam be added to queue to process further
+                    if (inDegree[prerequisites[i][0]] == 0) {   // when there are no in degree connections to this node, it can be added to queue to process further
                         result[index++] = prerequisites[i][0];
                         queue.offer(prerequisites[i][0]);
                     }

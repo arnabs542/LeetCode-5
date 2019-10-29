@@ -11,8 +11,8 @@ import java.util.*;
  * </p>
  */
 public class _210_CourseSchedule_II {
-
     // this approach is based on BFS (TC: O(n))
+    // the only difference from course schedule-I  is that, here return the result array instead of returning a boolean value. rest everything is exactly the same.
     private static int[] findOrder(int numCourses, int[][] prerequisites) {
         if (numCourses == 0 || prerequisites == null) {
             return null;
