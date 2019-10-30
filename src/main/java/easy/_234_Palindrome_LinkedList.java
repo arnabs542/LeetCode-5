@@ -30,7 +30,7 @@ public class _234_Palindrome_LinkedList {
         slow = reverse(slow);
         fast = head;
 
-        while (slow != null) {   // compare elements in the first and second halfs
+        while (slow != null) {   // compare elements in the first and second half's
             if (fast.val != slow.val) {
                 return false;
             }

@@ -30,7 +30,7 @@ public class _148_SortList_LL {
         return merge2Lists(head1, head2);
     }
 
-    // simple utility function to merge the lists
+    // simple utility function to merge the 2 sorted lists
     private static LinkedListUtils.ListNode merge2Lists(LinkedListUtils.ListNode head1, LinkedListUtils.ListNode head2) {
         LinkedListUtils.ListNode dummy = new LinkedListUtils.ListNode(0);
         LinkedListUtils.ListNode current = dummy;

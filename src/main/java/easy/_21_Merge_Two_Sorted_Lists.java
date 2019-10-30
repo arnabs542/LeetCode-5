@@ -8,7 +8,7 @@ package easy;
  */
 public class _21_Merge_Two_Sorted_Lists {
 
-    // core logic: compare the first node of 1st list with 1st node of 2nd list, if l1<=l2, attach current (for the new list) to l1 and increment l1, else attach current to l2 and incerement l2
+    // core logic: compare the first node of 1st list with 1st node of 2nd list, if l1<=l2, attach current (for the new list) to l1 and increment l1, else attach current to l2 and increment l2
     private static LinkedListUtils.ListNode mergeTwoLists(LinkedListUtils.ListNode l1, LinkedListUtils.ListNode l2) {
         if (l1 == null) {
             return l2;
