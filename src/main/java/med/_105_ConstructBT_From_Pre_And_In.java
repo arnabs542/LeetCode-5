@@ -10,7 +10,7 @@ import java.util.HashMap;
  */
 public class _105_ConstructBT_From_Pre_And_In {
 
-    // core logic of the problem lies in identifying the left and right subtree sizes in the pre order traversal
+    // METHOD 1: core logic of the problem lies in identifying the left and right subtree sizes in the pre order traversal
     private static TreeNode buildTree(int[] preorder, int[] inorder) {
         return helper(preorder, 0, preorder.length - 1, inorder, 0, inorder.length - 1);
     }
@@ -32,7 +32,7 @@ public class _105_ConstructBT_From_Pre_And_In {
         return root;
     }
 
-    // same as above solution, except that we pre calculate the inorder index look up and then use it later
+    // METHOD 2: same as above solution, except that we pre calculate the inorder index look up and then use it later
     private static HashMap<Integer, Integer> indexLookUpMap = new HashMap<>();
 
     private static TreeNode buildTree2(int[] preorder, int[] inorder) {

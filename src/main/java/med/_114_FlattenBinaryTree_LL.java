@@ -40,6 +40,31 @@ public class _114_FlattenBinaryTree_LL {
         }
     }
 
+    // TODO: not working. fix it later. this approach is similar to the in-order iterative traversal, so easy to remember
+    private static void flatten2(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        Stack<TreeNode> nodeStoreStack = new Stack<>();
+        TreeNode current = root;
+        TreeNode prev = null;
+
+        while (current != null || !nodeStoreStack.isEmpty()) {
+            if (current != null) {
+                nodeStoreStack.push(current);  // save the node
+                current = current.left;   // process the left child
+            } else {
+                current = nodeStoreStack.pop();
+                if (prev != null) {
+                    prev.right = current;
+                    prev.left = null;
+                }
+                prev = current;
+                current = current.right;  // process the right child
+            }
+        }
+    }
+
     public static void main(String[] args) {
         TreeNode root = new TreeNode(1);
         TreeNode node1 = new TreeNode(2);

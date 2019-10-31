@@ -10,7 +10,7 @@ import static org.testng.Assert.assertEquals;
  * Created by udaythota on 5/29/19.
  * Given a binary search tree, write a function kthSmallest to find the kth smallest element in it.
  */
-public class _30_Kth_Smallest_BST {
+public class _230_Kth_Smallest_BST {
     // core logic: inorder traversal: kth smallest element in BST is the kth element in the in-order traversal
     // TC: O(n) as each node in the tree is visited exactly once
     private static int kthSmallest(TreeNode root, int k) {
@@ -94,7 +94,7 @@ public class _30_Kth_Smallest_BST {
         node1.right = node3;
         assertEquals(kthSmallest(root, 1), 1);
         assertEquals(kthSmallestRecursive(root, 1), 1);
-        assertEquals(new _30_Kth_Smallest_BST().kthSmallestRecursiveAlternate(root, 1), 1);
+        assertEquals(new _230_Kth_Smallest_BST().kthSmallestRecursiveAlternate(root, 1), 1);
 
         // test case: 2
         TreeNode root1 = new TreeNode(5);
@@ -110,6 +110,6 @@ public class _30_Kth_Smallest_BST {
         node6.left = node8;
         assertEquals(kthSmallest(root1, 3), 3);
         assertEquals(kthSmallestRecursive(root1, 3), 3);
-        assertEquals(new _30_Kth_Smallest_BST().kthSmallestRecursiveAlternate(root1, 3), 3);
+        assertEquals(new _230_Kth_Smallest_BST().kthSmallestRecursiveAlternate(root1, 3), 3);
     }
 }

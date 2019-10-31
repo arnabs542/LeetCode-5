@@ -15,8 +15,8 @@ public class _145_PostOrderTraversal {
     // Trivial: Post-Order traversal recursive
     private List<Integer> postOrderTraversal(TreeNode root) {
         if (root != null) {
-            postOrderTraversal(root.right);
             postOrderTraversal(root.left);
+            postOrderTraversal(root.right);
             resultList.add(root.val);
         }
         return resultList;
@@ -48,22 +48,23 @@ public class _145_PostOrderTraversal {
 
     // post order iterative: similar to the above approach except that we use add an array list (instead of a linked list) and add elements to the first index (instead of using the addFirst function)
     // whenever adding an element to the result list, add it as the first element, so the root, left and right child when added to result list will process as (left child, right child and root)
+    // only 2 changes when compared to pre order traversal: a) always insert in to the first index of the result list, b) push right links to the stack first and then the left link (so when it is being processed, left gets processed first and right next)
     private List<Integer> postOrderTraversalAlternate(TreeNode root) {
         List<Integer> resultList = new ArrayList<>();
         if (root == null) {
             return resultList;
         }
         Stack<TreeNode> nodeStoreStack = new Stack<>();
-        nodeStoreStack.push(root);
+        TreeNode current = root;
 
-        while (!nodeStoreStack.isEmpty()) {
-            TreeNode curr = nodeStoreStack.pop();
-            resultList.add(0, curr.val);
-            if (curr.left != null) {
-                nodeStoreStack.push(curr.left);
-            }
-            if (curr.right != null) {
-                nodeStoreStack.push(curr.right);
+        while (current != null || !nodeStoreStack.isEmpty()) {
+            if (current != null) {
+                resultList.add(0, current.val);
+                nodeStoreStack.push(current);
+                current = current.right;
+            } else {
+                current = nodeStoreStack.pop();
+                current = current.left;
             }
         }
         return resultList;

@@ -17,7 +17,7 @@ public class _106_ConstructBT_From_In_And_Post {
             return null;
         }
         int index = 0;
-        for (int i = 0; i <= inorder.length; i++) {
+        for (int i = 0; i < inorder.length; i++) {
             if (inorder[i] == postOrder[postEnd]) {
                 index = i;
                 break;
