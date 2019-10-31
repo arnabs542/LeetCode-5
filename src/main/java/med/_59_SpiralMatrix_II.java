@@ -58,7 +58,6 @@ public class _59_SpiralMatrix_II {
         return result;
     }
 
-
     // the logic is very similar to spiral matrix - I (the only difference here is: we insert the elements in to the array rather than reading the elements from the array)
     private static int[][] generateMatrixAlternate(int n) {
         int[][] result = new int[n][n];
