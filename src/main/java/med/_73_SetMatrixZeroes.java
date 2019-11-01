@@ -25,7 +25,7 @@ public class _73_SetMatrixZeroes {
                         firstRow = true;   // first row contained zero in the input matrix
                     }
                     if (j == 0) {
-                        firstColumn = true;  // // first column contained zero in the input matrix
+                        firstColumn = true;  // first column contained zero in the input matrix
                     }
                     matrix[i][0] = 0;
                     matrix[0][j] = 0;

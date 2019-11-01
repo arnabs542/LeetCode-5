@@ -10,7 +10,7 @@ import static org.testng.Assert.assertTrue;
  * The first integer of each row is greater than the last integer of the previous row.
  * </p>
  */
-public class _76_Search2DMatrix {
+public class _74_Search2DMatrix {
 
     // core logic is that just consider the input as a sorted array rather than a 2*2 matrix and then perform a usual binary search
     // TC: O(log N), SC: O(1)
