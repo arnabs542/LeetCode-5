@@ -57,9 +57,9 @@ public class _535_Encode_Decode_TinyURL {
             return longToShort2.get(longUrl);
         }
 
-        String shortURL = generateRandomURL(longUrl);
+        String shortURL = generateRandomURL();
         while (shortToLong2.containsKey(shortURL)) {   // to avoid collisions
-            shortURL = generateRandomURL(longUrl);
+            shortURL = generateRandomURL();
         }
         longToShort2.put(longUrl, shortURL);
         shortToLong2.put(shortURL, longUrl);
@@ -71,7 +71,7 @@ public class _535_Encode_Decode_TinyURL {
         return shortToLong2.get(shortUrl);
     }
 
-    private static String generateRandomURL(String longURL) {
+    private static String generateRandomURL() {
         final String base62Array = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         StringBuilder stringBuilder = new StringBuilder();
         int k = 6;

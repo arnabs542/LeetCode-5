@@ -12,7 +12,6 @@ import static org.testng.Assert.assertEquals;
  * The cache is initialized with a positive capacity.
  */
 public class _146_LRU_Cache {
-
     private ListNode head, tail;
     private int capacity, count;
     private HashMap<Integer, ListNode> map;
