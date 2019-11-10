@@ -1,0 +1,55 @@
+package easy;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+/**
+ * Created by udaythota on 11/9/19.
+ * <p>
+ * Invert a binary tree.
+ * </p>
+ */
+public class _226_Invert_Binary_Tree {
+    // simple level order traversal / BFS and as you traverse keep swapping the nodes at every level
+    private static TreeNode invertTree(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            TreeNode temp = queue.poll();
+            TreeNode t1 = temp.left;
+            temp.left = temp.right;
+            temp.right = t1;
+
+            if (temp.left != null) {
+                queue.offer(temp.left);
+            }
+            if (temp.right != null) {
+                queue.offer(temp.right);
+            }
+        }
+        return root;
+    }
+
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(4);
+        TreeNode node2 = new TreeNode(2);
+        TreeNode node7 = new TreeNode(7);
+        TreeNode node1 = new TreeNode(1);
+        TreeNode node3 = new TreeNode(3);
+        TreeNode node6 = new TreeNode(6);
+        TreeNode node9 = new TreeNode(9);
+        root.left = node2;
+        root.right = node7;
+        node2.left = node1;
+        node2.right = node3;
+        node7.left = node6;
+        node7.right = node9;
+
+        TreeNode newRoot = invertTree(root);
+        BinaryTreeUtils.printLevelOrder(newRoot);
+    }
+}
