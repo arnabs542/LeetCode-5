@@ -6,6 +6,7 @@ import static org.testng.Assert.assertEquals;
  * Created by udaythota on 11/17/19.
  * <p>
  * Given n, how many structurally unique BST's (binary search trees) that store values 1 ... n?
+ * Watch this for better understanding: https://www.youtube.com/watch?v=YDf982Lb84o
  * </p>
  */
 public class _96_Unique_BSTs_Possible {
