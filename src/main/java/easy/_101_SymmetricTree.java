@@ -12,7 +12,6 @@ import static org.testng.Assert.assertTrue;
  * </p>
  */
 public class _101_SymmetricTree {
-
     // recursive approach: process left and right trees separately
     private static boolean isSymmetric(TreeNode root) {
         return helper(root, root);
