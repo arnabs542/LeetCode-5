@@ -9,7 +9,6 @@ import java.util.Stack;
  * </p>
  */
 public class _426_Convert_BST_DoubleLL {
-
     // core logic: do an inorder traversal and in the process, keep the prev pointer so you can update the pointer (left) from current to prev
     // after end of the iteration, make sure to attach the head and tail of the linked list to make it a circular linked list
     private static TreeNode treeToDoublyList(TreeNode root) {

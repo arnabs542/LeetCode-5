@@ -9,7 +9,7 @@ package med;
  */
 public class _449_Serialize_And_Deserialize_BST {
     // Encodes a tree to a single string.
-    // Return the pre order traversal of BST (as we can de-serialize back BST using pre-order elements). We can construct a BST only from pre order traversal.
+    // Return the pre order traversal of BST (as we can de-serialize back BST using pre-order elements). We can construct a BST ONLY from pre order traversal.
     private String serialize(TreeNode root) {
         if (root == null) {
             return "";
@@ -22,27 +22,32 @@ public class _449_Serialize_And_Deserialize_BST {
     }
 
     // Decodes your encoded data to tree.
-    // Convert the serialized string (pre order elements) back to BST. Similar approach as in LC: 1008, except that instead of a global variable there, we here use a nodeIndex array to keep a track of the number of visited elements
+    // Convert the serialized string (pre order elements) back to BST. Same as LC 1008: construct BST from pre order traversal
     private TreeNode deserialize(String data) {
         if (data == null || data.length() == 0) {
             return null;
         }
 
+        data = data.substring(0, data.length() - 1);
         String[] preorder = data.split(",");
-        int[] nodeIndex = {0};
-        return helper(preorder, nodeIndex, Integer.MIN_VALUE, Integer.MAX_VALUE);
+        return helper(preorder, 0, preorder.length - 1);
     }
 
-    private static TreeNode helper(String[] preorder, int nodeIndex[], int min, int max) {
-        if (nodeIndex[0] == preorder.length || Integer.parseInt(preorder[nodeIndex[0]]) < min || Integer.parseInt(preorder[nodeIndex[0]]) > max) {
+    private static TreeNode helper(String[] preorder, int preStart, int preEnd) {
+        if (preStart > preEnd) {
             return null;
         }
 
-        int nodeValue = Integer.parseInt(preorder[nodeIndex[0]]);
-        TreeNode root = new TreeNode(nodeValue);
-        nodeIndex[0]++;
-        root.left = helper(preorder, nodeIndex, min, nodeValue);
-        root.right = helper(preorder, nodeIndex, nodeValue, max);
+        TreeNode root = new TreeNode(Integer.valueOf(preorder[preStart]));
+        int i;
+        for (i = preStart; i <= preEnd; i++) {
+            if (Integer.valueOf(preorder[i]) > root.val) {
+                break;
+            }
+        }
+
+        root.left = helper(preorder, preStart + 1, i - 1);
+        root.right = helper(preorder, i, preEnd);
         return root;
     }
 
