@@ -8,7 +8,6 @@ package med;
  * </p>
  */
 public class _24_Swap_Nodes_Pairs_LL {
-
     // core logic: move the first pointer to third node, second to first and save the first (pre)
     // once you shift the 2nd set of nodes, attach the pre to 2nd new head. continue the process till end of the nodes
     // better understood with an example

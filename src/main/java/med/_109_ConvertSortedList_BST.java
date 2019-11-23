@@ -40,7 +40,7 @@ public class _109_ConvertSortedList_BST {
 
     // similar to above approach, but more intuitive and readable
     // find the root (centre of the list) and set the last node (pre: before root) of the first list to NULL. now that we have 2 lists, repeat the same process for left and right sub lists to generate the left and right sub trees
-    // TC: O(logn) - see the detailed explanation here: https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/solution/
+    // TC: O(nlogn) - see the detailed explanation here: https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/solution/
     private static TreeNode sortedListToBST2(LinkedListUtils.ListNode head) {
         if (head == null) {
             return null;

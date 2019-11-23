@@ -7,7 +7,6 @@ package easy;
  * </p>
  */
 public class _206_Reverse_LinkedList {
-
     // simple iterative process
     private static LinkedListUtils.ListNode reverseList(LinkedListUtils.ListNode head) {
         if (head == null || head.next == null) {
@@ -25,9 +24,20 @@ public class _206_Reverse_LinkedList {
         return prev;
     }
 
-    // TODO: simple recursive process
+    // simple recursive process
+    // TC: O(n)
+    // SC: O(n) - due to recursion function stack call
     private static LinkedListUtils.ListNode reverseList2(LinkedListUtils.ListNode head) {
-        return null;
+        return helper(head, null);
+    }
+
+    private static LinkedListUtils.ListNode helper(LinkedListUtils.ListNode current, LinkedListUtils.ListNode prev) {
+        if (current == null) {
+            return prev;
+        }
+        LinkedListUtils.ListNode nextNode = current.next;
+        current.next = prev;
+        return helper(nextNode, current);
     }
 
     public static void main(String[] args) {
