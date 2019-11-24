@@ -8,7 +8,7 @@ package med;
  */
 public class _328_Odd_Even_LinkedList {
 
-    // core logic: save the odd (first node) even head (second node) in the beginning. iterate through the list and start arranging the odd nodes and even nodes separately. finally attach the end of odd node to the even head (which we saved in the beginning)
+    // core logic: save the odd (first node) and even head (second node) in the beginning. iterate through the list and start arranging the odd nodes and even nodes separately. finally attach the end of odd node to the even head (which we saved in the beginning)
     // eg: original list: 1->2->3->4->5. arrange the odd nodes: 1->3->5 and the even nodes: 2->4 as you iterate through the list. finally (after end of the loop), attach the end of odd node list 5 to the beginning of even nodes list 2
     private static LinkedListUtils.ListNode oddEvenList(LinkedListUtils.ListNode head) {
         if (head == null || head.next == null) {
@@ -18,7 +18,7 @@ public class _328_Odd_Even_LinkedList {
         LinkedListUtils.ListNode even = head.next;
         LinkedListUtils.ListNode evenHead = even;  // this is useful to attach the end of odd node
 
-        while (even != null && even.next != null) {
+        while (even != null && even.next != null) {   // NOTE: this is an important observation
             odd.next = odd.next.next;
             even.next = even.next.next;
             odd = odd.next;
