@@ -12,7 +12,6 @@ import static org.testng.Assert.assertTrue;
  * </p>
  */
 public class _240_Search2DMatrix_II {
-
     /*
     We start search the matrix from TOP RIGHT CORNER, initialize the current position to top right corner,
     if the target is greater than the value in current position, then the target can not be in entire row of current position because the row is sorted,

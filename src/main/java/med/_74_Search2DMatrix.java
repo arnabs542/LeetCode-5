@@ -12,7 +12,7 @@ import static org.testng.Assert.assertTrue;
  */
 public class _74_Search2DMatrix {
 
-    // core logic is that just consider the input as a sorted array rather than a 2*2 matrix and then perform a usual binary search
+    // core logic is that just consider the input as a sorted array rather than a n*n matrix and then perform a usual binary search
     // TC: O(log N), SC: O(1)
     private static boolean searchMatrix(int[][] matrix, int target) {
         if (matrix == null || matrix.length == 0) {
