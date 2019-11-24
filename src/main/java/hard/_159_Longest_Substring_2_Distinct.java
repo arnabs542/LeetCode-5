@@ -7,7 +7,7 @@ import static org.testng.Assert.assertEquals;
 /**
  * Created by udaythota on 8/1/19.
  * <p>
- * Given a string s , find the length of the longest substring t  that contains at most 2 distinct characters.
+ * Given a string s , find the length of the longest substring t that contains at most 2 distinct characters.
  * </p>
  */
 public class _159_Longest_Substring_2_Distinct {

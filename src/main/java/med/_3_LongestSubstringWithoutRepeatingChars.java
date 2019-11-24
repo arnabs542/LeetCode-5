@@ -67,7 +67,7 @@ public class _3_LongestSubstringWithoutRepeatingChars {
                 counter++;
             }
             end++;
-            while (counter > 0) {
+            while (counter > 0) {   // counter > 0 indicates repeating chars encountered in the string
                 char beginChar = inputString.charAt(begin);
                 if (map.get(beginChar) > 1) {
                     counter--;

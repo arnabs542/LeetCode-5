@@ -37,7 +37,7 @@ public class _7_ReverseInteger {
         return inputNumber < 0 ? -reverseInteger : reverseInteger;
     }
 
-    private static int reverseAlternate(int inputNumber) {
+    private static int reverse2(int inputNumber) {
         int reverseInteger = 0;
         boolean isNegative = false;
 
@@ -63,7 +63,7 @@ public class _7_ReverseInteger {
     }
 
     // NOTE: except that we are using long and type casting, this is simplest and more optimal
-    private static int reverseOptimal(int inputNumber) {
+    private static int reverse3(int inputNumber) {
         long reverseInteger = 0;
 
         while (inputNumber != 0) {
@@ -71,8 +71,9 @@ public class _7_ReverseInteger {
             inputNumber = inputNumber / 10;
 
             // whenever overflow occurs, return 0
-            if (reverseInteger > Integer.MAX_VALUE || reverseInteger < Integer.MIN_VALUE)
+            if (reverseInteger > Integer.MAX_VALUE || reverseInteger < Integer.MIN_VALUE) {
                 return 0;
+            }
         }
         return (int) reverseInteger;
     }
@@ -84,17 +85,16 @@ public class _7_ReverseInteger {
         assertEquals(reverse(1534236469), 0);
         assertEquals(reverse(-2147483648), 0);
 
+        assertEquals(reverse2(123), 321);
+        assertEquals(reverse2(-123), -321);
+        assertEquals(reverse2(120), 21);
+        assertEquals(reverse2(1534236469), 0);
+        assertEquals(reverse2(-2147483648), 0);
 
-        assertEquals(reverseAlternate(123), 321);
-        assertEquals(reverseAlternate(-123), -321);
-        assertEquals(reverseAlternate(120), 21);
-        assertEquals(reverseAlternate(1534236469), 0);
-        assertEquals(reverseAlternate(-2147483648), 0);
-
-        assertEquals(reverseOptimal(123), 321);
-        assertEquals(reverseOptimal(-123), -321);
-        assertEquals(reverseOptimal(120), 21);
-        assertEquals(reverseOptimal(1534236469), 0);
-        assertEquals(reverseOptimal(-2147483648), 0);
+        assertEquals(reverse3(123), 321);
+        assertEquals(reverse3(-123), -321);
+        assertEquals(reverse3(120), 21);
+        assertEquals(reverse3(1534236469), 0);
+        assertEquals(reverse3(-2147483648), 0);
     }
 }

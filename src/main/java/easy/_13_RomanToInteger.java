@@ -11,7 +11,6 @@ import static org.testng.Assert.assertEquals;
  * </p>
  */
 public class _13_RomanToInteger {
-
     // core logic: compare the current and previous characters, and do the sum / difference from the result appropriately (preferred approach)
     // TC: O(n)
     private static int romanToInt(String s) {

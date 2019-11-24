@@ -12,7 +12,6 @@ import static org.testng.AssertJUnit.assertTrue;
  * </p>
  */
 public class _9_PalindromeNumber {
-
     // see the below solution for the most optimal implementation
     private static boolean isPalindrome(int inputNumber) {
         if (inputNumber < 0) {
