@@ -1,4 +1,4 @@
-package easy;
+package design.easy;
 
 import static org.testng.Assert.assertEquals;
 

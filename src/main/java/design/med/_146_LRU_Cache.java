@@ -1,4 +1,4 @@
-package med;
+package design.med;
 
 import java.util.HashMap;
 
