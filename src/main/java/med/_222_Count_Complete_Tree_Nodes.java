@@ -10,9 +10,17 @@ import static org.testng.Assert.assertEquals;
  */
 public class _222_Count_Complete_Tree_Nodes {
 
+    // TC: O(n) - this is a trivial solution, see below for the optimized solution
+    private static int countNodes(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        return 1 + countNodes(root.left) + countNodes(root.right);
+    }
+
     // TODO: think of a more intuitive solution
     // TC: 2 * O(logn)
-    private static int countNodes(TreeNode root) {
+    private static int countNodes2(TreeNode root) {
         if (root == null) {
             return 0;
         }

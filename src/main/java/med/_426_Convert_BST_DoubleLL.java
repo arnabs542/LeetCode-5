@@ -29,7 +29,7 @@ public class _426_Convert_BST_DoubleLL {
                     prev.right = current;
                     current.left = prev;
                 } else {
-                    root = current;   // save the root node so we can attach the first and last nodes later
+                    root = current;   // save the root node so we can attach the first and last nodes later (this is equivalent to head of the linked list)
                 }
                 prev = current;
                 current = current.right;

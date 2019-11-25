@@ -23,12 +23,13 @@ public class _449_Serialize_And_Deserialize_BST {
 
     // Decodes your encoded data to tree.
     // Convert the serialized string (pre order elements) back to BST. Same as LC 1008: construct BST from pre order traversal
+    // TC: O(n^2). the below solution is kind of more optimal
     private TreeNode deserialize(String data) {
         if (data == null || data.length() == 0) {
             return null;
         }
 
-        data = data.substring(0, data.length() - 1);
+        data = data.substring(0, data.length() - 1);   // to truncate the last character of the string (',')
         String[] preorder = data.split(",");
         return helper(preorder, 0, preorder.length - 1);
     }
@@ -41,7 +42,7 @@ public class _449_Serialize_And_Deserialize_BST {
         TreeNode root = new TreeNode(Integer.valueOf(preorder[preStart]));
         int i;
         for (i = preStart; i <= preEnd; i++) {
-            if (Integer.valueOf(preorder[i]) > root.val) {
+            if (Integer.valueOf(preorder[i]) > root.val) {    // since all the left nodes should be less than the root, we can identify till what point is the left sub tree
                 break;
             }
         }
@@ -51,24 +52,45 @@ public class _449_Serialize_And_Deserialize_BST {
         return root;
     }
 
+    // Decodes your encoded data to tree.
+    // Convert the serialized string (pre order elements) back to BST. Similar approach as in LC: 1008, except that instead of a global variable there, we here use a nodeIndex array to keep a track of the number of visited elements
+    private TreeNode deserialize2(String data) {
+        if (data == null || data.length() == 0) {
+            return null;
+        }
+
+        String[] preorder = data.split(",");
+        int[] nodeIndex = {0};
+        return helper2(preorder, nodeIndex, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+
+    private static TreeNode helper2(String[] preorder, int nodeIndex[], int min, int max) {
+        if (nodeIndex[0] == preorder.length || Integer.parseInt(preorder[nodeIndex[0]]) < min || Integer.parseInt(preorder[nodeIndex[0]]) > max) {
+            return null;
+        }
+
+        int nodeValue = Integer.parseInt(preorder[nodeIndex[0]]);
+        TreeNode root = new TreeNode(nodeValue);
+        nodeIndex[0]++;
+        root.left = helper2(preorder, nodeIndex, min, nodeValue);
+        root.right = helper2(preorder, nodeIndex, nodeValue, max);
+        return root;
+    }
+
     public static void main(String[] args) {
-        TreeNode root = new TreeNode(3);
-        TreeNode node1 = new TreeNode(5);
-        TreeNode node2 = new TreeNode(1);
-        TreeNode node3 = new TreeNode(6);
-        TreeNode node4 = new TreeNode(2);
-        TreeNode node5 = new TreeNode(0);
-        TreeNode node6 = new TreeNode(8);
-        TreeNode node7 = new TreeNode(7);
-        TreeNode node8 = new TreeNode(4);
+        TreeNode root = new TreeNode(5);
+        TreeNode node1 = new TreeNode(2);
+        TreeNode node2 = new TreeNode(9);
+        TreeNode node3 = new TreeNode(1);
+        TreeNode node4 = new TreeNode(3);
+        TreeNode node5 = new TreeNode(6);
+        TreeNode node6 = new TreeNode(11);
         root.left = node1;
         root.right = node2;
         node1.left = node3;
         node1.right = node4;
         node2.left = node5;
         node2.right = node6;
-        node4.left = node7;
-        node4.right = node8;
 
         _449_Serialize_And_Deserialize_BST serialize_and_deserialize_bst = new _449_Serialize_And_Deserialize_BST();
         String serializedString = serialize_and_deserialize_bst.serialize(root);

@@ -55,7 +55,7 @@ public class _124_BinaryTree_MaxPathSum {
 
         // if root + leftSum + rightSum is greater than any of the max till now, update the final max (though we are updating the final max, we shouldn't be propagating this further as only one of left or right path is the valid selection)
         int tempMax = Math.max(maxTillNow, root.val + leftSum + rightSum);
-        finalMax = Math.max(tempMax, finalMax);
+        finalMax = Math.max(finalMax, tempMax);  // update the final max if needed
 
         // return the max sum till the current node that can be processed further
         return maxTillNow;

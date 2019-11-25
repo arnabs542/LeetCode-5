@@ -27,8 +27,9 @@ public class _235_LCA_BST {
                 root = root.left;
             } else if (p.val > root.val && q.val > root.val) {
                 root = root.right;
-            } else
+            } else {
                 return root;
+            }
         }
         return root;
     }

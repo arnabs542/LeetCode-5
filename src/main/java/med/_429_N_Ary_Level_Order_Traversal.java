@@ -9,7 +9,7 @@ import java.util.*;
  * </p>
  */
 public class _429_N_Ary_Level_Order_Traversal {
-    // simple level order BFS: just use an array list instead of left and right links
+    // simple level order BFS: just use an array list instead of left and right links in the tree node structure
     private static List<List<Integer>> levelOrder(NAryNode root) {
         List<List<Integer>> result = new ArrayList<>();
         if (root == null) {

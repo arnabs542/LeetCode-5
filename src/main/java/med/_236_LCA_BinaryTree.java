@@ -28,7 +28,7 @@ public class _236_LCA_BinaryTree {
     }
 
     // Non Recursive BFS Approach: TC - O(n)
-    // Step 1: traverse all the tree and save the node-parent pairs (in a hash map) for all the nodes in the tree (till the point we encounter BOTH p and q)
+    // Step 1: traverse all the tree (using level order traversal here) and save the node-parent pairs (in a hash map) for all the nodes in the tree (till the point we encounter BOTH p and q)
     // Step 2: start from p and save all the parents of p till root (including p and root) in a hash set
     // Step 3: start from q and and navigate through all the parents till root and whenever you see a parent that is present in the set (common ancestor for p and q), that is LCA
     private static TreeNode lowestCommonAncestorIterative(TreeNode root, TreeNode p, TreeNode q) {

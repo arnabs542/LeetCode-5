@@ -57,7 +57,7 @@ public class _111_Minimum_Depth_BT {
             int size = queue.size();
             while (size-- > 0) {
                 TreeNode node = queue.poll();
-                if (node.left == null && node.right == null) {  // encountered a child node. so this should be the min depth of the tree
+                if (node.left == null && node   .right == null) {  // encountered a child node. so this should be the min depth of the tree
                     return level;
                 }
                 if (node.left != null) {

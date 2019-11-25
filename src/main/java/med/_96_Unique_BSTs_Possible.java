@@ -21,7 +21,7 @@ public class _96_Unique_BSTs_Possible {
 
         for (int i = 2; i <= n; i++) {
             for (int j = 0; j < i; j++) {
-                dp[i] += dp[j] * dp[i - j - 1];   // * not + -> as for every left possibility there are n number of right possibilities / combinations, so the total number is product of both
+                dp[i] += dp[j] * dp[i - j - 1];   // '*' not '+' -> as for every left possibility there are n number of right possibilities / combinations, so the total number is product of both
             }
         }
         return dp[n];

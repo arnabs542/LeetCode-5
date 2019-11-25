@@ -31,7 +31,7 @@ public class _297_Serialize_And_Deserialize_BT {
                 stringBuilder.append("null" + ",");
             }
         }
-        stringBuilder.setLength(stringBuilder.length() - 1);
+        stringBuilder.setLength(stringBuilder.length() - 1);   // truncate the last character (',')
         return stringBuilder.toString();
     }
 
