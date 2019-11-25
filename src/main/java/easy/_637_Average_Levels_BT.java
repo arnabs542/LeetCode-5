@@ -22,7 +22,7 @@ public class _637_Average_Levels_BT {
         queue.add(root);
         while (!queue.isEmpty()) {
             int queueSize = queue.size();
-            long levelSum = 0;   // to make sure there is no integer overflow when the sum of both left and right vals exceed max int
+            double levelSum = 0;   // to make sure there is no integer overflow when the sum of both left and right vals exceed max int
             for (int i = 0; i < queueSize; i++) {
                 TreeNode temp = queue.poll();
                 levelSum += temp.val;
@@ -34,7 +34,7 @@ public class _637_Average_Levels_BT {
                     queue.offer(temp.right);
                 }
             }
-            result.add((double) levelSum / queueSize);
+            result.add(levelSum / queueSize);
         }
         return result;
     }
