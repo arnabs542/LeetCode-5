@@ -11,7 +11,7 @@ import static org.testng.Assert.assertEquals;
  */
 public class _70_ClimbingStairs {
     // trivial: simple recursion
-    // TC: O(2^n) - as we need at least computations for each and every call
+    // TC: O(2^n) - as we need at least 2 computations for each and every call
     // SC: O(n) -  the depth of the recursion tree can go up to n: each function call takes its own space
     private static int climbStairs(int n) {
         if (n == 1) {

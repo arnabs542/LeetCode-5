@@ -23,6 +23,7 @@ public class _144_PreOrderTraversal {
 
     // Pre-Order traversal Iterative: uses a stack to store the nodes while traversing
     // as the left node has to be processed first: push the right node and then the left node , which makes the left node come out first
+    // see the below alternate solution to be consistent with other traversal approaches
     private List<Integer> preOrderTraversalIterative(TreeNode root) {
         if (root == null) {
             return resultList;
