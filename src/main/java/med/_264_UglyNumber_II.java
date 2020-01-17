@@ -10,7 +10,6 @@ import static org.testng.Assert.assertEquals;
  * </p>
  */
 public class _264_UglyNumber_II {
-
     // DP: iterative with bottom up approach
     // core logic: start with smallest common prime factor (1) for the possible divisors (2, 3, 5) and keep incrementing them as needed
     // dp[i] represents the smallest ith ugly number
