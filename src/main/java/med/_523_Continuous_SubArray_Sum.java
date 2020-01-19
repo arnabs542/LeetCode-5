@@ -2,6 +2,7 @@ package med;
 
 import java.util.HashMap;
 
+import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 /**
@@ -20,7 +21,7 @@ public class _523_Continuous_SubArray_Sum {
 
         int runningSum = 0;
         HashMap<Integer, Integer> map = new HashMap<>();   // to keep track of current running sum (till ith index) : next time we encounter this running sum this means that there is a possible sum
-        map.put(0, -1);   // return true when the runningSum % k=0
+        map.put(0, -1);   // return true when the runningSum % k = 0
         for (int i = 0; i < nums.length; i++) {
             runningSum += nums[i];
             if (k != 0) {
@@ -45,6 +46,7 @@ public class _523_Continuous_SubArray_Sum {
         assertTrue(checkSubArraySum(new int[]{23, 2, 4, 6, 7}, -6));
         assertTrue(checkSubArraySum(new int[]{23, 1}, 6));
         assertTrue(checkSubArraySum(new int[]{23, 2, 6, 4}, 6));
-        assertTrue(checkSubArraySum(new int[]{2, 6}, 6));
+        assertFalse(checkSubArraySum(new int[]{2, 6}, 6));
+        assertTrue(checkSubArraySum(new int[]{10, 8, 4, 5}, 6));
     }
 }

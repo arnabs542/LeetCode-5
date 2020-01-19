@@ -11,22 +11,25 @@ import static org.testng.Assert.assertEquals;
  * </p>
  */
 public class _63_UniquePaths_II {
-
+    // core logic: use '0' and '1' values to remember if the path exists or not (0 meaning there is no path and 1 meaning there is a valid path)
+    // first fill the first row and first column with 1's where path exists
+    // later, start from second row and column to fill the remaining grid: calculate the grid path value ONLY the grid value is '0' (which means there is no obstacle)
+    // and when there is '1' (which means there is a obstacle), fill the grid path value with '0' - which means zero paths from that point
     private static int uniquePathsWithObstacles(int[][] obstacleGrid) {
         if (obstacleGrid.length == 0 || obstacleGrid[0][0] == 1) {
             return 0;
         }
 
-        obstacleGrid[0][0] = 1;
+        obstacleGrid[0][0] = 1;  // this is important. initialize the path sum value in the first point (which means there is 1 path possible from that point)
         int rows = obstacleGrid.length;
         int columns = obstacleGrid[0].length;
 
-        // fill the first row
+        // fill the first column
         for (int i = 1; i < rows; i++) {
             obstacleGrid[i][0] = obstacleGrid[i][0] == 0 && obstacleGrid[i - 1][0] == 1 ? 1 : 0;
         }
 
-        // fill the first column
+        // fill the first row
         for (int j = 1; j < columns; j++) {
             obstacleGrid[0][j] = obstacleGrid[0][j] == 0 && obstacleGrid[0][j - 1] == 1 ? 1 : 0;
         }

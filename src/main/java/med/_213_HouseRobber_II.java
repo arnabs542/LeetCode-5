@@ -17,7 +17,7 @@ import static org.testng.Assert.assertEquals;
 public class _213_HouseRobber_II {
     // trivial: recursion. TC: O(2^n)
     // core logic: the only difference for this when compared to house robber-I is that houses are circular here (meaning, first and last houses shouldn't be summed)
-    // so divide the given input array to 2 input arrays (one which includes the first element and an other one without including it), do the same solution on both inputs, compare both the max and return the max out of them
+    // so divide the given input array to 2 input arrays (one from 1st to n-1th element and an other one from 2nd to nth element), do the same solution on both inputs, compare both the max and return the max out of them
     private static int rob(int[] nums) {
         if (nums == null || nums.length == 0) {
             return 0;
