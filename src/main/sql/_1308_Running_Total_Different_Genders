@@ -1,0 +1,14 @@
+-- Write an SQL query to find the total score for each gender at each day.
+-- Using self joins
+select s1.gender, s1.day, sum(s2.score_points) as 'total'
+from scores s1, scores s2
+where s1.gender = s2.gender
+and s1.day >=s2.day
+group by s1.gender, s1.day
+order by s1.gender, s1.day;
+
+-- Using Window Functions: Works only on MS SQL in LC
+select gender, day,
+sum(score_points) over(partition by gender order by day) as 'total'
+from scores
+order by gender, day;
