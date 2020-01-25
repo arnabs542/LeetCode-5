@@ -1,5 +1,6 @@
 package random.trees.graphs;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
@@ -8,8 +9,7 @@ import java.util.Stack;
  * Simple DFS for an directed graph : More Object Oriented and simple to follow approach
  */
 public class GraphDFS {
-
-    // core logic: same as BFS except that replace the queue traversal with a stack
+    // core logic: iterative DFS: same as BFS except that replace the queue traversal with a stack
     private static void dfsDirectedGraph(GraphNode startNode) {
         Stack<GraphNode> nodeTraversalStack = new Stack<>();
         nodeTraversalStack.push(startNode);
@@ -27,6 +27,23 @@ public class GraphDFS {
                 }
             }
         }
+    }
+
+    // core logic: recursive DFS: doesn't use a stack, but rather uses recursion to do the traversal
+    private static List<Integer> dfs2(GraphNode startNode, List<Integer> resultList) {
+        if (startNode == null) {
+            return resultList;
+        }
+
+        resultList.add(startNode.getData());
+        startNode.setVisited(true);
+
+        for (GraphNode neighbor : startNode.getNeighbours()) {
+            if (!neighbor.isVisited()) {
+                dfs2(neighbor, resultList);
+            }
+        }
+        return resultList;
     }
 
     public static void main(String[] args) {
@@ -49,7 +66,11 @@ public class GraphDFS {
         node60.addNeighbour(node70);
         node50.addNeighbour(node70);
 
-        System.out.println("The BFS traversal of the graph is: ");
-        GraphDFS.dfsDirectedGraph(node40);
+        /*System.out.println("The DFS traversal of the graph is: ");
+        GraphDFS.dfsDirectedGraph(node40);*/
+
+        System.out.println("The DFS 2 traversal of the graph is: ");
+        List<Integer> result = GraphDFS.dfs2(node40, new ArrayList<>());
+        System.out.println(result);
     }
 }
