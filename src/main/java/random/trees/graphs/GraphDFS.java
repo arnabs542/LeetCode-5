@@ -39,7 +39,7 @@ public class GraphDFS {
         startNode.setVisited(true);
 
         for (GraphNode neighbor : startNode.getNeighbours()) {
-            if (!neighbor.isVisited()) {
+            if (neighbor != null && !neighbor.isVisited()) {
                 dfs2(neighbor, resultList);
             }
         }
