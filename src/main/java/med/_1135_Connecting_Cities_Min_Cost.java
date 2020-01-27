@@ -16,6 +16,7 @@ public class _1135_Connecting_Cities_Min_Cost {
     // use prim's algorithm to find the min spanning tree: use a priority queue to keep track of costs associated with all the connected nodes for each node in the graph (in the priority queue: min costs are processed first)
     // at each and every step, pop the edge with the least cost. if the edge doesn't exist in the MST (visited set), add its cost to the total min cost and add new edges starting from end node to queue
     // derived from this solution: https://leetcode.com/problems/connecting-cities-with-minimum-cost/discuss/357446/Simple-Java-solution-for-slow-learners-like-myself
+    // TODO: min spanning tree can also be solved using kruskal's algorithm (union sort and find). investigate later
     private static int minimumCost(int n, int[][] connections) {
         if (n == 1) {
             return 0;
