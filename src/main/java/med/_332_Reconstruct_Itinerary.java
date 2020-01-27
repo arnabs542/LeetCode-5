@@ -12,7 +12,7 @@ import static org.testng.Assert.assertEquals;
  * </p>
  */
 public class _332_Reconstruct_Itinerary {
-    // straight forward DFS: start from source ("JFK)
+    // straight forward DFS: start from source ("JFK")
     // debug and understand if you find it tricky
     private static List<String> findItinerary(List<List<String>> tickets) {
         List<String> result = new ArrayList<>();
@@ -32,6 +32,7 @@ public class _332_Reconstruct_Itinerary {
     }
 
     // simple dfs helper method
+    // calculate Euler path. For each point, try to DFS its out-going point. There is chance that a DFS won't get a result. So, we do backtrack
     private static void dfs(List<String> result, String currentCity, HashMap<String, List<String>> graph, int totalTickets) {
         if (!graph.containsKey(currentCity)) {
             return;
@@ -50,19 +51,20 @@ public class _332_Reconstruct_Itinerary {
             }
 
             // these 2 steps are needed to handle the case where the next chosen city is not present (as a key) in the map and so put it back and try with next possible city (debug with eg:3 and check it out. in the first 2 test cases, they still pass without these 2 steps)
+            // in some cases where the dfs could solve the entire itinerary path (first 2 test cases), these below 2 steps are not even executed, but the cases where dfs couldn't solve (3rd test case), these 2 steps are needed
             nextCities.add(i, nextCity);   // put the next city in its origin position as it is not the right next city to chose
             result.remove(result.size() - 1);  // remove the last city from result (as the above next city is not the right choice)
         }
     }
 
-    // method2: uses Eulerian path DFS Algorithm
+    // Method 2: uses Eulerian path DFS Algorithm
     // investigate later
     private static Map<String, PriorityQueue<String>> graph;
-    private static LinkedList<String> path;
+    private static ArrayList<String> path;
 
     private static List<String> findItinerary2(List<List<String>> tickets) {
         graph = new HashMap<>();
-        path = new LinkedList<>();
+        path = new ArrayList<>();
         for (List<String> ticket : tickets) {
             graph.putIfAbsent(ticket.get(0), new PriorityQueue<>());
             graph.get(ticket.get(0)).add(ticket.get(1));
@@ -76,7 +78,7 @@ public class _332_Reconstruct_Itinerary {
         while (nextCities != null && !nextCities.isEmpty()) {
             dfs2(nextCities.poll());
         }
-        path.addFirst(departure);
+        path.add(0, departure);  // add the city in the first index as its DFS
     }
 
     public static void main(String[] args) {
