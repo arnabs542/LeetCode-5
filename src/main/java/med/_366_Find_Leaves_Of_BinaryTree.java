@@ -30,6 +30,7 @@ public class _366_Find_Leaves_Of_BinaryTree {
         return result;
     }
 
+    // helper method to remove the leaves: removes the left and right children of the node and returns true so the caller can now safely remove the parent node
     private static boolean removeLeaves(TreeNode root, List<Integer> layer) {
         if (root == null) {
             return false;
