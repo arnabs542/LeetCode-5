@@ -38,4 +38,42 @@ public class _364_Nested_Weight_Sum_II {
         }
         return totalSum;
     }
+
+    // simple DFS: compute the list depth first and use that depth to calculate the total sum for all the elements in the list. the first level elements will have the max depth and 2nd level elements will have depth = depth - 1, so on..
+    private static int depthSum2(List<NestedInteger> nestedList) {
+        if (nestedList == null || nestedList.isEmpty()) {
+            return 0;
+        }
+        int depth = getListDepth(nestedList);
+        return dfs(nestedList, depth);
+    }
+
+    // dfs helper method
+    private static int dfs(List<NestedInteger> nestedList, int depth) {
+        int sum = 0;
+        for (NestedInteger nestedInteger : nestedList) {
+            if (nestedInteger.isInteger()) {
+                sum += nestedInteger.getInteger() * depth;
+            } else {
+                sum += dfs(nestedInteger.getList(), depth - 1);
+            }
+        }
+        return sum;
+    }
+
+    // helper method to compute the depth of the given nested list
+    private static int getListDepth(List<NestedInteger> nestedList) {
+        if (nestedList == null || nestedList.size() == 0) {
+            return 0;
+        }
+        int max = 0;
+        for (NestedInteger nestedInteger : nestedList) {
+            if (nestedInteger.isInteger()) {
+                max = Math.max(max, 1);
+            } else {
+                max = Math.max(max, getListDepth(nestedInteger.getList()) + 1);
+            }
+        }
+        return max;
+    }
 }
