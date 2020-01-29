@@ -15,7 +15,8 @@ import static org.testng.Assert.assertEquals;
 public class _254_Factor_Combinations {
     // simple dfs using recursion: start from '2'
     // TC: O(nlogn) - TODO: check back later
-    // SC: O(logn) - stack space / height of the tree 
+    // SC: O(logn) - stack space / height of the tree
+    // TODO: check little optimized version later: https://leetcode.com/problems/factor-combinations/discuss/68041/My-short-Java-solution-which-Is-EASY-to-understand
     private static List<List<Integer>> getFactors(int n) {
         List<List<Integer>> result = new ArrayList<>();
         if (n <= 1) {
