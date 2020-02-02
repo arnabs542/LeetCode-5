@@ -37,7 +37,8 @@ public class _277_Find_Celebrity {
     }
 
     // core logic: first loop is to find the possible candidate and the second loop is to check if that possible candidate is the actual celebrity. TC: O(n)
-    // proof of first pass: https://leetcode.com/problems/find-the-celebrity/discuss/341661/Java-two-pass-solution-with-detailed-explanation.
+    // proof of first pass: the fact that there is only one celebrity here makes it easy to find the possible candidate only in one loop. see the below references for more info
+    // https://leetcode.com/problems/find-the-celebrity/discuss/341661/Java-two-pass-solution-with-detailed-explanation.
     // and https://leetcode.com/problems/find-the-celebrity/discuss/144815/Logical-Thinking-with-Clear-Java-Code
     private static int findCelebrity2(int n) {
         int candidate = 0;
