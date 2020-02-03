@@ -22,14 +22,16 @@ public class _721_Accounts_Merge {
         }
         for (List<String> a : acts) {
             String p = find(a.get(1), parents);
-            for (int i = 2; i < a.size(); i++)
+            for (int i = 2; i < a.size(); i++) {
                 parents.put(find(a.get(i), parents), p);
+            }
         }
         for (List<String> a : acts) {
             String p = find(a.get(1), parents);
             if (!unions.containsKey(p)) unions.put(p, new TreeSet<>());
-            for (int i = 1; i < a.size(); i++)
+            for (int i = 1; i < a.size(); i++) {
                 unions.get(p).add(a.get(i));
+            }
         }
         List<List<String>> res = new ArrayList<>();
         for (String p : unions.keySet()) {
