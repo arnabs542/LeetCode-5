@@ -20,7 +20,6 @@ import static org.testng.AssertJUnit.assertTrue;
  * </p>
  */
 public class _79_WordSearch {
-
     // Simple DFS on 2D array. Special character: '*' is used to mark the visited nodes (this makes it more space efficient by not using an other array to keep track of visited nodes)
     private static boolean exist(char[][] board, String word) {
         for (int i = 0; i < board.length; i++) {
@@ -42,6 +41,36 @@ public class _79_WordSearch {
             return true;
         }
         board[i][j] = word.charAt(index);
+        return false;
+    }
+
+    // Method 2: exact same as above approach except that this uses boolean array to track the visited nodes while performing DFS
+    private static boolean exist2(char[][] board, String word) {
+        boolean[][] visited = new boolean[board.length][board[0].length];
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[0].length; j++) {
+                if (helperDFS2(board, word, visited, i, j, 0)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    // dfs 2 helper method
+    private static boolean helperDFS2(char[][] board, String word, boolean[][] visited, int i, int j, int index) {
+        if (i < 0 || i > board.length - 1 || j < 0 || j > board[0].length - 1 || word.charAt(index) != board[i][j]) {
+            return false;
+        }
+        if (visited[i][j]) {  // if the node in the grid is already visited return false
+            return false;
+        }
+
+        visited[i][j] = true;   // mark the node as visited
+        if (index == word.length() - 1 || helperDFS2(board, word, visited, i, j + 1, index + 1) || helperDFS2(board, word, visited, i, j - 1, index + 1) || helperDFS2(board, word, visited, i + 1, j, index + 1) || helperDFS2(board, word, visited, i - 1, j, index + 1)) {
+            return true;
+        }
+        visited[i][j] = false;  // after the DFS, unmark the node
         return false;
     }
 
