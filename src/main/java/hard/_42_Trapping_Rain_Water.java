@@ -11,7 +11,7 @@ import static org.testng.Assert.assertEquals;
 public class _42_Trapping_Rain_Water {
     // core logic: for every element in the array, find the max level of water that can be trapped, which is equal to min of max height of bars on both (left and right) the sides minus its own height
     // TC: O(n^2)
-    // TODO: there is an efficient two pointer approach which can be solved in O(n). deal with it later. reference: https://leetcode.com/problems/trapping-rain-water/discuss/17467/detailed-java-solution
+    // TODO: there is also an efficient two pointer approach which can be solved in O(n). deal with it later. reference: https://leetcode.com/problems/trapping-rain-water/discuss/17467/detailed-java-solution
     private static int trap(int[] height) {
         int maxWater = 0;
         for (int i = 1; i < height.length; i++) {
