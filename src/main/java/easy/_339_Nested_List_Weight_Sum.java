@@ -13,6 +13,7 @@ import java.util.Queue;
  */
 public class _339_Nested_List_Weight_Sum {
     // core logic: simple BFS. just make sure to add the nested lists to queue properly and increment the level variable as needed
+    // DFS approach is much simpler to do this. see the below alternate DFS approach
     private static int depthSum(List<NestedInteger> nestedList) {
         if (nestedList == null || nestedList.isEmpty()) {
             return 0;
@@ -59,5 +60,28 @@ public class _339_Nested_List_Weight_Sum {
                 dfsHelper(ni, depth + 1);
             }
         }
+    }
+
+    // core logic: simple dfs: exact same as above approach, just a diff way of writing the code (for loop inside the helper method itself)
+    private int sum3 = 0;
+
+    private int depthSum3(List<NestedInteger> nestedList) {
+        if (nestedList == null || nestedList.isEmpty()) {
+            return 0;
+        }
+        dfsHelper3(nestedList, 1);
+        return sum3;
+    }
+
+    // dfs helper to calculate the cumulative sum for all the levels
+    private int dfsHelper3(List<NestedInteger> nestedList, int depth) {
+        for (NestedInteger nestedInteger : nestedList) {
+            if (nestedInteger.isInteger()) {
+                sum3 += nestedInteger.getInteger() * depth;
+            } else {
+                dfsHelper3(nestedInteger.getList(), depth + 1);
+            }
+        }
+        return sum3;
     }
 }
