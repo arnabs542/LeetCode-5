@@ -15,7 +15,7 @@ public class _149_Max_Points_On_Line {
     // core logic: slopes for all the points on a straight line would be same
     // so logic is to calculate the slope from every point to all other points, keep their counts in a map (slope -> count of points with same slope) and calculate max points at each step
     // TC: O(n^2)
-    // FIXME: this doesn't pass for one corner case (very large number inputs due to double precision) in LC, but this approach is still good, so good to follow. later fix it. may be we need to calculate gcd for larger numbers. investigate later.
+    // FIXME: this doesn't pass for one corner case (very large number inputs exceeding double precision limit) in LC, but this approach is still good, so good to follow. later fix it. may be we need to calculate gcd for larger numbers. investigate later.
     private static int maxPoints(int[][] points) {
         if (points.length < 3) {
             return points.length;
