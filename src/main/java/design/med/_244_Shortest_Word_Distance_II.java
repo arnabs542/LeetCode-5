@@ -17,7 +17,7 @@ public class _244_Shortest_Word_Distance_II {
 
     // core logic: this is an extension / follow up for LC 243. the same method can be used here, but that method uses lot of comparisons and given the fact that this question explicitly says the shortest method would be called multiple times, we need some sort of cache (hash table) which we can lookup to find the shortest distance
     // iterate through words array and create a look up map. later use the look up map to find the shortest distance
-    // TC: O(n) + O(1) ??
+    // TC: O(n)
     private _244_Shortest_Word_Distance_II(String[] words) {
         for (int i = 0; i < words.length; i++) {
             map.putIfAbsent(words[i], new ArrayList<>());
@@ -26,6 +26,7 @@ public class _244_Shortest_Word_Distance_II {
     }
 
     // finds the shortest distance between elements in lists given 2 sorted lists. merge sorted lists approach.
+    // TC: O(n). To be more precise: TC: O(max(k, l)) -> where k represents the number of occurrences of word 1 and l represents the number of occurrences of word 2
     private static int shortest(String word1, String word2) {
         List<Integer> list1 = map.get(word1);
         List<Integer> list2 = map.get(word2);
