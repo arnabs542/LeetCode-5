@@ -28,17 +28,16 @@ public class _509_Fibinacci_Number {
 
     // simple recursion. TC: O(2^n), SC: O(N) -- stack call space
     private static int fib2(int N) {
-        if (N == 0) {
-            return 0;
-        } else if (N == 1) {
-            return 1;
+        if (N <= 1) {
+            return N;
         } else {
             return fib2(N - 2) + fib2(N - 1);
         }
     }
 
     // memoization: TC: O(n), SC: O(n)
-    static int[] memo = new int[31];  // max int possible. if you want you can chose it to N as well
+    private static int[] memo = new int[31];  // max int possible. if you want you can chose it to N as well
+
     private static int fib3(int N) {
         if (N <= 1) {
             return N;
