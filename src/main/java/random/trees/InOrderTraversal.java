@@ -5,6 +5,7 @@ import java.util.Stack;
 
 /**
  * Created by udaythota on 3/6/19.
+ * Inorder Traversal of a Binary Tree
  */
 public class InOrderTraversal {
 
@@ -110,6 +111,5 @@ public class InOrderTraversal {
 
         ArrayList<Integer> outputList2 = inOrderTraversal.inOrderTraversalIterative2(root);
         System.out.println("\n" + outputList2);
-
     }
 }
