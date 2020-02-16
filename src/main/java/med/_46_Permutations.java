@@ -13,7 +13,6 @@ import java.util.List;
  * <p>
  */
 public class _46_Permutations {
-
     private static List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> resultList = new ArrayList<>();
         // Arrays.sort(nums);  /// redundant as order is not needed
