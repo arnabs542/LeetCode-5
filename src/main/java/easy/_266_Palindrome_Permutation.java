@@ -33,7 +33,7 @@ public class _266_Palindrome_Permutation {
         return oddCountChars <= 1;  // odd chars should should be utmost 1 to be valid palindrome
     }
 
-    // same as above logic but uses set to keep the count of odd count characters in the string   
+    // same as above logic but uses set to keep the count of odd count characters in the string
     private static boolean canPermutePalindrome2(String s) {
         if (s == null || s.length() == 0) {
             return false;
