@@ -38,6 +38,8 @@ public class _138_Copy_List_Random_Pointer {
         }
 
         Node current = head;
+
+
         while (current != null) {    // step 1: create copy nodes
             Node nextNode = current.next;
             Node newNode = new Node(current.val);
