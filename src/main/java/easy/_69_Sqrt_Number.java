@@ -32,6 +32,8 @@ public class _69_Sqrt_Number {
 
     public static void main(String[] args) {
         assertEquals(mySqrt(16), 4);
+        assertEquals(mySqrt(9), 3);
+        assertEquals(mySqrt(10), 3);
         assertEquals(mySqrt(81), 9);
         assertEquals(mySqrt(121), 11);
         assertEquals(mySqrt(8), 2);

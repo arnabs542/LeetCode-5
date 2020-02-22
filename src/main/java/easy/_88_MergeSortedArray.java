@@ -9,7 +9,6 @@ import java.util.Arrays;
  * </p>
  */
 public class _88_MergeSortedArray {
-
     // core logic: start filling the nums1 array from right to left (descending order)
     private static void merge(int[] nums1, int m, int[] nums2, int n) {
         int i = m - 1;
@@ -23,7 +22,7 @@ public class _88_MergeSortedArray {
                 nums1[k--] = nums2[j--];
             }
         }
-        while (j >= 0) {   // if the nums2 array is not empty (j>=0), sort them up (if the nums1 array is not empty: i>=0, no action needed as the nums1 array is already sorted)
+        while (j >= 0) {   // if the nums2 array is not empty (j>=0), append those elements to the beginning of nums1 array (if the nums1 array is not empty: i>=0, no action needed as the nums1 array is already sorted)
             nums1[k--] = nums2[j--];
         }
     }

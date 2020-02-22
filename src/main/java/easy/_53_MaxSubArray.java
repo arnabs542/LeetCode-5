@@ -3,11 +3,10 @@ package easy;
 /**
  * Created by udaythota on 6/6/19.
  * <p>
- * Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
+ * Given an integer array nums, find the contiguous sub array (containing at least one number) which has the largest sum and return its sum.
  * </p>
  */
 public class _53_MaxSubArray {
-
     // DP: save the current max for each element (till that element) and reset the result when needed
     private static int maxSubArray(int[] nums) {
         if (nums == null || nums.length == 0) {
