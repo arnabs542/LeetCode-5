@@ -9,14 +9,13 @@ import static org.testng.Assert.assertEquals;
  * </p>
  */
 public class _268_MissingNumber {
-
-    // core logic: XOR is its own inverse. so when you XOR all the elements in the array with 0 to nums.length -1, the missing number would be the final result
+    // core logic: XOR is its own inverse (meaning when you XOR same elements, the result would be 1). so when you XOR all the elements in the array with 0 to nums.length -1, the missing number would be the final result
     private static int missingNumber(int[] nums) {
         if (nums == null || nums.length == 0) {
             return 0;
         }
 
-        int missing = nums.length;
+        int missing = nums.length;   // as nums.length is also part of input array, assume it as missing (when its xor with the corresponding index, it would be 1)
         for (int i = 0; i < nums.length; i++) {
             missing ^= nums[i] ^ i;
         }

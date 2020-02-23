@@ -11,7 +11,6 @@ import static org.testng.Assert.assertTrue;
  * </p>
  */
 public class _263_UglyNumber {
-
     // simple iterative solution: for every divisor, keep dividing till its complete (remainder = 0). return true, if num == 1, after all the divisors are complete (which means the prime factors for the given number are only either 2, 3 or 5)
     // TC: O(logn)
     private static boolean isUgly(int num) {

@@ -1,5 +1,7 @@
 package easy;
 
+import static easy.LinkedListUtils.printList;
+
 /**
  * Created by udaythota on 7/13/19.
  * Write a function to delete a node (except the tail) in a singly linked list, given only access to that node.
@@ -25,6 +27,6 @@ public class _237_DeleteNode_LL {
         linkedListUtils.addToTheLast(node3);
 
         deleteNode(head);
-        linkedListUtils.printList(head);
+        printList(head);
     }
 }

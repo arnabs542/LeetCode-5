@@ -26,8 +26,8 @@ public class _543_Diameter_BinaryTree {
 
         int ldepth = depth(root.left);
         int rdepth = depth(root.right);
-        max = Math.max(max, ldepth + rdepth);   // update the max as needed
-        return 1 + Math.max(ldepth, rdepth);   // returns the depth of the current node
+        max = Math.max(max, ldepth + rdepth);   // update the max as needed: depth can be sum of left and right depths and that itself can be the max possible depth
+        return 1 + Math.max(ldepth, rdepth);   // returns the depth of the current node: return the valid path that its parent can use to find the depth
     }
 
     public static void main(String[] args) {

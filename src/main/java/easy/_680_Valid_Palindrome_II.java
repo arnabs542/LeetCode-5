@@ -10,7 +10,7 @@ import static org.testng.AssertJUnit.assertTrue;
  * </p>
  */
 public class _680_Valid_Palindrome_II {
-    // core logic: when you counter a non matching start and end character, check if (start+1, end) or (start, end-1) is a palindrome (excluding the one wrong character). if its palindrome return true, else false
+    // core logic: when you encounter a non matching start and end character, check if (start+1, end) or (start, end-1) is a palindrome (excluding the one wrong character). if its palindrome return true, else false
     // TC: O(n): since each character is visited only once except for characters left and right to the wrong character
     private static boolean validPalindrome(String s) {
         if (s == null || s.length() == 0) {

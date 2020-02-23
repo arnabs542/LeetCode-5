@@ -25,7 +25,7 @@ public class _278_First_Bad_Version {
         return start;
     }
 
-    // API signature given
+    // API signature given: don't try to speculate about the implementation
     private static boolean isBadVersion(int version) {
         return version < 10;
     }

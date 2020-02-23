@@ -9,7 +9,6 @@ import java.util.Arrays;
  * </p>
  */
 public class _283_Move_Zeroes {
-
     // core logic: maintain the true insertion index which keeps track of indexes to insert all the non zero numbers
     // Shift non-zero values as far forward as possible
     // Fill remaining space with zeros

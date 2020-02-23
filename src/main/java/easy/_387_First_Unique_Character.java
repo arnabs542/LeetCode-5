@@ -9,7 +9,6 @@ import static org.testng.Assert.assertEquals;
  * </p>
  */
 public class _387_First_Unique_Character {
-
     // core logic: iterate through the string and increment the index of characters accordingly. iterate through the string again and return the first char with count = 1
     private static int firstUniqChar(String s) {
         if (s == null || s.length() == 0) {

@@ -7,7 +7,6 @@ import static org.testng.Assert.assertEquals;
  * Calculate the sum of two integers a and b, but you are not allowed to use the operator + and -.
  */
 public class _371_Sum_Of_Two_Integers {
-
     // core logic: first find the carry (a & b) and the sum (a ^ b) of 2 binaries. then left shift (<<) the carry by one bit and continue the process. left shift as the carry from current position should be applied (or added) to the next position
     private static int getSum(int a, int b) {
         if (a == 0) {
