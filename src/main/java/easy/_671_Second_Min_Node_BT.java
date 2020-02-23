@@ -23,7 +23,7 @@ public class _671_Second_Min_Node_BT {
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
         int firstMin = root.val;
-        Integer secondMin = null;
+        Integer secondMin = null;   // the reason we didn't set this to Integer.Max is that, if the 2nd min itself is Integer.Max, we don't want to return -1 (see the final return statement)
 
         while (!queue.isEmpty()) {
             TreeNode temp = queue.poll();

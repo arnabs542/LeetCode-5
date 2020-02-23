@@ -37,7 +37,7 @@ public class _937_Reorder_Logs {
                 if (Character.isDigit(str1[1].charAt(0)) && Character.isLetter(str2[1].charAt(0))) {   // case 1
                     return 1;
                 }
-                String logs1 = s1.substring(s1.indexOf(" ") + 1);
+                String logs1 = s1.substring(s1.indexOf(" ") + 1);   // indexOf returns the first occurrence of " "
                 String logs2 = s2.substring(s2.indexOf(" ") + 1);
 
                 if (logs1.equals(logs2)) {   // case 3

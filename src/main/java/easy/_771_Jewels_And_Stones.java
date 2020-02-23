@@ -11,6 +11,7 @@ import static org.testng.Assert.assertEquals;
  */
 public class _771_Jewels_And_Stones {
     // core logic: remember the jewels in a char array and when iterating through string, check the count of jewels accordingly
+    // TC: O(J.length +  S.length)
     private static int numJewelsInStones(String J, String S) {
         int[] charArray = new int[255];
         for (Character ch : J.toCharArray()) {
@@ -26,7 +27,7 @@ public class _771_Jewels_And_Stones {
         return jewelCount;
     }
 
-    // though its done in single loop, the indexOf function still requires at least O(n) time and hence overall its not linear time. so in terms of performance, this is not a great solution, except that this doesn't use extra space
+    // though its done in single loop, the indexOf function still requires at least O(n) time and hence overall its not linear time. so in terms of performance, this is not a great solution (when compared to first one), except that this doesn't use extra space
     // TC: O(SJ)
     private static int numJewelsInStones2(String J, String S) {
         int jewelCount = 0;

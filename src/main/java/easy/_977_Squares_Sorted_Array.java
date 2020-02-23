@@ -9,6 +9,8 @@ import static org.testng.Assert.assertEquals;
  * Given an array of integers A sorted in non-decreasing order, return an array of the squares of each number, also in sorted non-decreasing order.
  */
 public class _977_Squares_Sorted_Array {
+    // trivial: brute force solution. see the below alternate optimal solution
+    // TC: O(NlogN) - due to sorting operation
     private static int[] sortedSquares(int[] A) {
         if (A == null || A.length == 0) {
             return null;
@@ -21,6 +23,8 @@ public class _977_Squares_Sorted_Array {
         return output;
     }
 
+    // keep filling the output array from right to left
+    // core logic: as the input array is sorted, the last element in the result array should either be coming from first or last element in the input array. accordingly increment or decrement the pointers in the input array and proceed further
     private static int[] sortedSquares2(int[] A) {
         int[] output = new int[A.length];
         int i = 0;

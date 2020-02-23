@@ -12,6 +12,8 @@ import static org.testng.Assert.assertEquals;
  * </p>
  */
 public class _821_Shortest_Distance_To_Character {
+    // TC: O(S.length * P.length) -> as we do a linear scan through the string twice, once to find the char positions / indexed and next to find the absolute distances
+    // SC: O(n) -> as we are using the position list to track the positions of the character
     private static int[] shortestToChar(String S, char C) {
         if (S == null || S.length() == 0) {
             return null;
