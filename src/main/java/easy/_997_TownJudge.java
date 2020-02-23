@@ -15,7 +15,6 @@ import static org.testng.Assert.assertEquals;
  * </p>
  */
 public class _997_TownJudge {
-
     // core logic: use two integer arrays to represent the inward and outward connections on the node
     // after storing all values into the two arrays just go through those two arrays and find the person with 0 outward connections and being N-1 inward connections
     private static int findJudge(int N, int[][] trust) {
