@@ -17,7 +17,6 @@ import static org.testng.Assert.assertEquals;
  * </p>
  */
 public class _155_MinStack {
-
     // trivial: using 2 stacks (one to maintain min values and other is a main stack which stores all all the values)
     // see alternate method below for slightly better approach (using one stack)
     static class MinStackUsing2Stacks {
@@ -60,7 +59,7 @@ public class _155_MinStack {
         Stack<Integer> stack;
         int min = Integer.MAX_VALUE;
 
-        public MinStack() {
+        MinStack() {
             stack = new Stack<>();
         }
 

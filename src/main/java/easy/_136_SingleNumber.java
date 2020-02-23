@@ -11,7 +11,6 @@ import static org.testng.Assert.assertEquals;
  * </p>
  */
 public class _136_SingleNumber {
-
     // core logic: bitwise XOR: a) 0 ^ N = N    b) N ^ N = 0
     // as each number is repeated twice, the final number left over would be single number
     private static int singleNumber(int[] nums) {

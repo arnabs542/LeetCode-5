@@ -11,7 +11,6 @@ import java.util.List;
  * </p>
  */
 public class _119_PascalsTriangle_II {
-
     // core logic: for every iteration, start calculating from j-1th to 1st element (as jth and 0th element are always 1). get the results from previous row and add appropriately
     // instead of calculating from start, start calculating from end
     // SC: O(k) -> where k represents the row index

@@ -11,7 +11,6 @@ import java.util.List;
  * </p>
  */
 public class _118_Pascals_Triangle {
-
     // core logic: just iterate through number of rows and generate the given pattern. make sure to handle the '1' for first and last elements
     private static List<List<Integer>> generate(int numRows) {
         List<List<Integer>> result = new ArrayList<>();

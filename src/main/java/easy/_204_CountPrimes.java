@@ -9,12 +9,11 @@ import static org.testng.Assert.assertEquals;
  * </p>
  */
 public class _204_CountPrimes {
-
     // core logic: for every number (starting 2), if the index of corresponding number in boolean array is false (which means it is a prime), increment the count, else set all the positions of number multiples to false
     // algorithm: Sieve of Eratosthenes
     private static int countPrimes(int n) {
         int count = 0;
-        boolean[] isMultipleOfPrime = new boolean[n];  // isMultipleOfPrime[i] store whether num i is dividable by a prime num < i
+        boolean[] isMultipleOfPrime = new boolean[n];  // isMultipleOfPrime[i] represents whether num i is dividable by a prime num < i
         for (int i = 2; i < n; i++) {
             if (!isMultipleOfPrime[i]) {   // if i not dividable by a previous num, it's a prime
                 count++;

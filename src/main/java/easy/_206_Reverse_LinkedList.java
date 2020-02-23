@@ -1,5 +1,7 @@
 package easy;
 
+import static easy.LinkedListUtils.printList;
+
 /**
  * Created by udaythota on 7/9/19.
  * <p>
@@ -56,9 +58,9 @@ public class _206_Reverse_LinkedList {
         linkedListUtils.addToTheLast(node4);
 
         LinkedListUtils.ListNode headAfterReversing = reverseList(head);
-        linkedListUtils.printList(headAfterReversing);
+        printList(headAfterReversing);
 
         LinkedListUtils.ListNode headAfterReversing2 = reverseList2(head);
-        linkedListUtils.printList(headAfterReversing2);
+        printList(headAfterReversing2);
     }
 }

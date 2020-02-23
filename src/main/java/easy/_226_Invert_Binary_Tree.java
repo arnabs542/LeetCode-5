@@ -34,6 +34,21 @@ public class _226_Invert_Binary_Tree {
         return root;
     }
 
+    // recursive approach: first reverse the left and right and repeat the same procedure for all nodes of the tree
+    // TC: O(n) - as each node gets visited only once. SC: O(h) - where h is the height of the tree. this is the function call space
+    private static TreeNode invertTree2(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+
+        TreeNode leftTemp = root.left;
+        root.left = root.right;
+        root.right = leftTemp;
+        invertTree2(root.left);
+        invertTree2(root.right);
+        return root;
+    }
+
     public static void main(String[] args) {
         TreeNode root = new TreeNode(4);
         TreeNode node2 = new TreeNode(2);

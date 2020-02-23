@@ -8,7 +8,7 @@ package easy;
  */
 public class _203_Remove_LL_Elements {
     // core logic: whenever you encounter the value to be deleted, adjust the prev and curr pointers accordingly
-    // NOTE: see the above solution which is more clear and easy to understand
+    // NOTE: see the below solution which is more clear and easy to understand
     private static LinkedListUtils.ListNode removeElements(LinkedListUtils.ListNode head, int val) {
         LinkedListUtils.ListNode dummyHead = new LinkedListUtils.ListNode(0);
         dummyHead.next = head;

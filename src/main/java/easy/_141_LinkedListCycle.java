@@ -9,7 +9,6 @@ import static org.testng.Assert.assertTrue;
  * </p>
  */
 public class _141_LinkedListCycle {
-
     // core logic: 2 pointers approach using floyd's algorithm
     // if slow and fast pointers enter in to a cycle they should eventually meet
     // TC: O(n+k) ~ O(n) -> where k is the cyclic length

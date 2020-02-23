@@ -9,7 +9,6 @@ import static org.testng.Assert.assertEquals;
  * </p>
  */
 public class _171_Excel_Sheet_Column_Number {
-
     // core logic: this is similar to binary to decimal conversion
     // example 1: CDA -> 26^2 * 3 + 26^1 * 4 + 26^0 * 1
     // example 2: ZY -> 26^1 * 26 + 26^0 * 25
@@ -27,6 +26,17 @@ public class _171_Excel_Sheet_Column_Number {
         int result = 0;
         for (int i = 0; i < s.length(); i++) {
             result = result * 26 + (s.charAt(i) - 'A' + 1);
+        }
+        return result;
+    }
+
+    // same as approach 1, but slightly simpler way of writing it though this uses an extra variable to keep track of index
+    private static int titleToNumber3(String s) {
+        int result = 0;
+        int index = 0;
+        for (int i = s.length() - 1; i >= 0; i--) {
+            int charDigit = s.charAt(i) - 'A' + 1;
+            result += Math.pow(26, index++) * charDigit;
         }
         return result;
     }

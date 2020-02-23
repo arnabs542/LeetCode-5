@@ -10,7 +10,6 @@ import static org.testng.Assert.assertEquals;
  * </p>
  */
 public class _122_Best_Time_To_Buy_Sell_Stock_II {
-
     // core logic: whenever you encounter a number greater than previous, calculate the profit and keep a count of it
     private static int maxProfit(int[] prices) {
         int maxProfit = 0;

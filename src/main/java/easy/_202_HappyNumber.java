@@ -13,7 +13,6 @@ import static org.testng.Assert.assertTrue;
  * </p>
  */
 public class _202_HappyNumber {
-
     // core logic: compute the sum from each number and save it to the set. repeat this process till the set is repeated (return false) or the sum reaches 1 (return true)
     // see the below approach for slightly optimized version
     private static boolean isHappy(int n) {

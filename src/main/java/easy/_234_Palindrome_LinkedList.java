@@ -9,7 +9,6 @@ import static org.testng.Assert.assertTrue;
  * </p>
  */
 public class _234_Palindrome_LinkedList {
-
     // core logic: reverse the 2nd half of list and compare them with the elements in first half. when they are unequal return false, else return true
     private static boolean isPalindrome(LinkedListUtils.ListNode head) {
         if (head == null || head.next == null) {
