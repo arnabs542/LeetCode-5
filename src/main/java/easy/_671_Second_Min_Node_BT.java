@@ -13,7 +13,7 @@ import static org.testng.Assert.assertEquals;
  * </p>
  */
 public class _671_Second_Min_Node_BT {
-    // core logic: BFS approach: with the given conditions, we know that the root should be the first min value and hence while performing BFS, when you encounter a min element less than root.val, that should be the 2nd min element
+    // core logic: BFS approach: with the given conditions, we know that the root should be the first min value and hence while performing BFS, when you encounter a first min element greater than root.val, that should be the 2nd min element
     // TC: O(n)
     private static int findSecondMinimumValue(TreeNode root) {
         if (root == null || (root.left == null && root.right == null)) {
@@ -28,7 +28,7 @@ public class _671_Second_Min_Node_BT {
         while (!queue.isEmpty()) {
             TreeNode temp = queue.poll();
 
-            if (temp.val != firstMin) {
+            if (temp.val != firstMin) {     // don't consider the first min value: we are concerned only about 2nd min
                 if (secondMin == null) {
                     secondMin = temp.val;
                 } else {
