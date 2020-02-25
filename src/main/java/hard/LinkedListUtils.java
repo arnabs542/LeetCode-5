@@ -28,7 +28,7 @@ public class LinkedListUtils {
         }
     }
 
-    protected void printList(ListNode head) {
+    public static void printList(ListNode head) {
         ListNode temp = head;
         while (temp != null) {
             System.out.print(temp.val + " ");

@@ -15,6 +15,7 @@ import static org.testng.Assert.assertEquals;
  */
 public class _131_Palindrome_Partitioning {
     // classic backtrack: check for all the possible sub strings in s if they are palindromes and add the sub strings to the result accordingly
+    // TODO: TC: O(n^2) ??
     private static List<List<String>> partition(String s) {
         if (s == null || s.length() == 0) {
             return null;
