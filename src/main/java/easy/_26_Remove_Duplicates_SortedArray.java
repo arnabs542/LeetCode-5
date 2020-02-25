@@ -9,7 +9,6 @@ import static org.testng.Assert.assertEquals;
  * </p>
  */
 public class _26_Remove_Duplicates_SortedArray {
-
     // core logic: index tracks the actual position of elements which are supposed to be in the new array
     // basically, as the array is already sorted, we can assume the actual index of elements without scanning the next elements in the array
     private static int removeDuplicates(int[] nums) {
