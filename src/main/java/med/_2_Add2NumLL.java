@@ -50,7 +50,7 @@ public class _2_Add2NumLL {
         }
     }
 
-    // NOTE:
+    // NOTE: process the nodes in a sequential order (as the elements are already present in the reverse order) and keep adding them (in the new list) till we reach the end of nodes in both the lists
     // 1) take care of left over carry in the end
     // 2) reset the first and second numbers (to zero) after each iteration so, when one of them is missing, it defaults to zero
     private static Node add2Numbers(Node head1, Node head2) {
@@ -58,10 +58,10 @@ public class _2_Add2NumLL {
             return null;
         }
         if (head1 == null) {
-            return null;
+            return head2;
         }
         if (head2 == null) {
-            return null;
+            return head1;
         }
 
         Node temp1 = head1;
@@ -118,7 +118,6 @@ public class _2_Add2NumLL {
         System.out.println();
         printList(resultHead);
 
-
         // CASE 2:
         Node head3 = new Node(5);
         Node head4 = new Node(5);
@@ -132,7 +131,6 @@ public class _2_Add2NumLL {
         Node resultHead2 = _2_Add2NumLL.add2Numbers(head3, head4);
         System.out.println();
         printList(resultHead2);
-
 
         // CASE 3:
         Node head5 = new Node(9);
