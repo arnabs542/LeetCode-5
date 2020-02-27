@@ -31,23 +31,19 @@ public class _8_StringToInteger {
 
         if (trimmedString.charAt(0) == '-') {
             isNegative = true;
+            i++;
         }
         if (trimmedString.charAt(0) == '+') {
             isPositive = true;
+            i++;
         }
 
         // get the valid end index of the string (valid string is the one which only contains {+, -, digits})
         while (i < trimmedString.length()) {
-            if (i == 0) {
-                if (Character.isDigit(trimmedString.charAt(i)) || isNegative || isPositive) {
-                    i++;
-                }
+            if (Character.isDigit(trimmedString.charAt(i))) {
+                i++;
             } else {
-                if (Character.isDigit(trimmedString.charAt(i))) {
-                    i++;
-                } else {
-                    break;
-                }
+                break;
             }
         }
 
