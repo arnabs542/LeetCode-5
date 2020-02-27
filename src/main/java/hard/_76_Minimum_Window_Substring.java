@@ -105,5 +105,6 @@ public class _76_Minimum_Window_Substring {
     public static void main(String[] args) {
         assertEquals(minWindow("ADOBECODEBANC", "ABC"), "BANC");
         assertEquals(minWindow2("ADOBECODEBANC", "ABC"), "BANC");
+        assertEquals(minWindow2("AAAADEBC", "ABC"), "ADEBC");
     }
 }

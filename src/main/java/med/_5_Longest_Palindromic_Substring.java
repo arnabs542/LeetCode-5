@@ -43,6 +43,7 @@ public class _5_Longest_Palindromic_Substring {
 
     public static void main(String[] args) {
         assertEquals(longestPalindrome("babad"), "bab");
+        assertEquals(longestPalindrome("abca"), "a");
         assertEquals(longestPalindrome("cbbd"), "bb");
     }
 }

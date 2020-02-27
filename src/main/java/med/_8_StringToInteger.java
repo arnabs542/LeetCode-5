@@ -17,7 +17,6 @@ import static org.testng.Assert.assertEquals;
  * </p>
  */
 public class _8_StringToInteger {
-
     private static int myAtoi(String str) {
         long result = 0;
         boolean isNegative = false;
@@ -36,7 +35,6 @@ public class _8_StringToInteger {
         if (trimmedString.charAt(0) == '+') {
             isPositive = true;
         }
-
 
         // get the valid end index of the string (valid string is the one which only contains {+, -, digits})
         while (i < trimmedString.length()) {

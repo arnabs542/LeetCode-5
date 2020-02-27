@@ -15,7 +15,6 @@ import static org.testng.Assert.assertEquals;
  * </p>
  */
 public class _3_LongestSubstringWithoutRepeatingChars {
-
     // NOTE: take care of the last case: if the loop exits without a repeating character, max length should be explicitly calculated
     // Time Complexity: O(n^1), Space Complexity: O(1): as char array space is always a constant
     private static int lengthOfLongestSubstring(String inputString) {
