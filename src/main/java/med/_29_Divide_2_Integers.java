@@ -11,7 +11,6 @@ import static org.testng.Assert.assertEquals;
  * </p>
  */
 public class _29_Divide_2_Integers {
-
     // NOTE: time limit exceeded. very bad solution. see the below recursive approach which is good
     private static int divide(int dividend, int divisor) {
         boolean isSignNegative = false;
@@ -67,7 +66,6 @@ public class _29_Divide_2_Integers {
     }
 
     public static void main(String[] args) {
-
         // test iterative approach
         assertEquals(divide(10, 3), 3);
         assertEquals(divide(7, -3), -2);

@@ -11,7 +11,6 @@ import java.util.Arrays;
  * </p>
  */
 public class _34_FirstAndLastPositionSortedArray {
-
     // core logic is to find the start and end indexes of the target (each time using a modified binary search approach)
     // for the start index: strict binary search: until the mid element is STRICTLY LESS than target, keep DECREASING the right pointer (so we could go to the left most target)
     // for the end index: loose binary search: until the mid element is LESS THAN OR EQUAL to target, keep INCREASING the left pointer (so we could go to the right most target)
