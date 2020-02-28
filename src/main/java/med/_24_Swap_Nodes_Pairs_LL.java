@@ -15,19 +15,25 @@ public class _24_Swap_Nodes_Pairs_LL {
         if (head == null || head.next == null) {
             return head;
         }
-        LinkedListUtils.ListNode pre = new LinkedListUtils.ListNode(0);  // dummy pointer
-        LinkedListUtils.ListNode first = head;
-        LinkedListUtils.ListNode ret = head.next;   // to return the new head
+        LinkedListUtils.ListNode dummy = new LinkedListUtils.ListNode(0);  // dummy pointer
+        dummy.next = head;
+        LinkedListUtils.ListNode prev = dummy;
 
-        while (first != null && first.next != null) {
+        while (head != null && head.next != null) {
+            // nodes to be swapped
+            LinkedListUtils.ListNode first = head;
             LinkedListUtils.ListNode second = first.next;
+
+            // actual swapping
             first.next = second.next;
             second.next = first;
-            pre.next = second;
-            pre = first;
-            first = first.next;
+            prev.next = second;
+
+            // initialize the prev and head for the swap of next set of nodes
+            prev = first;
+            head = first.next;
         }
-        return ret;
+        return dummy.next;
     }
 
     // simple recursive process
