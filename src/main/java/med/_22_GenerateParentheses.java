@@ -13,7 +13,7 @@ public class _22_GenerateParentheses {
 
     // core logic: perform DFS and whenever you encounter the desired string, add it to the result.
     // the below 3 steps needs to be taken care when performing DFS:
-    // a) the number of open parentheses <= number of closing parentheses
+    // a) the number of close parentheses <= number of open parentheses
     // b) the max number of open parentheses <= n
     // c) when open ==n && close ==n, add the string to the result
     // below is the result path when performing DFS

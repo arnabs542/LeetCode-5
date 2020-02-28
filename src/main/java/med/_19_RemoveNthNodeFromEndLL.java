@@ -16,7 +16,7 @@ public class _19_RemoveNthNodeFromEndLL {
         }
     }
 
-    public void addToLast(Node node) {
+    private void addToLast(Node node) {
         if (head == null)
             head = node;
         else {
@@ -34,7 +34,6 @@ public class _19_RemoveNthNodeFromEndLL {
         else {
             Node temp = head;
             while (temp != null) {
-
                 System.out.print(temp.data + " ");
                 temp = temp.next;
             }
@@ -83,7 +82,7 @@ public class _19_RemoveNthNodeFromEndLL {
         Node newHead = new Node(0);
         Node slow = newHead;
         Node fast = newHead;
-        slow.next = head;
+        newHead.next = head;
 
         for (int i = 0; i <= n; i++) {
             fast = fast.next;
@@ -98,7 +97,6 @@ public class _19_RemoveNthNodeFromEndLL {
     }
 
     public static void main(String[] args) {
-
         // CASE 1:
         Node head = new Node(1);
         _19_RemoveNthNodeFromEndLL removeNthNodeFromEndLL = new _19_RemoveNthNodeFromEndLL();
