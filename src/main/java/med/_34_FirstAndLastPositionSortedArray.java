@@ -15,6 +15,7 @@ public class _34_FirstAndLastPositionSortedArray {
     // for the start index: strict binary search: until the mid element is STRICTLY LESS than target, keep DECREASING the right pointer (so we could go to the left most target)
     // for the end index: loose binary search: until the mid element is LESS THAN OR EQUAL to target, keep INCREASING the left pointer (so we could go to the right most target)
     // update the index whenever you see the target (nums[mid]==target), so the function could return the last seen (either first or last) index
+    // TC: O(logN)
     private static int[] searchRange(int[] nums, int target) {
         int start = findPosition(nums, target, false);
         int end = findPosition(nums, target, true);
@@ -25,14 +26,22 @@ public class _34_FirstAndLastPositionSortedArray {
         int low = 0, high = nums.length - 1, index = -1;
         while (low <= high) {
             int mid = (low + high) / 2;
-            if (isEnd) {
-                if (nums[mid] <= target) low = mid + 1;
-                else high = mid - 1;
-            } else {
-                if (nums[mid] < target) low = mid + 1;
-                else high = mid - 1;
+            if (nums[mid] == target) {
+                index = mid; // update index whenever you see the target
             }
-            if (nums[mid] == target) index = mid; // update index whenever you see the target
+            if (isEnd) {
+                if (nums[mid] <= target) {
+                    low = mid + 1;
+                } else {
+                    high = mid - 1;
+                }
+            } else {
+                if (nums[mid] < target) {
+                    low = mid + 1;
+                } else {
+                    high = mid - 1;
+                }
+            }
         }
         return index;
     }
