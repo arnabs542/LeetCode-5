@@ -13,9 +13,10 @@ import java.util.List;
  * <p>
  */
 public class _46_Permutations {
+    // TC: O(N * N!) -> since we iterate n times and at each point n! possibilities (n-1 * n-2 * ...)
     private static List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> resultList = new ArrayList<>();
-        // Arrays.sort(nums);  /// redundant as order is not needed
+        // Arrays.sort(nums);  // redundant as order is not needed
         backtrack(resultList, new ArrayList<Integer>(), nums);
         return resultList;
     }

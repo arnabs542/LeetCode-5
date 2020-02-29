@@ -8,7 +8,6 @@ package med;
  * </p>
  */
 public class _48_Rotate_Image {
-
     /*
     The whole idea is:
     Move layer by layer: i tracks the layer and j tracks the desired elements in ith layer

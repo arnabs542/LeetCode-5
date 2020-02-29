@@ -16,7 +16,6 @@ import java.util.*;
  * </p>
  */
 public class _49_GroupAnagrams {
-
     // TC: O(n klogk) -> where n is the number of elements in the input array and k is the max length of an element in the input array
     // SC: O(nk)
     private static List<List<String>> groupAnagrams(String[] strs) {

@@ -19,6 +19,8 @@ import java.util.List;
  * </p>
  */
 public class _47_Permutations_II {
+    // DFS: use the visited array to keep the track of duplicates and not to visit the same node multiple times
+    // TC: O(n!) -> For i position, there're (n-i) possibilities, so the total possibilities are: n(n-1)*(n-2)..1 = O(n!)
     private static List<List<Integer>> permuteUnique(int[] nums) {
         List<List<Integer>> resultList = new ArrayList<>();
         Arrays.sort(nums);  // this is needed to keep the track of duplicate numbers
@@ -28,10 +30,10 @@ public class _47_Permutations_II {
 
     private static void permuteBacktrack(List<List<Integer>> resultList, ArrayList<Integer> tempList, int[] nums, boolean[] vistedNums) {
         if (tempList.size() == nums.length) {
-            resultList.add(new ArrayList<>(tempList));
+            resultList.add(new ArrayList<>(tempList));   // make sure to add to new array list as we are in recursion
         } else {
             for (int i = 0; i < nums.length; i++) {
-                if (vistedNums[i] || i > 0 && nums[i] == nums[i - 1] && !vistedNums[i - 1]) {    // TODO: think on the last if condition
+                if (vistedNums[i] || i > 0 && nums[i] == nums[i - 1] && !vistedNums[i - 1]) {    // IMPORTANT: last condition means that, when current and prev numbers are same and if prev number is not used, use the current number, else just continue the loop
                     continue;
                 }
                 vistedNums[i] = true;  // set the visited to true once the number is scanned

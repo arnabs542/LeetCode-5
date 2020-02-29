@@ -17,10 +17,11 @@ import static org.junit.Assert.assertEquals;
  * </p>
  */
 public class _39_CombinationSum {
-
+    // TC: O(N^target), where N is the length of the candidate array -> Every time you have N choices (since you can use number repeatedly), and you can choose at most target times (actually it's smaller than target), so we can assume the worst-case time complexity is O(N^target).
+    // SC: O(target)
     private static List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> resultList = new ArrayList<>();
-        Arrays.sort(candidates);
+        // Arrays.sort(candidates);  // optional as we don't need ordering in the results
         backtrack(resultList, new ArrayList<Integer>(), candidates, target, 0);
         return resultList;
     }

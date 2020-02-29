@@ -17,6 +17,8 @@ import static org.junit.Assert.assertEquals;
  * <p/>
  */
 public class _40_CombinationSum2 {
+    // TC: O(2^n) - TODO
+    // little better time complexity explanation: https://leetcode.com/problems/combination-sum-ii/discuss/16871/time-complexity-analysis-of-recursive-approach
     private static List<List<Integer>> combinationSum2(int[] candidates, int target) {
         List<List<Integer>> resultList = new ArrayList<>();
         Arrays.sort(candidates);
@@ -45,10 +47,10 @@ public class _40_CombinationSum2 {
     public static void main(String[] args) {
         List<List<Integer>> actualResult = combinationSum2(new int[]{10, 1, 2, 7, 6, 1, 5}, 8);
         List<List<Integer>> expectedResult = new ArrayList<>();
-        expectedResult.add(Arrays.asList(1, 7));
-        expectedResult.add(Arrays.asList(1, 2, 5));
-        expectedResult.add(Arrays.asList(2, 6));
         expectedResult.add(Arrays.asList(1, 1, 6));
+        expectedResult.add(Arrays.asList(1, 2, 5));
+        expectedResult.add(Arrays.asList(1, 7));
+        expectedResult.add(Arrays.asList(2, 6));
         assertEquals(actualResult, expectedResult);
 
         List<List<Integer>> actualResult2 = combinationSum2(new int[]{2, 5, 2, 1, 2}, 5);
