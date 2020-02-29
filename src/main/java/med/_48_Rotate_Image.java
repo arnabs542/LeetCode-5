@@ -42,9 +42,9 @@ public class _48_Rotate_Image {
         }
     }
 
-
-    // core logic: transpose the matrix and flip it symmetrically / horizontally
+    // core logic: transpose the matrix (interchange row with the column) and flip it symmetrically / horizontally
     // though the time complexity is high (due to multiple iterations), this is simple and straight forward. better understood with an example
+    // TC: O(rows * columns)
     private static void rotate2(int[][] matrix) {
         if (matrix == null || matrix.length == 0) {
             return;
