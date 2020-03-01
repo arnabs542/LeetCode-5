@@ -9,7 +9,6 @@ import java.util.Arrays;
  * </p>
  */
 public class _73_SetMatrixZeroes {
-
     // the core logic is that, in the first pass iterating the matrix : you use the first row and first column to indicate / mark if the row / column needs to be zero
     // in the second pass, iterate through the matrix again (but leave first row and column as is) and set the matrix elements to zero for all the indicated rows / columns
     // IMPORTANT: as we are using the first row and column as indicators to remember zeroes for the future, we don't know if the row or column actually contained any zeroes in the first place. so process first row and column later

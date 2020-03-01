@@ -23,7 +23,7 @@ public class _253_MeetingRooms_II {
         }
 
         // sort the start times using java 8: lambdas
-        Arrays.sort(intervals, (a, b) -> a[0] - b[0]);
+        Arrays.sort(intervals, (a, b) -> a[0] - b[0]);   // sort by start times
 
         // alternate version of sorting java 7: using comparators
         /*Arrays.sort(intervals, new Comparator<int[]>() {

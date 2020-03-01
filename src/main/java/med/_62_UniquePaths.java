@@ -16,7 +16,6 @@ import static org.testng.Assert.assertEquals;
 // Approach 2: Memoization / Top Down Approach (Recursive with caching): Start from bigger problems (n, n-1..) and approach towards smaller cases (2, 1, 0..)
 // Approach 3: Tabulation / Bottom Up Approach (Iterative with caching): Start with smaller problems (0, 1, 2..) and approach towards larger cases (n-1, 1,..)
 public class _62_UniquePaths {
-
     // Approach 1: BRUTE FORCE: simple recursion
     // TC: O(2^n) as each value in the grid is calculated AT LEAST twice
     private static int uniquePathsRecursion(int m, int n) {

@@ -10,7 +10,6 @@ import static org.testng.Assert.assertEquals;
  * </p>
  */
 public class _80_Remove_Duplicates_Sorted_Array_II {
-
     // core logic: compare the current element with current-2 element. If its greater (means its a qualified element for the index position), move it to the index position and increment the index
     // TC: O(n)
     private static int removeDuplicates(int[] nums) {

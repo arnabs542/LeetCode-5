@@ -11,7 +11,8 @@ import static org.junit.Assert.assertEquals;
  * <p>
  */
 public class _81_SearchSortedArrayWithDups {
-
+    // the meat of the problem lies in the fact that in any rotated sorted array at some pivot, one side is still sorted. so when performing the binary search, use this condition to navigate to left or right of mid accordingly
+    // TC: O(logN)
     private static boolean search(int[] nums, int target) {
         int start = 0, end = nums.length - 1, mid = -1;
         while (start <= end) {
@@ -33,16 +34,15 @@ public class _81_SearchSortedArrayWithDups {
                 } else {
                     start = mid + 1;
                 }
-                //If we get here, that means nums[start] == nums[mid] == nums[end], then shifting out
-                //any of the two sides won't change the result but can help remove duplicate from
-                //consideration, here we just use end-- but left++ works too
+                // If we get here, that means nums[start] == nums[mid] == nums[end], then shifting out
+                // any of the two sides won't change the result but can help remove duplicate from
+                // consideration, here we just use end-- but left++ works too
             } else {
-                end--;
+                end--;    // to eliminate the duplicates and reduce the search space for next binary search
             }
         }
         return false;
     }
-
 
     public static void main(String[] args) {
         int[] test = new int[]{4, 5, 6, 7, 0, 1, 2};

@@ -15,7 +15,6 @@ import java.util.List;
  * Output: [1,2,3,6,9,8,7,4,5]
  */
 public class _54_SpiralMatrix {
-
     // iterate traversing in all the 4 directions and stop when the processing of rows and columns are completed
     // the only tricky part is to check if the row or column has already been processed when traversing left or up so as to avoid duplicates
     private static List<Integer> spiralOrder(int[][] matrix) {
@@ -63,7 +62,7 @@ public class _54_SpiralMatrix {
     }
 
     // the core concept is still same as the first one (keep processing all the four possibilities), but 2 things to note here are:
-    // 1) we check the while condition for every row / column processing, which eliminates the need for putting some additional checks to evaluate if the row / column is already processed
+    // 1) we check the while condition for every row / column processing, which eliminates the need for putting some additional checks to evaluate if the row / column has already processed
     // 2) we use a direction value (either 0 / 1 / 2 / 3) to control the flow of the logic (every direction value dictates processing of row /column in a certain direction)
     private static List<Integer> spiralOrderUsingDirections(int[][] matrix) {
         List<Integer> resultList = new ArrayList<>();

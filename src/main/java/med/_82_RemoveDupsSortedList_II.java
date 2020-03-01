@@ -12,7 +12,6 @@ package med;
  * </p>
  */
 public class _82_RemoveDupsSortedList_II {
-
     private static LinkedListUtils.ListNode deleteDuplicates(LinkedListUtils.ListNode head) {
         if (head == null || head.next == null) {
             return head;

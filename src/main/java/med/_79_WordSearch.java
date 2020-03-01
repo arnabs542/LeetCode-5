@@ -21,6 +21,7 @@ import static org.testng.AssertJUnit.assertTrue;
  */
 public class _79_WordSearch {
     // Simple DFS on 2D array. Special character: '*' is used to mark the visited nodes (this makes it more space efficient by not using an other array to keep track of visited nodes)
+    // TC: O(N * 4^L) -> where N is the number of cells in the grid and L is the length of the word
     private static boolean exist(char[][] board, String word) {
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[0].length; j++) {
@@ -70,7 +71,7 @@ public class _79_WordSearch {
         if (index == word.length() - 1 || helperDFS2(board, word, visited, i, j + 1, index + 1) || helperDFS2(board, word, visited, i, j - 1, index + 1) || helperDFS2(board, word, visited, i + 1, j, index + 1) || helperDFS2(board, word, visited, i - 1, j, index + 1)) {
             return true;
         }
-        visited[i][j] = false;  // after the DFS, unmark the node
+        visited[i][j] = false;  // after the DFS, un mark the node
         return false;
     }
 

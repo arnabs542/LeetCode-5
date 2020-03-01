@@ -1,6 +1,7 @@
 package easy;
 
 import java.util.Arrays;
+import java.util.PriorityQueue;
 
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
@@ -28,9 +29,37 @@ public class _252_MeetingRooms {
         return true;
     }
 
+    // not as memory efficient as above solution: same logic as above solution, but uses priority queue to be in consistent with other solutions (56 - merge intervals)
+    // TC: O(nlogn)
+    private static boolean canAttendMeetings2(int[][] intervals) {
+        if (intervals == null || intervals.length == 0) {
+            return true;
+        }
+
+        PriorityQueue<int[]> priorityQueue = new PriorityQueue<>(((o1, o2) -> o1[0] - o2[0]));
+        for (int[] interval : intervals) {
+            priorityQueue.add(interval);
+        }
+
+        int[] prev = priorityQueue.poll();
+        while (!priorityQueue.isEmpty()) {
+            int[] curr = priorityQueue.poll();
+            if (curr[0] < prev[1]) {
+                return false;
+            }
+            prev = curr;  // IMPORTANT: assign current interval to previous
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
         assertFalse(canAttendMeetings(new int[][]{{0, 30}, {5, 10}, {15, 20}}));
         assertTrue(canAttendMeetings(new int[][]{{7, 10}, {2, 4}}));
         assertTrue(canAttendMeetings(new int[][]{{13, 15}, {1, 13}}));
+
+        assertFalse(canAttendMeetings2(new int[][]{{0, 30}, {5, 10}, {15, 20}}));
+        assertTrue(canAttendMeetings2(new int[][]{{7, 10}, {2, 4}}));
+        assertTrue(canAttendMeetings2(new int[][]{{13, 15}, {1, 13}}));
+        assertFalse(canAttendMeetings2(new int[][]{{6, 10}, {13, 14}, {12, 14}}));
     }
 }

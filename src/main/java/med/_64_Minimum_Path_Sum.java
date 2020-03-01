@@ -10,9 +10,9 @@ import static org.testng.Assert.assertEquals;
  * </p>
  */
 public class _64_Minimum_Path_Sum {
-
     // Brute Force: Simple recursive Solution
     // TC: O(2^n)
+    // see the below tabulation / bottom up / iterative approach: much simpler
     private static int minPathSumRecursive(int[][] grid) {
         if (grid.length == 0) {
             return 0;
@@ -24,7 +24,6 @@ public class _64_Minimum_Path_Sum {
     }
 
     private static int minPathRecursiveHelper(int[][] grid, int rows, int columns, int[][] cache) {
-
         if (rows == grid.length || columns == grid[0].length) {
             return Integer.MAX_VALUE;
         }
@@ -52,7 +51,7 @@ public class _64_Minimum_Path_Sum {
 
         // fill the first row (sum of number in the current cell + sum of number in the previous column)
         for (int i = 1; i < rows; i++) {
-            grid[i][0] += +grid[i - 1][0];
+            grid[i][0] += grid[i - 1][0];
         }
 
         // fill the first column (sum of number in the current cell + sum of number in the previous row)
@@ -81,10 +80,9 @@ public class _64_Minimum_Path_Sum {
     }
 
     private static int minPathSumMemoizationHelper(int[][] grid, int rows, int columns, int[][] cache) {
-
         // Base Case 1
         if (rows < 0 || columns < 0) {
-            return Integer.MAX_VALUE;
+            return Integer.MAX_VALUE;  // this is because we want the min sum and when we do the min of Integer.Max and the grid value, it would always return the grid value
         }
 
         // Base Case 2: Return the grid value for grid[0][0]

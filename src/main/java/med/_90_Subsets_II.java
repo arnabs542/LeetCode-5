@@ -13,6 +13,8 @@ import java.util.List;
  * </p>
  */
 public class _90_Subsets_II {
+    // TC: O(N*2^N) - TODO check the time complexity again
+    // the only difference here with the subsets I is that here we just skip the dups and follow the same process
     private static List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>> resultList = new ArrayList<>();
         Arrays.sort(nums);  // this is NEEDED to avoid processing the duplicates
