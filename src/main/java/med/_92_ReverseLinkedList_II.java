@@ -14,7 +14,6 @@ package med;
  * </p>
  */
 public class _92_ReverseLinkedList_II {
-
     // logic: keep swapping next elements and change the pointers accordingly
     private static LinkedListUtils.ListNode reverseBetween(LinkedListUtils.ListNode head, int m, int n) {
         if (head == null || head.next == null || m <= 0 || n <= 0) {

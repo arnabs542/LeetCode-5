@@ -12,8 +12,7 @@ import static med.BinaryTreeUtils.printLevelOrder;
  * </p>
  */
 public class _114_FlattenBinaryTree_LL {
-
-    // Hint: If you notice carefully in the flattened tree, each node's right child points to the next node of a pre-order traversal.
+    // Hint: If you notice carefully in the flattened tree, each node's right child points to the next node of a pre-order traversal. better understood with an example
     // DFS: do a pre-order traversal. keep track of prev and current nodes and change the links appropriately
     private static void flatten(TreeNode root) {
         if (root == null) {
@@ -40,28 +39,25 @@ public class _114_FlattenBinaryTree_LL {
         }
     }
 
-    // TODO: not working. fix it later. this approach is similar to the in-order iterative traversal, so easy to remember
+    // TODO: think about it later
     private static void flatten2(TreeNode root) {
         if (root == null) {
             return;
         }
-        Stack<TreeNode> nodeStoreStack = new Stack<>();
-        TreeNode current = root;
-        TreeNode prev = null;
-
-        while (current != null || !nodeStoreStack.isEmpty()) {
-            if (current != null) {
-                nodeStoreStack.push(current);  // save the node
-                current = current.left;   // process the left child
-            } else {
-                current = nodeStoreStack.pop();
-                if (prev != null) {
-                    prev.right = current;
-                    prev.left = null;
-                }
-                prev = current;
-                current = current.right;  // process the right child
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode p = root;
+        while (p != null || !stack.isEmpty()) {
+            if (p.right != null) {
+                stack.push(p.right);
             }
+            if (p.left != null) {
+                p.right = p.left;
+                p.left = null;
+            } else if (!stack.isEmpty()) {
+                TreeNode temp = stack.pop();
+                p.right = temp;
+            }
+            p = p.right;
         }
     }
 
@@ -77,7 +73,7 @@ public class _114_FlattenBinaryTree_LL {
         node1.left = node3;
         node1.right = node4;
         node2.right = node5;
-        flatten(root);
+        flatten2(root);
         printLevelOrder(root);
     }
 }

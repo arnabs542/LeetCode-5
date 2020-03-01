@@ -10,7 +10,7 @@ import java.util.Queue;
  * Given a binary tree and a sum, find all root-to-leaf paths where each path's sum equals the given sum.
  */
 public class _113_PathSum_II {
-
+    // TC: O(N) - where N is the number of nodes in the tree. This is because we only visit all nodes in the tree only once.
     private List<List<Integer>> pathSumRecursive(TreeNode root, int sum) {
         List<List<Integer>> resultList = new ArrayList<>();
         recursiveHelper(root, sum, resultList, new ArrayList<Integer>());
@@ -28,8 +28,8 @@ public class _113_PathSum_II {
             resultList.add(tempList);
             return;
         }
-        recursiveHelper(root.left, sum, resultList, new ArrayList<>(tempList));
-        recursiveHelper(root.right, sum, resultList, new ArrayList<>(tempList));
+        recursiveHelper(root.left, sum, resultList, new ArrayList<>(tempList));   // IMPORTANT: make sure to have a new array list for temp
+        recursiveHelper(root.right, sum, resultList, new ArrayList<>(tempList));  // IMPORTANT: make sure to have a new array list for temp
     }
 
     // FIXME: complete the iterative solution too

@@ -36,12 +36,11 @@ public class _116_Populating_Next_Right_Pointers {
         if (root == null) {
             return null;
         }
-
         Queue<Node> queue = new LinkedList<>();
         queue.offer(root);
         while (!queue.isEmpty()) {
             int queueSize = queue.size();
-            Node prev = null, curr;
+            Node prev = null, curr;    // reset prev to null at each level so we don't append prev and current levels
             for (int i = 0; i < queueSize; i++) {
                 curr = queue.poll();
                 if (prev != null) {
@@ -50,7 +49,6 @@ public class _116_Populating_Next_Right_Pointers {
                 if (curr.left != null) {
                     queue.offer(curr.left);
                 }
-
                 if (curr.right != null) {
                     queue.offer(curr.right);
                 }
@@ -113,6 +111,6 @@ public class _116_Populating_Next_Right_Pointers {
         node2.right = node5;
         node3.left = node6;
         node3.right = node7;
-        Node newHead = connect2(root);
+        Node newHead = connect(root);
     }
 }

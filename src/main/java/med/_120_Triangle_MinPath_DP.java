@@ -14,7 +14,6 @@ import static org.testng.Assert.assertEquals;
  * </p>
  */
 public class _120_Triangle_MinPath_DP {
-
     // DP Tabulation: top down approach
     // core logic: iterate through all the elements in the grid and for every element calculate the min path sum. return element corresponding to min sum from the last row
     private static int minimumTotal(List<List<Integer>> triangle) {

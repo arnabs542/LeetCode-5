@@ -9,14 +9,13 @@ import java.util.HashMap;
  * </p>
  */
 public class _105_ConstructBT_From_Pre_And_In {
-
     // METHOD 1: core logic of the problem lies in identifying the left and right subtree sizes in the pre order traversal
     private static TreeNode buildTree(int[] preorder, int[] inorder) {
         return helper(preorder, 0, preorder.length - 1, inorder, 0, inorder.length - 1);
     }
 
     private static TreeNode helper(int[] preOrder, int preStart, int preEnd, int[] inOrder, int inStart, int inEnd) {
-        if (preStart > preEnd) {
+        if (preStart > preEnd) {   // IMPORTANT: base condition
             return null;
         }
         int index = 0;

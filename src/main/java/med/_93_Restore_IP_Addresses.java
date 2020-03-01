@@ -14,7 +14,6 @@ import static org.testng.Assert.assertEquals;
  * </p>
  */
 public class _93_Restore_IP_Addresses {
-
     // core logic: divide the string in to 4 parts, iterate through all the possible sub strings and for all the valid sub strings, add to the result
     // TC: O(n), SC: O(1)
     private static List<String> restoreIpAddresses(String s) {

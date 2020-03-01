@@ -38,9 +38,7 @@ public class _138_Copy_List_Random_Pointer {
         }
 
         Node current = head;
-
-
-        while (current != null) {    // step 1: create copy nodes
+        while (current != null) {    // step 1: create copy nodes (each copy node will be placed adjacent to its original node)
             Node nextNode = current.next;
             Node newNode = new Node(current.val);
             current.next = newNode;
@@ -55,21 +53,21 @@ public class _138_Copy_List_Random_Pointer {
             } else {
                 current.next.random = null;
             }
-            current = current.next.next;
+            current = current.next.next;   // move current to next original node
         }
 
         current = head;
-        Node copyHead = current.next;
-        Node copy = copyHead;
+        Node copyHeadReturn = current.next;
+        Node copy = copyHeadReturn;
+        // the reason this is not current.next!=null is because last copy node will be adjacent to last original node
         while (copy.next != null) {    // step 3: separate the original and copy lists
             current.next = current.next.next;
             copy.next = copy.next.next;
 
-            current = current.next;
-            copy = copy.next;
+            current = current.next;  //  move to next original node
+            copy = copy.next;       // move to next copy node
         }
-        current.next = current.next.next;
-
-        return copyHead;
+        current.next = current.next.next;  // to adjust for the last node
+        return copyHeadReturn;
     }
 }

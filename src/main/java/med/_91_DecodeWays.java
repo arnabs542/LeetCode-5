@@ -14,7 +14,6 @@ import static org.testng.Assert.assertEquals;
  * </p>
  */
 public class _91_DecodeWays {
-
     // DP: Tabulation: Bottom Up approach
     private static int numDecodings(String s) {
         int[] dp = new int[s.length() + 1];

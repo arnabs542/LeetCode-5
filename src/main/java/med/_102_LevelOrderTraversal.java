@@ -11,7 +11,6 @@ import java.util.Queue;
  */
 public class _102_LevelOrderTraversal {
     List<List<Integer>> resultList = new ArrayList<>();
-
     // logic: simple BFS: get the queue size at each level, process and add them in to separate lists
     private List<List<Integer>> levelOrder(TreeNode root) {
         if (root == null) {

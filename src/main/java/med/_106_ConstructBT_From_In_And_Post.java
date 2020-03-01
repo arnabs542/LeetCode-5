@@ -7,13 +7,14 @@ package med;
  * </p>
  */
 public class _106_ConstructBT_From_In_And_Post {
-
+    // core logic: in order is used to find the indexes of the root elements while pre order is used to track the left and right subtrees based on number of elements
+    // TC: O(N), SC: O(N)
     private static TreeNode buildTree(int[] inorder, int[] postorder) {
         return helper(inorder, 0, inorder.length - 1, postorder, 0, postorder.length - 1);
     }
 
     private static TreeNode helper(int[] inorder, int inStart, int inEnd, int[] postOrder, int postStart, int postEnd) {
-        if (postStart > postEnd) {
+        if (postStart > postEnd) {   // IMPORTANT: base condition
             return null;
         }
         int index = 0;

@@ -38,7 +38,7 @@ public class _129_SumRootToLeaf {
         return recursiveHelper(root.left, currentSum) + recursiveHelper(root.right, currentSum);   // return the sum of left child sum and right child sum
     }
 
-    // No Recursive solution using simple BFS approach: calculate the current node sum for all the non leaf nodes and save it . when its a leaf node, return the current sum (left child sum + right child sum)
+    // Iterative solution using simple BFS approach: calculate the current node sum for all the non leaf nodes and save it . when its a leaf node, return the current sum (left child sum + right child sum)
     // TC: O(N) as every element in the tree is visited only once
     private static int sumNumbers(TreeNode root) {
         int result = 0;
