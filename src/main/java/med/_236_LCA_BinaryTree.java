@@ -9,7 +9,6 @@ import java.util.*;
  * </p>
  */
 public class _236_LCA_BinaryTree {
-
     // watch this: https://www.youtube.com/watch?v=13m9ZCB8gjw if you have more questions
     private static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if (root == null) {

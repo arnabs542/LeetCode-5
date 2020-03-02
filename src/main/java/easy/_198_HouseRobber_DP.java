@@ -58,6 +58,7 @@ public class _198_HouseRobber_DP {
     }
 
     // iterative with memo (bottom - up)
+    // NOTE: use this solution as the same will be used in 213 - house robber II as well
     private static int rob2(int[] nums) {
         if (nums == null || nums.length == 0) {
             return 0;

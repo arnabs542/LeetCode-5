@@ -9,7 +9,6 @@ import static org.testng.Assert.assertEquals;
  * </p>
  */
 public class _221_MaximalSquares {
-
     // dp: iterative: tabulation approach:
     // core logic: construct a dp array (to track the size of min sub array till that point) and update the result whenever needed
     // dp[i][j]: if matrix[i][j] == 1, get the min of other 3 coordinates and add 1 to it. this is the size of the min sub array
@@ -41,7 +40,7 @@ public class _221_MaximalSquares {
         for (int i = 1; i < rows; i++) {
             for (int j = 1; j < columns; j++) {
                 if (matrix[i][j] == '1') {
-                    dp[i][j] += Math.min(Math.min(dp[i - 1][j - 1], dp[i][j - 1]), dp[i - 1][j]) + 1;
+                    dp[i][j] = Math.min(Math.min(dp[i - 1][j - 1], dp[i][j - 1]), dp[i - 1][j]) + 1;
                     max = Math.max(max, dp[i][j]);
                 }
             }

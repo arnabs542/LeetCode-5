@@ -26,12 +26,12 @@ public class _213_HouseRobber_II {
             return nums[0];
         }
 
-        int[] numsWithFirstElement = Arrays.copyOfRange(nums, 0, nums.length - 1);
-        int[] numsWithoutFirstElement = Arrays.copyOfRange(nums, 1, nums.length);
+        int[] numsWithFirstElement = Arrays.copyOfRange(nums, 0, nums.length - 1);   // last index is exclusive in copy of range function
+        int[] numsWithoutFirstElement = Arrays.copyOfRange(nums, 1, nums.length);        // last index is exclusive in copy of range function
         return Math.max(robHelper(numsWithFirstElement), robHelper(numsWithoutFirstElement));
     }
 
-    // iterative with memo (bottom - up)
+    // iterative with memo (bottom - up): this is exactly the 198: house robber-I problem (first and last house are not connected)
     private static int robHelper(int[] nums) {
         int[] memo = new int[nums.length + 1];
         memo[0] = 0;

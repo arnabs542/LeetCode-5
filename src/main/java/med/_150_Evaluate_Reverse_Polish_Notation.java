@@ -12,7 +12,6 @@ import static org.testng.Assert.assertEquals;
  * </p>
  */
 public class _150_Evaluate_Reverse_Polish_Notation {
-
     // core logic: when it a number: push to stack, else pop the last 2 integers, calculate the result and push the result back to stack
     private static int evalRPN(String[] tokens) {
         if (tokens == null || tokens.length == 0) {

@@ -25,7 +25,7 @@ public class _143_Reorder_LL {
             fast = fast.next.next;
         }
 
-        LinkedListUtils.ListNode head2 = reverseList(slow);  // reverse the 2nd list
+        LinkedListUtils.ListNode head2 = reverseList(slow.next);  // reverse the 2nd list
         slow.next = null; // split the list: point the last node of first list to null
         merge2Lists(head, head2);
     }

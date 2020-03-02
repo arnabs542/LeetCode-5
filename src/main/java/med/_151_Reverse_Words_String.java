@@ -22,10 +22,10 @@ public class _151_Reverse_Words_String {
         for (int i = s.length() - 1; i > 0; i--) {
             if (s.charAt(i) == ' ') {
                 stringBuilder.append(s.substring(i + 1, end)).append(' ');
-                while (s.charAt(i - 1) == ' ') {
+                while (s.charAt(i - 1) == ' ') {    // take it to the next last space char of the word
                     i--;
                 }
-                end = i;
+                end = i;  // this will point to the space so that when the sub string of the word is taken, we get tht word with no spaces
             }
         }
         stringBuilder.append(s.substring(0, end));
@@ -35,8 +35,10 @@ public class _151_Reverse_Words_String {
     /*private static void reverse(char[] input, int start, int end) {
         while (start < end) {
             char temp = input[start];
-            input[start++] = input[end];
+            input[start] = input[end];
             input[end] = temp;
+            start++;
+            end--;
         }
     }*/
 

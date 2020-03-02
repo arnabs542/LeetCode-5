@@ -1,13 +1,14 @@
-package hard;
+package med;
 
 import java.util.HashMap;
 
 import static org.testng.Assert.assertEquals;
 
 /**
- * Created by udaythota on 8/1/19.
+ * Created by udaythota on 3/1/20.
  * <p>
  * Given a string s , find the length of the longest substring t that contains at most 2 distinct characters.
+ * <p>
  * </p>
  */
 public class _159_Longest_Substring_2_Distinct {

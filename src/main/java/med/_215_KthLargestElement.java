@@ -12,7 +12,6 @@ import static org.testng.Assert.assertEquals;
  * </p>
  */
 public class _215_KthLargestElement {
-
     // core logic: just sort the array and return the index of kth largest element
     // TC: O(nlogn)
     private static int findKthLargest(int[] nums, int k) {
@@ -41,5 +40,6 @@ public class _215_KthLargestElement {
         // test method: 2
         assertEquals(findKthLargest2(new int[]{3, 2, 1, 5, 6, 4}, 2), 5);
         assertEquals(findKthLargest2(new int[]{3, 2, 3, 1, 2, 4, 5, 5, 6}, 4), 4);
+        assertEquals(findKthLargest2(new int[]{3, 2, 4, 5, 6, 1, 8}, 2), 6);
     }
 }

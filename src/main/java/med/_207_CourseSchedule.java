@@ -18,7 +18,8 @@ import static org.testng.Assert.assertTrue;
  * </p>
  */
 public class _207_CourseSchedule {
-
+    // DFS approach
+    // see the below alternate approach based on BFS. that's easy and simple to understand¬
     private static boolean canFinish(int numCourses, int[][] prerequisites) {
         if (numCourses == 0 || prerequisites == null) {
             return true;
@@ -78,7 +79,7 @@ public class _207_CourseSchedule {
             inDegree[prerequisites[i][0]]++;
         }
 
-        Queue<Integer> queue = new LinkedList<>();
+        Queue<Integer> queue = new LinkedList<>();    // this queue always maintains the courses with no pre-reqs
         for (int i = 0; i < numCourses; i++) {
             if (inDegree[i] == 0) {
                 result[index++] = i;

@@ -10,7 +10,6 @@ import static org.testng.Assert.assertEquals;
  * </p>
  */
 public class _227_Basic_Calculator_II {
-
     // core logic: whenever you encounter a number (each number = digits from current index till you encounter an operation), calculate the result for previous number and keep continuing the loop
     // the trick part is how to handle the '-' operation [3 - 2 = 3 + (-2)]
     private static int calculate(String s) {
