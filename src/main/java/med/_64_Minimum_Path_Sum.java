@@ -10,7 +10,7 @@ import static org.testng.Assert.assertEquals;
  * </p>
  */
 public class _64_Minimum_Path_Sum {
-    // Brute Force: Simple recursive Solution
+    // Brute Force: Simple recursive Min_Hours_Challenge
     // TC: O(2^n)
     // see the below tabulation / bottom up / iterative approach: much simpler
     private static int minPathSumRecursive(int[][] grid) {

@@ -1,6 +1,11 @@
 package random_practice.amazon_assessment;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.PriorityQueue;
 
 /**
  * Created by udaythota on 3/1/20.
@@ -17,14 +22,17 @@ public class Top_N_Buzz_Words {
         }
         HashSet<String> toysSet = new HashSet<>();
         for (String toy : toys) {
-            toysSet.add(toy);
+            toysSet.add(toy.trim().toLowerCase());
         }
         Map<String, Integer> map = new HashMap<>();
         for (String quote : quotes) {
+            HashSet<String> temp = new HashSet<>();
             for (String word : quote.replaceAll("[^A-Za-z]", " ").toLowerCase().split(" ")) {
-                if (toysSet.contains(word)) {
-                    map.putIfAbsent(word, 1);
-                    map.put(word, map.get(word) + 1);
+                if (toysSet.contains(word) && !temp.contains(word)) {
+                    temp.add(word);
+                     map.putIfAbsent(word, 0);
+                     map.put(word, map.get(word) + 1);
+                  //  map.put(word, map.getOrDefault(word, 0) + 1);
                 }
             }
         }
@@ -57,7 +65,7 @@ public class Top_N_Buzz_Words {
         String[] toys = {"elmo", "elsa", "legos", "drone", "tablet", "warcraft"};
         int numQuotes = 6;
         String[] quotes = {
-                "Emo is the hottest of the season! Elmo will be on every kid's wishlist!",
+                "Emo is the hottest of the season! Elmo Elmo Elmo Elmo Elmo Elmo will be on every kid's wishlist!",
                 "The new Elmo dolls are super high quality",
                 "Expect the Elsa dolls to be very popular this year",
                 "Elsa and Elmo are the toys I'll be buying for my kids",
