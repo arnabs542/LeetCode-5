@@ -14,7 +14,6 @@ import static org.testng.Assert.assertEquals;
  */
 public class _244_Shortest_Word_Distance_II {
     static HashMap<String, List<Integer>> map = new HashMap<>();
-
     // core logic: this is an extension / follow up for LC 243. the same method can be used here, but that method uses lot of comparisons and given the fact that this question explicitly says the shortest method would be called multiple times, we need some sort of cache (hash table) which we can lookup to find the shortest distance
     // iterate through words array and create a look up map. later use the look up map to find the shortest distance
     // TC: O(n)

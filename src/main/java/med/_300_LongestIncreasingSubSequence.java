@@ -15,6 +15,7 @@ public class _300_LongestIncreasingSubSequence {
     // DP: Non Recursive Solution
     // core logic: get the longest increasing sub sequences for the given index from all the possible indexes and update the dp array when needed
     // approach taken from: https://www.youtube.com/watch?v=CE2b_-XfVDk
+    // TC: O(n^2)
     // TODO: there are more optimal approaches. think of them
     private static int lengthOfLIS(int[] nums) {
         if (nums.length <= 1) {

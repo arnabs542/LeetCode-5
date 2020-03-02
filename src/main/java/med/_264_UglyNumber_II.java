@@ -12,15 +12,12 @@ import static org.testng.Assert.assertEquals;
 public class _264_UglyNumber_II {
     // DP: iterative with bottom up approach
     // core logic: start with smallest common prime factor (1) for the possible divisors (2, 3, 5) and keep incrementing them as needed
+    // NOTE: next ugly number is always built from the previous smaller ugly number
     // dp[i] represents the smallest ith ugly number
     private static int nthUglyNumber(int n) {
         if (n <= 0) {
             return 0;
         }
-        if (n == 1) {
-            return 1;
-        }
-
         int[] dp = new int[n + 1];
         dp[1] = 1;
         int p2 = 1, p3 = 1, p5 = 1;

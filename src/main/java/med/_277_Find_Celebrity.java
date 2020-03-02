@@ -20,7 +20,7 @@ public class _277_Find_Celebrity {
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                if (i != j) {   // when i =j, we don't care about the inward or outward connections
+                if (i != j) {   // when i = j, we don't care about the inward or outward connections
                     if (knows(i, j)) {
                         outward[i]++;
                         inward[j]++;

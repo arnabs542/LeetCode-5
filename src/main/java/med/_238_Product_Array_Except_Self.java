@@ -47,6 +47,6 @@ public class _238_Product_Array_Except_Self {
     }
 
     public static void main(String[] arg) {
-        assertEquals(productExceptSelf(new int[]{1, 2, 3, 4}), new int[]{24, 12, 8, 6});
+        assertEquals(productExceptSelf(new int[]{2, 3, 4, 5}), new int[]{60, 40, 30, 24});
     }
 }
