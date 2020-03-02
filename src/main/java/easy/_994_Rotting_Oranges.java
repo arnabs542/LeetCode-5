@@ -49,7 +49,7 @@ public class _994_Rotting_Oranges {
                     int x = node[0] + dir[0];
                     int y = node[1] + dir[1];
 
-                    if (x < 0 || y < 0 || x >= rows || y >= columns || grid[x][y] == 0 || grid[x][y] == 2) {   // exceeded the boundary or the grid value is not a fresh orange, in that case just continue the loop
+                    if (x < 0 || y < 0 || x >= rows || y >= columns || grid[x][y] == 0 || grid[x][y] == 2 || grid[x][y] == 0) {   // exceeded the boundary or the grid value is not a fresh orange, in that case just continue the loop
                         continue;
                     }
                     grid[x][y] = 2;    // mark the orange from fresh -> rotten
