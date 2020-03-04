@@ -34,7 +34,7 @@ public class _332_Reconstruct_Itinerary {
     // simple dfs helper method
     // calculate Euler path. For each point, try to DFS its out-going point. There is chance that a DFS won't get a result. So, we do backtrack
     private static void dfs(List<String> result, String currentCity, HashMap<String, List<String>> graph, int totalTickets) {
-        if (!graph.containsKey(currentCity)) {
+        if (!graph.containsKey(currentCity)) {   // when the next city is not present as a key, just return so we can try other possibilities
             return;
         }
 
@@ -50,7 +50,7 @@ public class _332_Reconstruct_Itinerary {
                 return;
             }
 
-            // these 2 steps are needed to handle the case where the next chosen city is not present (as a key) in the map and so put it back and try with next possible city (debug with eg:3 and check it out. in the first 2 test cases, they still pass without these 2 steps)
+            // these 2 steps are needed to handle the case where the next chosen city is not present (as a key) in the map and so put it back and try with next possible city (debug with eg: 3 and check it out. in the first 2 test cases, they still pass without these 2 steps)
             // in some cases where the dfs could solve the entire itinerary path (first 2 test cases), these below 2 steps are not even executed, but the cases where dfs couldn't solve (3rd test case), these 2 steps are needed
             nextCities.add(i, nextCity);   // put the next city in its origin position as it is not the right next city to chose
             result.remove(result.size() - 1);  // remove the last city from result (as the above next city is not the right choice)

@@ -19,8 +19,7 @@ public class _348_Design_TicTacToe {
     private int diagonal;
     private int antiDiagonal;
 
-
-    public _348_Design_TicTacToe(int n) {
+    private _348_Design_TicTacToe(int n) {
         // for 1st approach
         this.board = new int[n][n];
         this.endGame = 0;
@@ -99,7 +98,14 @@ public class _348_Design_TicTacToe {
         if (flag) return flag;
 
         flag = true;
-        for (int i = board.length - 1, j = 0; j < board.length; i--, j++) {
+
+        /*for (int i = board.length - 1, j = 0; j < board.length; i--, j++) {
+            if (board[i][j] != player) {
+                flag = false;
+            }
+        }*/
+
+        for (int i = 0, j = board.length - 1; i < board.length; i++, j--) {   // equivalent to above commented condition
             if (board[i][j] != player) {
                 flag = false;
             }

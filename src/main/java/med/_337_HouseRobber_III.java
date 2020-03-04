@@ -11,7 +11,6 @@ import static org.testng.Assert.assertEquals;
  * </p>
  */
 public class _337_HouseRobber_III {
-
     // simple recursion
     // core logic: Recurrence relation: i.e., how to get rob(root) from rob(root.left), rob(root.right), ... etc.
     // From the point of view of the tree root, there are only two scenarios at the end: root is robbed or is not.
