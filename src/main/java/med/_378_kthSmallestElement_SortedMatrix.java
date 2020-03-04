@@ -45,7 +45,7 @@ public class _378_kthSmallestElement_SortedMatrix {
             }
         }
 
-        for (int i = 0; i < k - 1; i++) {
+        for (int i = 1; i < k; i++) {   // as we are polling again after this loop, its only less than k here
             queue.poll();
         }
         return queue.poll();
