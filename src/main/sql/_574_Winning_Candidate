@@ -3,7 +3,7 @@
 SELECT Name
 FROM Candidate t1
 JOIN
-(SELECT CandidateId, COUNt(*) AS max_count FROM Vote GROUP BY CandidateId ORDER BY max_count DESC limit 1) AS t2
+(SELECT CandidateId, COUNT(*) AS max_count FROM Vote GROUP BY CandidateId ORDER BY max_count DESC limit 1) AS t2
 ON t1.id = t2.CandidateId;
 
 -- Method 2: Only works in the newer versions of MySQL
