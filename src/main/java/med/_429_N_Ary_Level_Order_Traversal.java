@@ -25,8 +25,8 @@ public class _429_N_Ary_Level_Order_Traversal {
             for (int i = 0; i < queueSize; i++) {
                 NAryNode temp = queue.poll();
                 level.add(temp.val);
-                for (NAryNode children : temp.children) {
-                    queue.offer(children);
+                for (NAryNode child : temp.children) {
+                    queue.offer(child);
                 }
             }
             result.add(level);

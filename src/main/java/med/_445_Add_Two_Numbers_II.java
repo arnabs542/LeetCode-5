@@ -9,7 +9,7 @@ import java.util.Stack;
  * </p>
  */
 public class _445_Add_Two_Numbers_II {
-    // push both of the numbers to stack and then process them accordingly
+    // push both of the linked list numbers to stack and then process them accordingly
     private static LinkedListUtils.ListNode addTwoNumbers(LinkedListUtils.ListNode l1, LinkedListUtils.ListNode l2) {
         if (l1 == null) {
             return l2;

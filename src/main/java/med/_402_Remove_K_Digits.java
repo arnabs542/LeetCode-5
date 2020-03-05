@@ -20,7 +20,7 @@ public class _402_Remove_K_Digits {
         Stack<Character> stack = new Stack<>();
 
         for (int i = 0; i < num.length(); i++) {
-            while (k > 0 && !stack.isEmpty() &&  num.charAt(i) < stack.peek()) {   //whenever meet a digit which is less than the previous digit, discard the previous one
+            while (k > 0 && !stack.isEmpty() && num.charAt(i) < stack.peek()) {   // whenever we meet a digit which is less than the previous digit, discard the previous one
                 stack.pop();
                 k--;
             }

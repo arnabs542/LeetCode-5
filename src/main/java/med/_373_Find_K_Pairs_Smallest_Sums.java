@@ -40,7 +40,6 @@ public class _373_Find_K_Pairs_Smallest_Sums {
             if (pair[0] == 0 && pair[1] + 1 < len2)
                 minHeap.add(new int[]{pair[0], pair[1] + 1});
         }
-
         return kPairs;
     }
 

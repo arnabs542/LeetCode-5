@@ -10,7 +10,6 @@ import java.util.PriorityQueue;
  * </p>
  */
 public class _378_kthSmallestElement_SortedMatrix {
-
     // core logic: maintain a min heap and keep adding elements in the right order. when you see kth smallest element, return it
     // when you encounter the first row, add elements to the right (same row, next column) in addition to adding its bottom elements (next row, same column)
     // in all the cases just keep adding the bottom elements to the queue (next row, same column)
@@ -49,6 +48,25 @@ public class _378_kthSmallestElement_SortedMatrix {
             queue.poll();
         }
         return queue.poll();
+    }
+
+    // same logic as first solution
+    // TC: O(NlogK)
+    private static int kthSmallest3(final int[][] matrix, int k) {
+        PriorityQueue<int[]> queue = new PriorityQueue<>(k, (a, b) -> matrix[a[0]][a[1]] - matrix[b[0]][b[1]]);  // min heap
+        for (int i = 0; i < matrix.length; i++) {
+            queue.offer(new int[]{0, i});
+        }
+
+        while (true) {
+            int[] temp = queue.poll();
+            if (--k == 0) {
+                return matrix[temp[0]][temp[1]];
+            }
+            if (temp[0] + 1 < matrix.length) {
+                queue.offer(new int[]{temp[0] + 1, temp[1]});
+            }
+        }
     }
 
     public static void main(String[] args) {

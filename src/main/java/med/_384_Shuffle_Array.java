@@ -40,6 +40,20 @@ public class _384_Shuffle_Array {
         return nums;
     }
 
+    // we basically chose a random index between i and nums.length and swap the elements in i and random index and continue this process
+    // this swap ensures us that we don't pick the same element again as i increments in the next cycle and the same index is not chosen again, which guarantees us the same probability for all the elements in the array
+    public int[] shuffle2() {
+        for (int i = 0; i < nums.length; i++) {
+            int rand = randInRange(i, nums.length);
+            swap(nums, i, rand);
+        }
+        return nums;
+    }
+
+    private int randInRange(int min, int max) {
+        return random.nextInt(max - min) + min;   // min here is the offset (ith index). this ensures we don't want to pick the same element again in the process
+    }
+
     private void swap(int[] nums, int i, int j) {
         int temp = nums[i];
         nums[i] = nums[j];
