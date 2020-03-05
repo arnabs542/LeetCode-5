@@ -28,7 +28,7 @@ public class _567_Permutations_In_String {
             char rightChar = s2.charAt(right);
             if (map.containsKey(rightChar)) {
                 map.put(rightChar, map.get(rightChar) - 1);
-                if (map.get(rightChar) == 0) {
+                if (map.get(rightChar) == 0) {   // to make sure we encountered all the occurrences of a char in s1 in s2
                     counter--;
                 }
             }
@@ -55,5 +55,6 @@ public class _567_Permutations_In_String {
     public static void main(String[] args) {
         assertTrue(checkInclusion("ab", "eidbaooo"));
         assertFalse(checkInclusion("ab", "eidboaoo"));
+        assertTrue(checkInclusion("adc", "dcda"));
     }
 }

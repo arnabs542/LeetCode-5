@@ -7,11 +7,10 @@ import static org.testng.Assert.assertEquals;
 /**
  * Created by udaythota on 8/17/19.
  * <p>
- * Given an array of integers and an integer k, you need to find the total number of continuous subarrays whose sum equals to k.
+ * Given an array of integers and an integer k, you need to find the total number of continuous sub arrays whose sum equals to k.
  * </p>
  */
 public class _560_SubArray_Sum_K {
-
     // core logic: check for all the possible combinations. when you encounter the desired sum, increment the count
     // TC: O(n^2)
     private static int subarraySum(int[] nums, int k) {

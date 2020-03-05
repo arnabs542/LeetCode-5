@@ -11,8 +11,8 @@ import static org.testng.Assert.assertEquals;
  * </p>
  */
 public class _688_Knight_Probability_Chess_Board {
-    // for every point on the grid, navigate all the 8 directions and calculate the probabilities accordingly. repeat this process K times.
-    // remember when the point on the grid is visited again (eg: for the 2nd time), its probability will become existing value / 8 and this continues..
+    // for every point on the board, navigate all the 8 directions and calculate the probabilities accordingly. repeat this process K times.
+    // remember when the point on the board is visited again (eg: for the 2nd time), its probability will become existing value / 8 and this continues..
     // we start the process by setting the probability to 1 at the given row and column. in the first iteration of K, all 8 valid (which still falls on board after the move) points from which we can move from given x and y will be set to probability of 1/8. in the next iteration of K, from each of these new points, we again move 8 valid points and adjust the probability as needed
     // TC: O(k * n^2), SC: O(k * n^2)
     private static double knightProbability(int N, int K, int r, int c) {

@@ -37,7 +37,7 @@ public class _973_K_Closest_Points_To_Origin {
     // rather use the MAX HEAP and whenever the size exceeds K, remove the max element, so finally you are left with K min elements (see above solution) - advantage: you never exceed queue size > K
     private static int[][] kClosest3(int[][] points, int K) {
         int[][] result = new int[K][0];
-        PriorityQueue<int[]> queue = new PriorityQueue<>((o1, o2) -> (o1[0] * o1[0] + o1[1] * o1[1]) - (o2[0] * o2[0] + o2[1] * o2[1]));  // max heap
+        PriorityQueue<int[]> queue = new PriorityQueue<>((o1, o2) -> (o1[0] * o1[0] + o1[1] * o1[1]) - (o2[0] * o2[0] + o2[1] * o2[1]));  // min heap
         for (int[] point : points) {
             queue.add(point);
         }

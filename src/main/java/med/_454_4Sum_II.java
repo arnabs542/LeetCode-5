@@ -11,7 +11,6 @@ import static org.testng.Assert.assertEquals;
  * </p>
  */
 public class _454_4Sum_II {
-
     // core logic: if a + b + c + d = 0 exists, a + b = -(c + d)
     // step 1: take any 2 arrays, for all the combinations of 2 numbers, calculate the sum and save it to map
     // step 2: take the remaining 2 arrays, for all the combinations of 2 numbers, calculate the sum and see if the negative of sum exists in the map. if yes, get the value of sum and add it to result

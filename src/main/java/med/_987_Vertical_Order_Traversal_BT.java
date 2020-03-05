@@ -27,7 +27,7 @@ public class _987_Vertical_Order_Traversal_BT {
         HashMap<Integer, List<Integer>> map = new HashMap<>();
 
         while (!queue.isEmpty()) {
-            int position = pos.poll();
+            int position = pos.poll();   // FIXME: we need to operations based on the queue size ??
             min = Math.min(position, min);   // this is needed as in the end we need to know the min and max keys in the hash map to add them to the result list
             max = Math.max(position, max);   // this is needed as in the end we need to know the min and max keys in the hash map to add them to the result list
             TreeNode temp = queue.poll();

@@ -10,15 +10,15 @@ import java.util.Queue;
  * You need to find the largest value in each row of a binary tree.
  */
 public class _515_BT_FindLargestValue_EachRow {
-
     // core logic: Simple BFS / Level Order Traversal. calculate max element at each level and add them to the result array
     // TC: O(n) - as each element in the tree is visited exactly once
     private List<Integer> largestValues(TreeNode root) {
         List<Integer> result = new ArrayList<>();
-        int currentRowMax;
         if (root == null) {
             return result;
         }
+
+        int currentRowMax;
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
         while (!queue.isEmpty()) {

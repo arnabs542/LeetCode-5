@@ -9,7 +9,7 @@ import static org.testng.Assert.assertTrue;
  * Created by udaythota on 8/16/19.
  * <p>
  * Given a list of non-negative numbers and a target integer k,
- * write a function to check if the array has a continuous subarray of size at least 2
+ * write a function to check if the array has a continuous sub array of size at least 2
  * that sums up to a multiple of k, that is, sums up to n*k where n is also an integer.
  * </p>
  */
@@ -29,8 +29,8 @@ public class _523_Continuous_SubArray_Sum {
             }
 
             Integer prev = map.get(runningSum);
-            if (prev != null) {
-                if (i - prev > 1) {
+            if (prev != null) {   // if the same running total has encountered again
+                if (i - prev > 1) {   // to make sure the size of sub array is > 2
                     return true;
                 }
             } else {

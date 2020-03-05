@@ -7,7 +7,6 @@ package med;
  * </p>
  */
 public class _1008_Construct_BST_From_PreOrder {
-
     // core logic: find the index in the pre order array where the index value of the element is greater than 1st element (root)
     // this means from 2nd element to before this index - its a left tree, from index to last element  - its a right tree
     // use recursion to generate the left and right sub trees

@@ -22,7 +22,7 @@ public class _1060_Missing_Element_Sorted_Array {
             return nums[right] + k - missingNum;
         }
 
-        while (left + 1 < right) {   // there should be at least one element diff between left and right indexes when the loop ends
+        while (left + 1 < right) {   // there should be at least one element diff between left and right indexes when the loop ends: the reason for left + 1 is convenience. this means that after completing the binary search, if we still can't find the kth element, that means that the kth element should be between left and right indices (as that's the only possibility) and hence it will be easier to calculate. for eg: if left = 4 and right = 5 (after the while loop), and nums[left] = 5, nums[right]=10, the kth element should be in between 5 and 10. so we can just return 5 + remaining kth as the answer.
             int mid = left + (right - left) / 2;
             int missingLeft = nums[mid] - nums[left] - (mid - left);
             if (k > missingLeft) {
