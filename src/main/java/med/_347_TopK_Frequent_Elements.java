@@ -21,7 +21,7 @@ public class _347_TopK_Frequent_Elements {
             map.put(num, map.getOrDefault(num, 0) + 1);
         }
 
-        PriorityQueue<Map.Entry<Integer, Integer>> pq = new PriorityQueue<>((a, b) -> b.getValue() - a.getValue());   // add the entries to the priority queue based on the counts for keys
+        PriorityQueue<Map.Entry<Integer, Integer>> pq = new PriorityQueue<>((a, b) -> b.getValue() - a.getValue());   // max heap: add the entries to the priority queue based on the counts for keys
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
             pq.add(entry);
         }
@@ -34,8 +34,35 @@ public class _347_TopK_Frequent_Elements {
         return res;
     }
 
+    // same as above logic except that we use min heap here instead of max heap
+    // size of min heap here will always be <=k. the above solution looks more straight forward though
+    // TODO: execute later and see if it is working
+    private static List<Integer> topKFrequent2(int[] nums, int k) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int num : nums) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+
+        PriorityQueue<Map.Entry<Integer, Integer>> pq = new PriorityQueue<>((a, b) -> a.getValue() - b.getValue());   // min heap: always keep K elements in the heap and when it exceeds K remove the min freq element as we don't need that any more¬
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            pq.add(entry);
+            if (pq.size() > k) {
+                pq.poll();
+            }
+        }
+
+        Integer[] res = new Integer[k];
+        for (int i = k - 1; i >= 0; i--) {
+            res[i] = pq.poll().getKey();
+        }
+        return Arrays.asList(res);
+    }
+
     public static void main(String[] args) {
         assertEquals(topKFrequent(new int[]{1, 1, 1, 2, 2, 3}, 2), Arrays.asList(1, 2));
         assertEquals(topKFrequent(new int[]{1}, 1), Arrays.asList(1));
+
+        assertEquals(topKFrequent2(new int[]{1, 1, 1, 2, 2, 3}, 2), Arrays.asList(1, 2));
+        assertEquals(topKFrequent2(new int[]{1}, 1), Arrays.asList(1));
     }
 }

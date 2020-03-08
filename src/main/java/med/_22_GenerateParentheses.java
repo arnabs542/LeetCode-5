@@ -80,7 +80,7 @@ public class _22_GenerateParentheses {
             helper2(sb.append("("), open + 1, close, n, result);
             sb.setLength(sb.length() - 1);   // see the note above
         }
-        if (close < open) {
+        if (close < open) {    // IMPORTANT: this is close < open and NOT close < n
             helper2(sb.append(")"), open, close + 1, n, result);
             sb.setLength(sb.length() - 1);
         }

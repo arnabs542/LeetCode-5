@@ -69,7 +69,7 @@ public class _146_LRU_Cache {
                 addToHead(node);
             } else {
                 map.remove(tail.pre.key);
-                delete(tail.pre);  // as count > capacity, remove the least recently used node (the one before dummy tail)
+                delete(tail.pre);  // as count >= capacity (remember count starts from 0), remove the least recently used node (the one before dummy tail)
                 addToHead(node);
             }
         }
@@ -92,7 +92,7 @@ public class _146_LRU_Cache {
         cache.put(1, 1);
         cache.put(2, 2);
         assertEquals(cache.get(1), 1);       // returns 1
-        cache.put(3, 3);    // evicts key 2
+        cache.put(3, 3);    // evicts key 2, as we called get 1 recently and hence 2 is the least frequently used
         assertEquals(cache.get(2), -1);       // returns -1 (not found)
         cache.put(4, 4);    // evicts key 1
         assertEquals(cache.get(1), -1);       // returns -1 (not found)

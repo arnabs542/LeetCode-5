@@ -36,7 +36,7 @@ public class _200_Number_Of_Islands {
     // don't forget to mark each visited node as '0' when performing dfs
     private static void dfs(char[][] grid, int i, int j) {
         if (i >= 0 && i < grid.length && j >= 0 && j < grid[0].length && grid[i][j] == '1') {
-            grid[i][j] = '0';   // IMPORTANT: what this means is that, when we perform DFS, mark its adjacent lands (to '0' - as they all form the same island) and we don't count these islands multiple times
+            grid[i][j] = '0';   // IMPORTANT: what this means is that, when we perform DFS, mark its adjacent lands (to '0' - as they all form the same island) so we don't count these islands multiple times
             dfs(grid, i + 1, j);
             dfs(grid, i - 1, j);
             dfs(grid, i, j + 1);

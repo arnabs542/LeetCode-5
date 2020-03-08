@@ -20,22 +20,21 @@ public class _128_Longest_Consecutive_Sequence {
         }
 
         int longest = Integer.MIN_VALUE;
-        int currLongest;
         HashSet<Integer> set = new HashSet<>();
         for (int num : nums) {
             set.add(num);
         }
 
         for (int i = 0; i < nums.length; i++) {
-            currLongest = 0;
+            int currLongest = 0;
             int currNumber = nums[i];
             while (set.contains(currNumber)) {  // look left (lesser) consecutive numbers
-                set.remove(currNumber);
+                set.remove(currNumber);    // you don't need this element anymore as the current longest with this element is already calculated: if not removed, it just keeps calculating multiple times for all the consecutive elements
                 currNumber--;
                 currLongest++;
             }
 
-            currNumber = nums[i] + 1;
+            currNumber = nums[i] + 1;   // as the current number is already counted in the previous sequence
             while (set.contains(currNumber)) {  // look right (greater) consecutive numbers
                 set.remove(currNumber);
                 currNumber++;
