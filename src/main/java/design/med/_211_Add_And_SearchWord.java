@@ -78,7 +78,7 @@ public class _211_Add_And_SearchWord {
             }
             char ch = word.charAt(index);
             if (ch == '.') {
-                for (int i = 0; i < 26; i++) {   // as max possible children for the given parent node is 26
+                for (int i = 0; i < 26; i++) {   // as max possible children for the given parent node is 26 : we are basically searching for all the probable combinations of '.' (0 to 26) and whenever we encounter any word for any of the character, we return true, else continue the process till we encounter 'z' (25th character)
                     if (root.children[i] != null) {
                         if (searchRecursive(word, index + 1, root.children[i])) {
                             return true;
