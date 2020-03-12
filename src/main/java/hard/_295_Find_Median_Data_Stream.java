@@ -50,5 +50,14 @@ public class _295_Find_Median_Data_Stream {
         median_data_stream.addNum(1);
         median_data_stream.addNum(2);
         assertEquals(median_data_stream.findMedian(), 1.5);
+
+        _295_Find_Median_Data_Stream median_data_stream2 = new _295_Find_Median_Data_Stream();
+        median_data_stream2.addNum(1);
+        median_data_stream2.addNum(2);
+        median_data_stream2.addNum(3);
+        median_data_stream2.addNum(4);
+        median_data_stream2.addNum(5);
+        median_data_stream2.addNum(6);
+        assertEquals(median_data_stream2.findMedian(), 3.5);
     }
 }

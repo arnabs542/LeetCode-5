@@ -13,7 +13,6 @@ import static org.testng.Assert.assertTrue;
  * </p>
  */
 public class _139_WordBreak {
-
     // core logic: dp[i] represents whether s[0...i] can be formed by dict
     // see the below solution for easier understanding
     // TC: O(n^2)

@@ -46,7 +46,7 @@ public class _269_Alien_Dictionary {
                         map.get(out).add(in);
                         inDegree[in - 'a']++;    // increment the in degree connections for the incoming node
                     }
-                    break;
+                    break;   // NOTE: this is important as we only care about the first non matching chars in the strings, and the next non matching chars need not follow this logic
                 }
             }
         }
