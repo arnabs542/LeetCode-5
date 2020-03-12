@@ -70,7 +70,7 @@ public class _286_Walls_And_Gates {
                 int newX = dir[0] + gate[0];
                 int newY = dir[1] + gate[1];
 
-                if (newX < 0 || newX > rowSize || newY < 0 || newY > colsSize || rooms[newX][newY] != Integer.MAX_VALUE) {
+                if (newX < 0 || newX > rowSize || newY < 0 || newY > colsSize || rooms[newX][newY] != Integer.MAX_VALUE) {   // the last condition is to make sure that we only process the empty rooms and not the gates
                     continue;
                 }
                 rooms[newX][newY] = rooms[gate[0]][gate[1]] + 1;
