@@ -54,6 +54,7 @@ public class _97_Interleaving_Strings {
 
     // DFS with memoization: exact same as above approach, except that we use map here to memoize the current seen interleaving combinations so we don't repeat them again (in order to reduce the time)
     // TC: O(m * n), SC: O(m * n)
+    // TODO: we can also solve this problem using the DP approach, but the time complexity would still be the same
     private static boolean isInterleave2(String s1, String s2, String s3) {
         HashMap<String, Boolean> map = new HashMap<>();
         if (s1 == null || s2 == null || s3 == null) {
