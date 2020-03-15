@@ -47,5 +47,6 @@ public class _200_Number_Of_Islands {
     public static void main(String[] args) {
         assertEquals(numIslands(new char[][]{{'1', '1', '1', '1', '0'}, {'1', '1', '0', '1', '0'}, {'1', '1', '0', '0', '0'}, {'0', '0', '0', '0', '0'}}), 1);
         assertEquals(numIslands(new char[][]{{'1', '1', '0', '0', '0'}, {'1', '1', '0', '0', '0'}, {'0', '0', '1', '0', '0'}, {'0', '0', '0', '1', '1'}}), 3);
+        assertEquals(numIslands(new char[][]{{'1', '1', '0', '1', '1'}, {'1', '0', '0', '0', '0'}, {'0', '0', '0', '0', '1'}, {'1', '1', '0', '1', '1'}}), 4);
     }
 }
