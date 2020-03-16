@@ -12,7 +12,7 @@ import static org.testng.Assert.assertEquals;
  */
 public class _4_Median_Sorted_Arrays {
     private static double findMedianSortedArrays(int[] nums1, int[] nums2) {
-        // to make sure we always perform binary search on smaller sized array to minimize time complexity
+        // make sure we always perform binary search on smaller sized array in order to minimize time complexity
         // TC: O(log(min(m,n))) -> where m is the nums1 length and n is the nums2 length
         // see this if you can't make more sense: https://www.youtube.com/watch?v=LPFhl65R7ww
         if (nums1.length > nums2.length) {
@@ -52,5 +52,7 @@ public class _4_Median_Sorted_Arrays {
     public static void main(String[] args) {
         assertEquals(findMedianSortedArrays(new int[]{1, 3}, new int[]{2}), 2.0);
         assertEquals(findMedianSortedArrays(new int[]{1, 2}, new int[]{3, 4}), 2.5);
+        assertEquals(findMedianSortedArrays(new int[]{1, 2, 3, 4, 5}, new int[]{6, 7, 8, 9, 10}), 5.5);
+        assertEquals(findMedianSortedArrays(new int[]{2, 8, 14, 20}, new int[]{1, 3, 6, 9, 12}), 8.0);
     }
 }

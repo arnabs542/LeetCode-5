@@ -46,6 +46,7 @@ public class _79_WordSearch {
     }
 
     // Method 2: exact same as above approach except that this uses boolean array to track the visited nodes while performing DFS
+    // TC: O(N * 4^L) -> where N is the number of cells in the grid and L is the length of the word
     private static boolean exist2(char[][] board, String word) {
         boolean[][] visited = new boolean[board.length][board[0].length];
         for (int i = 0; i < board.length; i++) {

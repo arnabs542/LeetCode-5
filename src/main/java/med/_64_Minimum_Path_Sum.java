@@ -11,7 +11,7 @@ import static org.testng.Assert.assertEquals;
  */
 public class _64_Minimum_Path_Sum {
     // Brute Force: Simple recursive Min_Hours_Challenge
-    // TC: O(2^n)
+    // TC: O(2^n) TODO: how come this will be exponential when we are already using a cache (the whole point of using cache is to not recalculate the grid elements again). check again later??
     // see the below tabulation / bottom up / iterative approach: much simpler
     private static int minPathSumRecursive(int[][] grid) {
         if (grid.length == 0) {
@@ -40,7 +40,7 @@ public class _64_Minimum_Path_Sum {
     }
 
     // DP: Tabulation: Bottom up approach
-    // TC: O(rows*columns), SC: O(rows*columns)
+    // TC: O(rows*columns), SC: O(1)
     private static int minPathSum(int[][] grid) {
         if (grid.length == 0) {
             return 0;
@@ -49,12 +49,12 @@ public class _64_Minimum_Path_Sum {
         int rows = grid.length;
         int columns = grid[0].length;
 
-        // fill the first row (sum of number in the current cell + sum of number in the previous column)
+        // fill the first column (sum of number in the current cell + sum of number in the previous column)
         for (int i = 1; i < rows; i++) {
             grid[i][0] += grid[i - 1][0];
         }
 
-        // fill the first column (sum of number in the current cell + sum of number in the previous row)
+        // fill the first row (sum of number in the current cell + sum of number in the previous row)
         for (int j = 1; j < columns; j++) {
             grid[0][j] += grid[0][j - 1];
         }

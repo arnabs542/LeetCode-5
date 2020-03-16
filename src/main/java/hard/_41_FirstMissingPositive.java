@@ -9,10 +9,9 @@ import static org.testng.Assert.assertEquals;
  * </p>
  */
 public class _41_FirstMissingPositive {
-
     // core logic: traverse and try to move the current value to position whose index is exactly the value (swap them). Then traverse again to find the first unusual value, which can not be corresponding to its index.
     //  for each of all the valid numbers (1 to n - where n is the length of the array) in the input array, move them to right indexes (index: 0 - expected element: 1, index: 1 - expected element: 2, index: 2 - expected element: 3, index: 3 - expected element: 4..)
-    // each iteration fixes the expected in that index, if there exists one (eg: if i=2 and 3 exists in the array at some other position, this will bring 3 to i=2 position). by end of the loop, you will all have the numbers in their right indices. now iterate through the array again and find the missing number
+    // each iteration fixes the expected number in that index, if there exists one (eg: if i=2 and 3 exists in the array at some other position, this will bring 3 to i=2 position). by end of the loop, you will all have the numbers in their right indices. now iterate through the array again and find the missing number
     private static int firstMissingPositive(int[] nums) {
         if (nums == null || nums.length == 0) {
             return 1;

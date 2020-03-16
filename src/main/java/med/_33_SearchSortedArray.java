@@ -11,7 +11,6 @@ import static org.junit.Assert.assertEquals;
  * <p>
  */
 public class _33_SearchSortedArray {
-
     // basically a modified version of binary search. if an array is rotated at an unknown index, one side of the index in that is still sorted. so check those conditions wisely.
     // TC: O(logN)
     private static int search(int[] nums, int target) {

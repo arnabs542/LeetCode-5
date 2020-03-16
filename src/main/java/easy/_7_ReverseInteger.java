@@ -16,7 +16,6 @@ import static org.testng.Assert.assertEquals;
  * </p>
  */
 public class _7_ReverseInteger {
-
     // NOTE: see the 2nd and 3rd solutions: no integer to string conversions there
     private static int reverse(int inputNumber) {
         int reverseInteger = 0;

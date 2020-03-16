@@ -51,7 +51,7 @@ public class _51_N_Queens {
         for (int row = 0; row < x; row++) {   // check for the rows only before x as those are where the queen will be (as we are visiting the rows in sequential order)
             for (int col = 0; col < matrix.length; col++) {  // visit all the columns in these rows
                 // when the matrix already has queen at [row, column] position, the new queen cannot be in this column or one of its diagonals (x-row and y-col -- better understood with an example: these conditions represents if the new queen is placed in one of the diagonals of an already existing queen. if yes, the new queen cannot be valid at the given position)
-                if ((y == col || Math.abs(x - row) == Math.abs(y - col)) && matrix[row][col] == 'Q') {   // NOTE : important condition. don't forget to take care of it
+                if (matrix[row][col] == 'Q' && (y == col || Math.abs(x - row) == Math.abs(y - col))) {   // IMPORTANT: check if this grid value is already a queen and if our new queen position is still valid w.r.t to that queen position: the first condition just means we are checking if there is already a queen at that position (we are not placing any new queens again)
                     return false;
                 }
             }

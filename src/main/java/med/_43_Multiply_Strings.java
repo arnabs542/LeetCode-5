@@ -27,7 +27,7 @@ public class _43_Multiply_Strings {
                 int p2 = i + j + 1;
                 int sum = mul + result[p2];
 
-                result[p1] += sum / 10;   // IMPORTANT
+                result[p1] += sum / 10;   // IMPORTANT: we should also add the existing number in that place
                 result[p2] = sum % 10;
             }
         }

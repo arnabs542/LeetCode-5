@@ -69,10 +69,11 @@ public class _29_Divide_2_Integers {
         // test iterative approach
         assertEquals(divide(10, 3), 3);
         assertEquals(divide(7, -3), -2);
-         assertEquals(divide(-2147483648, -1), 2147483647);
+        assertEquals(divide(-2147483648, -1), 2147483647);
 
         // test recursive approach
         assertEquals(divideRecursive(10, 3), 3);
+        assertEquals(divideRecursive(20, 3), 6);
         assertEquals(divideRecursive(7, -3), -2);
         assertEquals(divideRecursive(-2147483648, -1), 2147483647);
     }
