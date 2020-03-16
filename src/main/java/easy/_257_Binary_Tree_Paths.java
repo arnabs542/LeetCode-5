@@ -41,6 +41,34 @@ public class _257_Binary_Tree_Paths {
         stringBuilder.setLength(length);   // after every dfs, reset the string builder length (to what it was before dfs) so it can be reused for other strings
     }
 
+    // method 2: similar to above idea, just a diff way of implementation
+    // NOTE: though this looks simple, this creates multiple strings inside and hence this method is expensive (in terms of string manipulations) and has high time complexity. so use the 1st solution itself.
+    private static List<String> binaryTreePaths2(TreeNode root) {
+        List<String> result = new ArrayList<>();
+        if (root == null) {
+            return result;
+        }
+        binaryTreePathHelper2(root, "", result);
+        return result;
+    }
+
+    // dfs helper: though this method looks simple, this creates new string for every dfs call (as strings are immutable) and hence making this method time intensive and less efficient
+    private static void binaryTreePathHelper2(TreeNode root, String string, List<String> result) {
+        if (root == null) {
+            return;
+        }
+
+        if (root.left == null && root.right == null) {   // when leaf node, add the string to result
+            result.add(string + root.val);
+        }
+        if (root.left != null) {
+            binaryTreePathHelper2(root.left, string + root.val + "->", result);
+        }
+        if (root.right != null) {
+            binaryTreePathHelper2(root.right, string + root.val + "->", result);
+        }
+    }
+
     public static void main(String[] args) {
         TreeNode root = new TreeNode(1);
         TreeNode node2 = new TreeNode(2);
@@ -49,6 +77,6 @@ public class _257_Binary_Tree_Paths {
         root.left = node2;
         root.right = node3;
         node2.right = node5;
-        System.out.println(binaryTreePaths(root));
+        System.out.println(binaryTreePaths2(root));
     }
 }
