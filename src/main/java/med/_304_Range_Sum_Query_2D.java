@@ -22,7 +22,7 @@ public class _304_Range_Sum_Query_2D {
         dp = new int[matrix.length][matrix[0].length + 1];
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[0].length; j++) {
-                dp[i][j + 1] = dp[i][j] + matrix[i][j];
+                dp[i][j + 1] = dp[i][j] + matrix[i][j];    // NOTE: we can still do with dp[i][j] (by just handling the j==0 and other cases separately) instead of dp[i][j+1], but this is to avoid corner cases like having only element in the grid, etc
             }
         }
     }
