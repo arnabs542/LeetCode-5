@@ -26,8 +26,8 @@ public class _105_ConstructBT_From_Pre_And_In {
             }
         }
         TreeNode root = new TreeNode(preOrder[preStart]);   // equivalent to inOrder[index]
-        root.left = helper(preOrder, preStart + 1, index - inStart + preStart, inOrder, inStart, index - 1);
-        root.right = helper(preOrder, index - inStart + preStart + 1, preEnd, inOrder, index + 1, inEnd);
+        root.left = helper(preOrder, preStart + 1, preStart + index - inStart, inOrder, inStart, index - 1);
+        root.right = helper(preOrder, preStart + index - inStart + 1, preEnd, inOrder, index + 1, inEnd);
         return root;
     }
 
