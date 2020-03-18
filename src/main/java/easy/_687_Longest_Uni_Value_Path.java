@@ -13,7 +13,7 @@ public class _687_Longest_Uni_Value_Path {
     private static int maxPath = 0;
 
     // core logic: the meat of the problem lies in finding the max of left and right at each and every node, update max at that point and return the max of left or right to its parent
-    // this is similar to binary tree find max path sum
+    // this is similar to LC: 124 - binary tree find max path sum
     // TC: O(n), SC: O(h) - where h is the height of the tree. means recursive stack space could be up to h layers deep
     private static int longestUnivaluePath(TreeNode root) {
         helper(root);

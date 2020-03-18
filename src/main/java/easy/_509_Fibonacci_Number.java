@@ -9,7 +9,7 @@ import static org.testng.Assert.assertEquals;
  * such that each number is the sum of the two preceding ones, starting from 0 and 1.
  * </p>
  */
-public class _509_Fibinacci_Number {
+public class _509_Fibonacci_Number {
     // simple iterative approach
     private static int fib(int N) {
         if (N <= 1) {

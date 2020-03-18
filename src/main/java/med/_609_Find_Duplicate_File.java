@@ -29,7 +29,7 @@ public class _609_Find_Duplicate_File {
             for (int i = 1; i < splits.length; i++) {
                 int index = splits[i].indexOf("(");
                 String filePath = splits[i].substring(0, index);
-                String content = splits[i].substring(index + 1, splits[i].length() - 1);
+                String content = splits[i].substring(index + 1, splits[i].length() - 1);   // -1 because we don't want the last ")" to be included as part of our file content
                 contentPathsMap.putIfAbsent(content, new ArrayList<>());
                 contentPathsMap.get(content).add(dir + "/" + filePath);
             }
