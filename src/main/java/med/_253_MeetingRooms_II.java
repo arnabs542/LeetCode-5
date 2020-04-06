@@ -12,7 +12,7 @@ import static org.testng.Assert.assertEquals;
  * </p>
  */
 public class _253_MeetingRooms_II {
-    // core logic: sort all the start times. instantiate a mean heap (which stores end times).
+    // core logic: sort all the start times. instantiate a min heap (which stores end times).
     // when iterating, see if the start time of the new interval is greater than or equal to minimum of the end time available in heap :
     // if yes, this means we have a free room and we can use that. if no, we need to use a new room
     // in the end, the size of heap is the number of min rooms used
