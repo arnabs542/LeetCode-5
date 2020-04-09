@@ -35,18 +35,15 @@ public class _71_Simplify_Path {
             }
         }
 
-        /*if (stack.isEmpty()) {
-            return "/";
-        }
-        String result = "";
-        while (!stack.isEmpty()) {
-            result = "/" + stack.pop() + result;
-        }
-        return result;*/
+        /*List<String> list = new ArrayList<String>(stack);
+        return "/" + String.join("/", list);*/
 
         // equivalent to the above commented code
-        List<String> list = new ArrayList<String>(stack);
-        return "/" + String.join("/", list);
+        StringBuilder stringBuilder = new StringBuilder();
+        for (String string : stack) {   // as we need the elements from the stack in the sequential order and NOT last in first out order
+            stringBuilder.append("/").append(string);
+        }
+        return stringBuilder.length() == 0 ? "/" : stringBuilder.toString();
     }
 
     public static void main(String[] args) {
