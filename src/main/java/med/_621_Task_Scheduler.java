@@ -16,6 +16,7 @@ import static org.testng.Assert.assertEquals;
 public class _621_Task_Scheduler {
     // core logic: we need to make sure we always process the tasks with highest counts first, so we maintain the max heap to do this. cool down map is to make sure we process the current processed task only after the cool down time
     // TC: O(n), SC: O(n)
+    // very similar to LC 767 and 358 - visit them as well when you visit this
     private static int leastInterval(char[] tasks, int n) {
         if (tasks == null || tasks.length == 0) {
             return 0;
