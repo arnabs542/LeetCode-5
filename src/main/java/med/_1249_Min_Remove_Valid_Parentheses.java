@@ -63,7 +63,7 @@ public class _1249_Min_Remove_Valid_Parentheses {
         if (input == null || input.equals("")) {
             return input;
         }
-        Stack<Integer> stack = new Stack<>();  // contains all the invalid positions
+        Stack<Integer> stack = new Stack<>();
         for (int i = 0; i < input.length(); i++) {
             if (input.charAt(i) == '(') {
                 stack.push(i);
@@ -87,16 +87,16 @@ public class _1249_Min_Remove_Valid_Parentheses {
     }
 
     public static void main(String[] args) {
-        // solution: 1
+        // solution: 2
         Assert.assertEquals(minRemoveToMakeValid("lee(t(c)o)de)"), "lee(t(c)o)de");
         Assert.assertEquals(minRemoveToMakeValid("a)b(c)d"), "ab(c)d");
         Assert.assertEquals(minRemoveToMakeValid("))(("), "");
         Assert.assertEquals(minRemoveToMakeValid("(a(b(c)d)"), "a(b(c)d)");
 
         // solution: 2
-        Assert.assertEquals(minRemoveToMakeValid2("lee(t(c)o)de)"), "lee(t(c)o)de");
-        Assert.assertEquals(minRemoveToMakeValid2("a)b(c)d"), "ab(c)d");
-        Assert.assertEquals(minRemoveToMakeValid2("))(("), "");
-        Assert.assertEquals(minRemoveToMakeValid2("(a(b(c)d)"), "a(b(c)d)");
+        Assert.assertEquals(minRemoveToMakeValid("lee(t(c)o)de)"), "lee(t(c)o)de");
+        Assert.assertEquals(minRemoveToMakeValid("a)b(c)d"), "ab(c)d");
+        Assert.assertEquals(minRemoveToMakeValid("))(("), "");
+        Assert.assertEquals(minRemoveToMakeValid("(a(b(c)d)"), "a(b(c)d)");
     }
 }
