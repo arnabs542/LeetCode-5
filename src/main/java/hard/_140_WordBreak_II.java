@@ -53,6 +53,7 @@ public class _140_WordBreak_II {
 
     // using DFS + memoization
     // good solution, but think more on this to get a deeper understanding
+    // TC: O(n^3) -> n^2 for the recursion (every word could be checking with every other word) and creation of list takes O(n) time
     private static List<String> wordBreak2(String s, List<String> wordDict) {
         return DFS(s, wordDict, new HashMap<>());
     }
@@ -62,6 +63,7 @@ public class _140_WordBreak_II {
         List<String> res = new LinkedList<>();
         if (s.length() == 0) { // found an answer
             res.add("");
+            //   return res;    equivalent to having it. we are just retuning back the result here
         } else {
             for (String word : wordDict) {
                 if (s.startsWith(word)) {
