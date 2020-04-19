@@ -13,7 +13,7 @@ import java.util.Set;
  * Given two binary search trees, return True if and only if there is a node in the first tree and a node in the second tree whose values sum up to a given integer target.
  * </p>
  */
-public class _Two_Sum_BSTs {
+public class _1214_Two_Sum_BSTs {
     // core logic: BFS: similar to 2 sum: first navigate the first tree and add all the elements to a set. then navigate the second tree and see if target - node value is present in the set
     // TC: O(m + n) -> where m is the number of elements in the first tree and n is the number of elements in the second tree
     private static boolean twoSumBSTs(TreeNode root1, TreeNode root2, int target) {

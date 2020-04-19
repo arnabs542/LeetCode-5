@@ -10,9 +10,9 @@ import static org.testng.Assert.assertEquals;
  * </p>
  */
 public class _14_LongestCommonPrefix {
-
+    // sort the strings lexicographically. take the shortest and longest string, compare the chars till we encounter a different character and return the longest common prefix
+    // TC: O(n + m) -> where n is the number of strings and m is the length of the shortest string
     private static String longestCommonPrefix(String[] inputStrings) {
-
         String longestCommonPrefix = "";
         if (inputStrings != null && inputStrings.length != 0) {
             String smallest = inputStrings[0];
@@ -60,7 +60,9 @@ public class _14_LongestCommonPrefix {
         assertEquals(longestCommonPrefix(new String[]{"flower", "flow", "flight"}), "fl");
         assertEquals(longestCommonPrefix(new String[]{"dog", "racecar", "car"}), "");
         assertEquals(longestCommonPrefix(new String[]{"a"}), "a");
+        assertEquals(longestCommonPrefix(new String[]{"beehive", "application", "apex"}), "");
 
+        assertEquals(longestCommonPrefixAlternate(new String[]{"flower", "flow", "flight"}), "fl");
         assertEquals(longestCommonPrefixAlternate(new String[]{"flower", "flow", "flight"}), "fl");
     }
 }
