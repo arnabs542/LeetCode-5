@@ -51,5 +51,8 @@ public class _221_MaximalSquares {
     public static void main(String[] args) {
         char[][] input = new char[][]{{'1', '0', '1', '0', '0'}, {'1', '0', '1', '1', '1'}, {'1', '1', '1', '1', '1'}, {'1', '0', '0', '1', '0'}};
         assertEquals(maximalSquare(input), 4);
+
+        char[][] input2 = new char[][]{{'1', '0', '1', '0', '0'}, {'1', '0', '1', '1', '1'}, {'1', '1', '1', '1', '1'}, {'1', '0', '1', '1', '1'}};
+        assertEquals(maximalSquare(input2), 9);
     }
 }
