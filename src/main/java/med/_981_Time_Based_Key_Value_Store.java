@@ -44,7 +44,7 @@ public class _981_Time_Based_Key_Value_Store {
             return "";
         }
         int left = 0, right = nodes.size() - 1;
-        while (left + 1 < right) {   // left + 1 to handle the corner cases: eg when there are only 2 elements and if left = 0 and right = 1, if the condition was left < right, it would have calculated the mid value to -1 and we would have got array out of bound exception in the end (run the 2nd example and see)
+        while (left + 1 < right) {   // left + 1 to handle the corner cases: eg when there are only 2 elements and if left = 0 and right = 1, if the condition was left < right, it would have calculated the mid value to be 0 and the right pointer would be set to -1 (mid - 1) and we would have got array out of bound exception in the end (run the 2nd example and see)
             int mid = left + (right - left) / 2;
             Node node = nodes.get(mid);
             if (node.timestamp == timestamp) {

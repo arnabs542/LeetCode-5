@@ -41,7 +41,7 @@ public class _1229_Meeting_Scheduler {
     }
 
     // priority queue approach: add all slots to the queue based on the start times. poll one by one and return the slot where it matches the given duration
-    // as the problem states that the slots doesn't intersect each othere, we can add all the slots (from 2 arrays) to the same queue and keep them processing together
+    // as the problem states that the slots doesn't intersect each other, we can add all the slots (from 2 arrays) to the same queue and keep them processing together
     // TC: O(nlogn) -> where n is the length of slot1 + slots2
     private static List<Integer> minAvailableDuration2(int[][] slots1, int[][] slots2, int duration) {
         List<Integer> result = new ArrayList<>();
