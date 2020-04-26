@@ -18,6 +18,7 @@ public class _140_WordBreak_II {
     // core logic: DFS + DP (as we are using memoization for sub strings)
     // iterate through the string and for all the combination of sub strings, check if the left and right sub strings are present in the dict and accordingly add them to the result
     // may be see the 2nd solution for easier understanding
+    // FIXME: not working for few corner cases, investigate later
     private static List<String> wordBreak(String s, List<String> wordDict) {
         List<String> result = new ArrayList<>();
         if (cache.containsKey(s)) {
@@ -30,7 +31,7 @@ public class _140_WordBreak_II {
 
         for (int i = 1; i < s.length(); i++) {
             String left = s.substring(0, i);
-            String right = s.substring(i);
+            String right = s.substring(i, s.length());
             if (wordDict.contains(left) && containsSuffix(right, wordDict)) {
                 for (String rightString : wordBreak(right, wordDict)) {
                     result.add(left + " " + rightString);
@@ -82,11 +83,13 @@ public class _140_WordBreak_II {
     }
 
     public static void main(String[] args) {
+        // solution 1
         assertEquals(wordBreak("catsanddog", Arrays.asList("cat", "cats", "and", "sand", "dog")), Arrays.asList("cat sand dog", "cats and dog"));
         assertEquals(wordBreak("pineapplepenapple", Arrays.asList("apple", "pen", "applepen", "pine", "pineapple")), Arrays.asList("pine apple pen apple",
                 "pine applepen apple",
                 "pineapple pen apple"));
 
+        // solution 2
         assertEquals(wordBreak2("catsanddog", Arrays.asList("cat", "cats", "and", "sand", "dog")), Arrays.asList("cat sand dog", "cats and dog"));
         assertEquals(wordBreak2("pineapplepenapple", Arrays.asList("apple", "pen", "applepen", "pine", "pineapple")), Arrays.asList("pine apple pen apple",
                 "pine applepen apple",

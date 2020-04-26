@@ -28,7 +28,7 @@ public class _210_CourseSchedule_II {
         Queue<Integer> queue = new LinkedList<>();
         for (int i = 0; i < numCourses; i++) {
             if (inDegree[i] == 0) {
-                result[index++] = i;
+                result[index++] = i;   // as there are no dependencies (in-degree connections = 0), directly add them to the result
                 queue.offer(i);    // push all the courses with ZERO prerequisites to queue
             }
         }

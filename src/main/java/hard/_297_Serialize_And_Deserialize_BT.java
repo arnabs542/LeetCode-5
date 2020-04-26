@@ -48,7 +48,7 @@ public class _297_Serialize_And_Deserialize_BT {
         TreeNode root = new TreeNode(Integer.valueOf(nodes[i++]));
         queue.offer(root);
         while (!queue.isEmpty()) {
-        TreeNode current = queue.poll();
+            TreeNode current = queue.poll();
             if (!nodes[i].equals("null")) {
                 current.left = new TreeNode(Integer.valueOf(nodes[i]));
                 queue.offer(current.left);

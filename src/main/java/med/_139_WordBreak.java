@@ -36,6 +36,8 @@ public class _139_WordBreak {
     }
 
     // exactly same as the above solution except that indexes start from 0 and end at length - 1 so as for easier understanding
+    // TODO: pursue BFS and DFS later: https://leetcode.com/problems/word-break/discuss/43908/4-different-ways-to-solve-this-with-detailed-explanation.
+    // TODO: comments on the link: https://leetcode.com/problems/word-break/discuss/43819/DFS-with-Path-Memorizing-Java-Solution
     private static boolean wordBreak2(String s, List<String> wordDict) {
         if (s == null || s.length() == 0) {
             return true;

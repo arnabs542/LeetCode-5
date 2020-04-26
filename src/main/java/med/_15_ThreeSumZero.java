@@ -43,7 +43,7 @@ public class _15_ThreeSumZero {
                     while (firstPointer < endPointer && nums[firstPointer] == nums[firstPointer - 1]) {   // increment the first pointer till it encounters a different element (in order to avoid duplicates)
                         firstPointer++;
                     }
-                    while (endPointer > firstPointer && nums[endPointer] == nums[endPointer + 1]) {  // decrement the end pointer till it encounters a different element (in order to avoid duplicates)
+                    while (endPointer > firstPointer && nums[endPointer] == nums[endPointer + 1]) {  // decrement   the end pointer till it encounters a different element (in order to avoid duplicates)
                         endPointer--;
                     }
                 } else if (nums[i] + nums[firstPointer] + nums[endPointer] < 0) {
