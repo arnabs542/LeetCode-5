@@ -44,6 +44,9 @@ public class _39_CombinationSum {
     }
 
     public static void main(String[] args) {
+
+        System.out.println(combinationSum(new int[]{2, 1, 5, 6}, 7));
+
         List<List<Integer>> actualResult = combinationSum(new int[]{6, 3, 7, 2}, 7);
         List<List<Integer>> expectedResult = new ArrayList<>();
         expectedResult.add(Arrays.asList(2, 2, 3));

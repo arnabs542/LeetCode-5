@@ -10,7 +10,6 @@ import static org.testng.Assert.assertEquals;
  * </p>
  */
 public class _28_Implement_strStr {
-
     // TC: O((N-L)L) - where N is the length of the haystack and L is the length of the needle
     // we check for L (length of needle) N-L times in haystack
     private static int strStr(String haystack, String needle) {
